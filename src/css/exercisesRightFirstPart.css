@@ -1,0 +1,115 @@
+.exercise-section {
+    padding: 20px 0px 40px 0px;
+}
+
+.exercise-section-left-container {
+}
+
+.exercise-section-top-container {
+}
+
+.section-title {
+    color: var(--main-dark);
+    font-size: 28px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.exercise-section-buttons-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.exercise-section-button {
+    color: rgba(36, 36, 36, 0.6);
+    font-size: 14px;
+    line-height: 1.42; /* 142.857% */
+    background: transparent;
+    border: none;
+    padding: 0px;
+
+    position: relative;
+}
+
+.exercise-section-button:hover,
+.exercise-section-button:focus {
+    color: var(--main-dark);
+}
+
+.js-active-button {
+    color: var(--main-dark);
+}
+
+.js-active-button::after {
+    position: absolute;
+    bottom: -8px;
+    left: 0px;
+    content: "";
+    border-radius: 2px;
+    background: var(--main-dark);
+    height: 4px;
+    width: 100%;
+}
+
+.exercise-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.exercise-card-item {
+    position: relative;
+}
+
+.exercise-card-img {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    height: 225px;
+}
+
+.exercise-card-item::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%);
+
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
+.exercise-card-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.exercise-card-title {
+    color: var(--main-white-text);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Neue Montreal, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+
+    text-transform: capitalize;
+    margin-bottom: 2px;
+}
+
+.exercise-card-filter {
+    color: rgba(244, 244, 244, 0.40);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Neue Montreal, sans-serif;
+    font-size: 12px;
+    line-height: 1.5; /* 150% */
+}
