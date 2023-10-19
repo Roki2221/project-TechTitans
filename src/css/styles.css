@@ -6,8 +6,14 @@
 */
 
 @import url('./reset.css');
+@import url('./basic.css');
 @import url('./hero.css');
 @import url('./header.css');
+@import url('./exercisesLeft.css');
+@import url('./exercisesRightFirstPart.css');
+@import url('./exercisesRightSecondPart.css');
+@import url('./favorites.css');
+@import url('./footer.css');
 
 :root {
   font-family: Neue Montreal, sans-serif;
