@@ -97,10 +97,91 @@ line-height: 1.28 /* 128.571% */
     font-weight: 400;
     line-height: 18px;
 }
+/* =======================Cards=========================== */
+.favorite_exercises{
+}
+.exercises {
+}
+.exercises-list{
+        display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    flex-direction: column;
+}
+.exercises-item{
+    max-width: 335px;
+    height: 141px;
+    border-radius: 15px;
+    padding: 16px;
+    background-color: #fff;
+}
+.exercise-navigation{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 8px;
+    margin-bottom: 27px;
+}
+.workout-btn{
+    border-radius: 15px;
+    border: 1px solid #242424;
+    background-color: inherit;
+    font-size: 12px;
+    padding: 5px 7.5px;
+
+}
+.trash_btn{ 
+    fill: #242424;
+    border: none;
+    background-color: inherit;
+}
+.start_btn{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: inherit;
+}
+.name-exercise-conteiner{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.card-exercise-title {
+    font-weight: 400;   
+    font-size: 20px;
+    line-height: 1;
+}
+.run-man-icon{
+    background-color: #242424;
+    border-radius: 50%;
+}
+.discription {
+    display: flex;
+    justify-content: space-between;
+}
+.discription-title {
+    color: rgba(36, 36, 36, 0.40);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.discription-title-text{
+    display: inline-block;
+    color: #242424;
+    font-size: 12px;
+    line-height: 1.5;
+}
+/* =======================Cards=========================== */
 /* ============================Tablet================================== */
 @media screen and (min-width: 768px){
     .conteiner{
         max-width: 704px;
+    }
+    .exercises-list{
+        flex-direction: row;
     }
     .wrapper{
         display: grid;
@@ -140,6 +221,7 @@ line-height: 1.28 /* 128.571% */
     max-height: 141px;
  }
  .daily_norm{
+    max-width: 344px;
     padding: 25px;
     max-height: 141px;
  }
@@ -147,11 +229,15 @@ line-height: 1.28 /* 128.571% */
     font-size: 24px;
     line-height: 1.33; /* 133.333% */
  }
+
+/* =======================Cards=========================== */
+.exercises-item{
+    min-width: 344px;}
 }
 /* ===============================PC================================== */
 @media screen and (min-width: 1280px){
     .conteiner{
-        max-width: 1280px;
+        max-width: 1440px;
         display: grid;
         grid-template-areas: "title title"
         "content exercise";
@@ -174,52 +260,13 @@ line-height: 1.28 /* 128.571% */
     .sports_women{
         width: 239px;
     }
+
+    .exercises-item{
+    min-width: 405px;
+    max-width: 405px;}
 }
 
 
 
-/* =======================Cards=========================== */
-.favorite_exercises{
-    
-}
-.exercises {
-width: 335px;
-height: 141px;
-border-radius: 15px;
-padding: 16px;
-    background-color: #fff;
-}
-.trash_btn{ 
-    fill: #242424;
-    border: none;
-    background-color: inherit;
-}
-.start_btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: none;
-    background-color: inherit;
-}
-.title {
-}
-.run-man-icon{
-    
-    border-radius: 50%;
-}
-.discription {
-    display: flex;
-    justify-content: space-between;
-}
-.discription-title {
-    color: rgba(36, 36, 36, 0.40);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-}
-.discription-title-text{
-    display: inline-block;
-    color: #242424;
-    font-size: 12px;
-    line-height: 1.5; /* 150% */
-}
+
+
