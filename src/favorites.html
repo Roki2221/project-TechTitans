@@ -1,21 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Favorites</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <load ="partials/header.html" />
-    <load ="partials/favorites.html" />
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <section class="favorites">
+    <div class="conteiner">
+      <h2>Favorites</h2>
+      <div class="wrapper">
+        <div class="quote">
+          <img class="run_man" src="./img/favorites/running_icon.svg" alt="">
+          <div>
+            <h3 class="quote_title">Quote of the day</h3>
+            <p class="quote_text">ТЕКСТ_ЗАГЛУШКА - A lot of times I find that people who are blessed with the most
+              talent
+              don't
+              ever
+              develop that attitude, and the ones
+              who aren't blessed in that way are the most competitive and have the biggest heart.</p>
+            <img src="" alt="">
+            <h4 class="author_name">Tom Brady</h4>
+          </div>
+        </div>
+        <div class="daily_norm">
+          <img src="./img/favorites/fluent_food-24-filled.svg" alt="" width="20px" height="20px">
+          <div class="minute_norm">
+            <h3>110 min</h3>
+            <p>Daily norm of sports</p>
+          </div>
+        </div>
+
+        <picture>
+          <source srcset="./img/favorites/women_sport_desktop.jpg 1x, " media="(min-width: 1280px)">
+          <source srcset="./img/favorites/women_sport_desktop.webp 1x," media="(min-width: 1280px)" type="image/webp">
+
+          <source srcset="./img/favorites/women_sport_tablet.jpg 1x, " media="(min-width: 768px)">
+          <source srcset="./img/favorites/women_sport_tablet.webp 1x," media="(min-width: 768px)" type="image/webp">
+
+          <source srcset="./img/favorites/women_sport_mobile.jpg 1x, " media="(max-width: 767px)">
+          <source srcset="/./img/favorites/women_sport_mobile.webp" media="(max-width: 767px)" type="image/webp">
+
+          <img class="sports_women" src="/img/women_sports.jpg" alt="">
+        </picture>
+      </div>
+
+
+      <div class="favorite_exercises">
+        <p class="default_text">
+          ТЕКСТ_ЗАГЛУШКА -
+          It appears that you haven't added any exercises to your favorites yet. To get started, you can add
+          exercises that you
+          like to your favorites for easier access in the future.
+        </p>
+        <div class="exercises" hidden>
+          <button type="submit">Start</button>
+          <div class="title">
+            <img src="" alt="">
+            <title>Назва вправи</title>
+          </div>
+          <ul class="discription">
+            <li class="discription-title">Burned calories:</li>
+            <li class="discription-title">Body part:</li>
+            <li class="discription-title">Target:</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <load="partials /header.html" />
+  <load="partials /favorites.html" />
+</body>
+
 </html>
