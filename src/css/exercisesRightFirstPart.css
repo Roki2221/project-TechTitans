@@ -32,6 +32,12 @@
     margin-bottom: 28px;
 }
 
+@media only screen and (min-width: 768px) {
+    .exercise-section-buttons-container {
+        margin-bottom: 40px;
+    }
+}
+
 .exercise-section-button {
     color: rgba(36, 36, 36, 0.6);
     font-size: 14px;
@@ -76,8 +82,23 @@
     gap: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+    .exercise-card-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 32px 15px;
+    }
+}
+
 .exercise-card-item {
     position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+    .exercise-card-item {
+        width: calc((100% - 30px)/3);
+        height: 225px;
+    }
 }
 
 .exercise-card-img {
@@ -123,6 +144,12 @@
     line-height: 20px; /* 100% */
 
     text-transform: capitalize;
+}
+
+@media only screen and (min-width: 768px) {
+    .exercise-card-title {
+        font-size: 24px;
+    }
 }
 
 .exercise-card-filter {
