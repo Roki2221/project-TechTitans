@@ -175,3 +175,51 @@ line-height: 1.28 /* 128.571% */
         width: 239px;
     }
 }
+
+
+
+/* =======================Cards=========================== */
+.favorite_exercises{
+    
+}
+.exercises {
+width: 335px;
+height: 141px;
+border-radius: 15px;
+padding: 16px;
+    background-color: #fff;
+}
+.trash_btn{ 
+    fill: #242424;
+    border: none;
+    background-color: inherit;
+}
+.start_btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: inherit;
+}
+.title {
+}
+.run-man-icon{
+    
+    border-radius: 50%;
+}
+.discription {
+    display: flex;
+    justify-content: space-between;
+}
+.discription-title {
+    color: rgba(36, 36, 36, 0.40);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.discription-title-text{
+    display: inline-block;
+    color: #242424;
+    font-size: 12px;
+    line-height: 1.5; /* 150% */
+}
