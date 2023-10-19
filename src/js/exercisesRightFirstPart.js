@@ -1,17 +1,45 @@
-'use strict';
+"use strict";
 
 const refs = {
-    cardList: document.querySelector(".exercise-card-list")
+    cardList: document.querySelector(".exercise-card-list"),
+    buttonList: document.querySelectorAll(".exercise-section-button"),
 }
 
-const END_POINT = "https://your-energy.b.goit.study/api/filters?filter=Body%20parts&page=1&limit=9";
+let exerciseMarkup = "";
+let exerciseCardFilterText = "Body parts"
+let perPage;
 
-let exerciseMarkup = '';
+if (window.innerWidth < 768) {
+    perPage = 9;
+} else {
+    perPage = 12;
+}
 
-async function gettingExerciseCardsData() {
+refs.buttonList.forEach(button => {
+    button.addEventListener("click", handleClick);
+});
+
+function handleClick(event) {
+    refs.cardList.innerHTML = '';
+
+    const activeButton = document.querySelector(".js-active-button");
+    const currentButton = event.currentTarget;
+
+    activeButton.disabled = false;
+    activeButton.classList.remove("js-active-button");
+
+    currentButton.classList.add("js-active-button");
+    currentButton.disabled = true;
+
+    const queryWord = currentButton.dataset.filter; 
+    
+    markupExerciseCards(queryWord);
+}
+
+async function gettingExerciseCardsData(queryWord, perPage) {
     try {
+        const END_POINT = `https://your-energy.b.goit.study/api/filters?filter=${queryWord}&page=1&limit=${perPage}`;
         const res = await axios.get(END_POINT);
-        console.log(res);
         const data = await res.data;
         return data;
     } catch (error) {
@@ -19,11 +47,17 @@ async function gettingExerciseCardsData() {
     }
 }
 
-async function markupExerciseCards() {
-    refs.cardList.innerHTML = '';
-    exerciseMarkup = '';
+async function markupExerciseCards(queryWord) {
+    if (queryWord === "Body%20parts") {
+        exerciseCardFilterText = "Body parts"
+    } else {
+        exerciseCardFilterText = queryWord;
+    }
 
-    const { results: cards } = await gettingExerciseCardsData();
+    refs.cardList.innerHTML = "";
+    exerciseMarkup = "";
+
+    const { results: cards } = await gettingExerciseCardsData(queryWord, perPage);
     console.log(cards); 
 
     cards.forEach(card => {
@@ -32,7 +66,7 @@ async function markupExerciseCards() {
             <img class="exercise-card-img" src="${card.imgURL}" alt="${card.name} card exercises">
             <div class="exercise-card-text-container">
                 <h2 class="exercise-card-title">${card.name}</h2>
-                <p class="exercise-card-filter">Body parts</p>
+                <p class="exercise-card-filter">${exerciseCardFilterText}</p>
             </div>
         </li>
         `
@@ -41,4 +75,4 @@ async function markupExerciseCards() {
     refs.cardList.innerHTML = exerciseMarkup;
 }
 
-markupExerciseCards();
+markupExerciseCards("Body%20parts");
