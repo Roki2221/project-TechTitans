@@ -7,17 +7,15 @@ const refs = {
 
 let exerciseMarkup = "";
 let exerciseCardFilterText = "Body parts"
-let perPage;
+let limit = 12;
 
 if (window.innerWidth < 768) {
-    perPage = 9;
-} else {
-    perPage = 12;
+    limit = 9;
 }
 
 refs.buttonList.forEach(button => {
     button.addEventListener("click", handleClick);
-});
+})
 
 function handleClick(event) {
     refs.cardList.innerHTML = '';
@@ -27,19 +25,19 @@ function handleClick(event) {
 
     activeButton.disabled = false;
     activeButton.classList.remove("js-active-button");
-
+    
     currentButton.classList.add("js-active-button");
     currentButton.disabled = true;
 
-    const queryWord = currentButton.dataset.filter; 
+    const query = currentButton.dataset.filter; 
     
-    markupExerciseCards(queryWord);
+    markupExerciseCards(query);
 }
 
-async function gettingExerciseCardsData(queryWord, perPage) {
+async function getExerciseCardsData(query, limit) {
     try {
-        const END_POINT = `https://your-energy.b.goit.study/api/filters?filter=${queryWord}&page=1&limit=${perPage}`;
-        const res = await axios.get(END_POINT);
+        const endpoint = `https://your-energy.b.goit.study/api/filters?filter=${query}&page=1&limit=${limit}`;
+        const res = await axios.get(endpoint);
         const data = await res.data;
         return data;
     } catch (error) {
@@ -47,17 +45,12 @@ async function gettingExerciseCardsData(queryWord, perPage) {
     }
 }
 
-async function markupExerciseCards(queryWord) {
-    if (queryWord === "Body%20parts") {
-        exerciseCardFilterText = "Body parts"
-    } else {
-        exerciseCardFilterText = queryWord;
-    }
+async function markupExerciseCards(query) {
+    exerciseCardFilterText = query.split("%20").join(' ');
 
-    refs.cardList.innerHTML = "";
     exerciseMarkup = "";
 
-    const { results: cards } = await gettingExerciseCardsData(queryWord, perPage);
+    const { results: cards } = await getExerciseCardsData(query, limit);
     console.log(cards); 
 
     cards.forEach(card => {
@@ -70,7 +63,7 @@ async function markupExerciseCards(queryWord) {
             </div>
         </li>
         `
-    });
+    })
 
     refs.cardList.innerHTML = exerciseMarkup;
 }
