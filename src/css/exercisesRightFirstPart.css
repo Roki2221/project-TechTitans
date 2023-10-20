@@ -5,6 +5,7 @@
         grid-template-areas: 
             "top top"
             "left right";
+        column-gap: 32px;
     }
     
     .exercise-section-top-container {
@@ -72,11 +73,11 @@
     color: var(--main-dark);
 }
 
-.js-active-button {
+.js-active-filter-button {
     color: var(--main-dark);
 }
 
-.js-active-button::after {
+.js-active-filter-button::after {
     position: absolute;
     bottom: -8px;
     left: 0px;

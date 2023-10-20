@@ -20,13 +20,13 @@ refs.buttonList.forEach(button => {
 function handleClick(event) {
     refs.cardList.innerHTML = '';
 
-    const activeButton = document.querySelector(".js-active-button");
+    const activeButton = document.querySelector(".js-active-filter-button");
     const currentButton = event.currentTarget;
 
     activeButton.disabled = false;
-    activeButton.classList.remove("js-active-button");
+    activeButton.classList.remove("js-active-filter-button");
     
-    currentButton.classList.add("js-active-button");
+    currentButton.classList.add("js-active-filter-button");
     currentButton.disabled = true;
 
     const query = currentButton.dataset.filter; 
