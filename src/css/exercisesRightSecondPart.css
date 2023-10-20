@@ -14,7 +14,7 @@
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  width: 335px;
+  max-width: 335px;
   height: 141px;
   background: #ffffff;
   padding: 16px;
@@ -55,7 +55,7 @@
 .rating-text {
   font-size: 12px;
   font-style: normal;
-  line-height: 18px;
+  line-height: 1.5;
 }
 .start-btn {
   width: 54px;
@@ -110,4 +110,20 @@
 }
 
 @media screen and (min-width: 768px) {
+  .exercises-cards {
+    gap: 32px 16px;
+  }
+  .card {
+    width: 344px;
+  }
+  .start-btn {
+    width: 58px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .exercise-name {
+    font-size: 24px;
+    line-height: 1.33;
+  }
 }
