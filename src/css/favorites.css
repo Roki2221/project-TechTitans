@@ -1,0 +1,278 @@
+.favorite-conteiner{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ============================Mobile================================== */
+    .favorite-conteiner{
+        max-width: 335px;
+    }
+    .section-title{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.56px;
+    margin-bottom: 20px;
+    }
+    .favorites{
+        padding: 80px 20px;
+    }
+    .quote{
+        display: flex;
+        gap: 18px;
+        background: #242424;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        max-width: 335px;
+    }
+    .conteiner_quote{
+        width: 100%;
+    }
+    .run_man{
+        width: 34px;
+        height: 32px;
+        border-radius: 50%;
+    }
+    .quote_title{
+        color: #F4F4F4;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+        margin-bottom: 7px;
+    }
+    .quote_text{
+        color: rgba(244, 244, 244, 0.60);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28
+    }
+    .author_name{
+        display: none;
+    }
+    
+    .sports_women{
+
+        max-width: 100%;
+        max-height: 119px;
+        margin-bottom: 40px;
+        border-radius: 20px;
+    }
+
+    .daily_norm{
+        max-width: 335px;
+        max-height: 119px;
+        padding: 20px;
+        border-radius: 20px;
+        background: #FFF;   
+        margin-bottom: 20px;
+
+    }
+    .minute_norm{
+        margin-top: 15px;
+    }
+    .minute_norm > h3{
+        margin-bottom: 6px;
+font-feature-settings: 'clig' off, 'liga' off;
+font-size: 20px;
+font-weight: 500;
+line-height: 1;
+    }
+    .minute_norm > p{
+       color: rgba(36, 36, 36, 0.60);
+font-size: 14px;
+font-weight: 400;
+line-height: 1.28;
+
+    }
+.default_text{
+    max-width: 318px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+/* =======================Cards=========================== */
+.exercises-list{
+        display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    flex-direction: column;
+}
+.exercises-item{
+    max-width: 335px;
+    height: 141px;
+    border-radius: 15px;
+    padding: 16px;
+    background-color: #fff;
+}
+.exercise-navigation{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 8px;
+    margin-bottom: 27px;
+}
+.workout-btn{
+    border-radius: 15px;
+    border: 1px solid #242424;
+    background-color: inherit;
+    font-size: 12px;
+    padding: 5px 7.5px;
+
+}
+.trash_btn{ 
+    fill: #242424;
+    border: none;
+    background-color: inherit;
+}
+.start_btn{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: inherit;
+}
+.name-exercise-conteiner{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.card-exercise-title {
+    font-weight: 400;   
+    font-size: 20px;
+    line-height: 1;
+}
+.run-man-icon{
+    background-color: #242424;
+    border-radius: 50%;
+}
+.discription {
+    display: flex;
+    justify-content: space-between;
+}
+.discription-title {
+    color: rgba(36, 36, 36, 0.40);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.discription-title-text{
+    display: inline-block;
+    color: #242424;
+    font-size: 12px;
+    line-height: 1.5;
+}
+/* =======================Cards=========================== */
+/* ============================Tablet================================== */
+@media screen and (min-width: 768px){
+    .favorite-conteiner{
+        max-width: 704px;
+    }
+    .exercises-list{
+        flex-direction: row;
+    }
+    .wrapper{
+        display: grid;
+       column-gap: 16px;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+    }
+    h2{
+        font-size: 44px;
+        line-height: 1.09; /* 109.091% */
+        letter-spacing: -0.88px;
+    }
+    .favorites{
+        padding: 100px 32px;
+    }
+    .quote{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        max-width: 704px;
+        padding: 40px;
+        margin-bottom: 16px;
+    }
+    .quote_title{
+    font-size: 24px;
+    line-height: 1.33;
+    }
+    .quote_text{
+        margin-bottom: 18px;
+    }
+    .author_name{
+        display: block;
+        color: #F4F4F4;
+        line-height: 1.5;
+    }
+ .sports_women{
+    max-width: 344px;
+    max-height: 141px;
+ }
+ .daily_norm{
+    max-width: 344px;
+    padding: 25px;
+    max-height: 141px;
+ }
+ .minute_norm > h3{
+    font-size: 24px;
+    line-height: 1.33;
+ }
+ .default_text{
+    max-width: 554px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    line-height: 1.33;
+    padding-top: 132px;
+    padding-bottom: 180px;}
+
+/* =======================Cards=========================== */
+.exercises-item{
+    min-width: 344px;}
+}
+/* ===============================PC================================== */
+@media screen and (min-width: 1440px){
+    .favorite-conteiner{
+        max-width: 1440px;
+        display: grid;
+        grid-template-areas: "title title"
+        "content exercise";
+        column-gap: 32px;
+        grid-template-columns: 494px 1fr;
+    }
+    .wrapper{
+        grid-area: content;
+        align-self: start;
+    }
+    .favorite_exercises{
+        grid-area: exercise;
+    }
+    h2{
+        grid-area: title;
+        margin-bottom: 44px;
+    }
+    .favorites{
+        padding: 90px 32px 51px;
+    }
+    .sports_women{
+        width: 239px;
+    }
+
+    .exercises-item{
+    min-width: 405px;
+    max-width: 405px;}
+    
+    .default_text{
+        padding-top: 102px;
+    }
+}
+
+
+
+
+
+

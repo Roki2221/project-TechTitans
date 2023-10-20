@@ -3,3 +3,85 @@
     <a href="./index.html">Go to home</a>
   </div>
 </section>
+<section class="favorites">
+  <div class="conteiner favorite-conteiner">
+    <h2 class="section-title">Favorites</h2>
+    <div class="wrapper">
+      <div class="quote">
+        <svg width="34px" height="32px">
+          <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+        </svg>
+        <div class="conteiner_quote">
+          <h3 class="quote_title">Quote of the day</h3>
+          <p class="quote_text"></p>
+          <h4 class="author_name"></h4>
+        </div>
+        <svg width="34px" height="32px" fill="white">
+          <use href="./public/icon.svg#icon-inverted-commas"></use>
+        </svg>
+      </div>
+      <div class="daily_norm">
+        <svg width="20px" height="20px">
+          <use href="./public/icon.svg#icon-dumbbell"></use>
+        </svg>
+        <div class="minute_norm">
+          <h3>110 min</h3>
+          <p>Daily norm of sports</p>
+        </div>
+      </div>
+
+      <picture>
+        <source srcset="./img/favorites/women_sport_desktop.jpg 1x, " media="(min-width: 1440px)">
+        <source srcset="./img/favorites/women_sport_desktop.webp 1x," media="(min-width: 1440px)" type="image/webp">
+
+        <source srcset="./img/favorites/women_sport_tablet.jpg 1x, " media="(min-width: 768px)">
+        <source srcset="./img/favorites/women_sport_tablet.webp 1x," media="(min-width: 768px)" type="image/webp">
+
+        <source srcset="./img/favorites/women_sport_mobile.jpg 1x, " media="(max-width: 767px)">
+        <source srcset="./img/favorites/women_sport_mobile.webp" media="(max-width: 767px)" type="image/webp">
+
+        <img class="sports_women" src='./img/favorites/women_sports.jpg' alt="">
+      </picture>
+    </div>
+
+
+    <div class="favorite_exercises">
+      <p class="default_text">
+        It appears that you haven't added any exercises to your favorites yet. To get started, you can add
+        exercises that you
+        like to your favorites for easier access in the future.
+      </p>
+      <ul class="exercises-list">
+        <!-- <li class="exercises-item">
+            <div class="exercise-navigation">
+              <button class="workout-btn">WORKOUT</button>
+              <button type="button" class="trash_btn"><svg width="16px" height="16px">
+                  <use href="./public/icon.svg#icon-trash"></use>
+                </svg></button>
+              <button class="start_btn" type="submit">Start <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                  height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#242424" stroke-width="1.3"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg></button>
+            </div>
+            <div class="name-exercise-conteiner">
+              <svg class="run-man-icon" width="24px" height="24px">
+                <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+              </svg>
+              <h3 class="card-exercise-title">${exName}</h3>
+            </div>
+            <ul class="discription">
+              <li class="discription-title">Burned calories: <p class="discription-title-text">${calories}/ 3 min</p>
+              </li>
+              <li class="discription-title">Body part: <p class="discription-title-text">${part}</p>
+              </li>
+              <li class="discription-title">Target: <p class="discription-title-text">${target}</p>
+              </li>
+            </ul>`;
+          </li> -->
+      </ul>
+    </div>
+
+  </div>
+</section>
+<script src="../js/favorites/favorites.js"></script>
