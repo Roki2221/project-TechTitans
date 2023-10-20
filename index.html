@@ -13,8 +13,8 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-TechTitans/assets/index-d8ace912.js"></script>
-    <link rel="stylesheet" href="/project-TechTitans/assets/styles-1e2ba024.css">
+    <script type="module" crossorigin src="/project-TechTitans/assets/index-9aba1168.js"></script>
+    <link rel="stylesheet" href="/project-TechTitans/assets/styles-d490184c.css">
   </head>
   <body>
     <header>
@@ -28,9 +28,47 @@
 </section>
 
     <section>
-      <div class="container">
+      <div class="container exercise-container">
         
+        <div class="exercise-section-top-container">
+    <h2 class="exercise-section-title">Exercise<span class="exercise-section-title-span"></span></h2>
+    
+    <div class="exercise-input-button-container">
+        <div class="exercise-input-container" style="display: none;">
+            <input class="exercise-section-input" placeholder="Search" type="text" name="filter">
+            <button type="button" class="exercise-input-button">
+                <svg class="" width="20" height="20">
+                    <use href="../public/icon.svg#icon-search"></use>
+                </svg>
+            </button>
+        </div>
         
+        <ul class="exercise-section-buttons-container">
+            <li>
+                <button class="exercise-section-button js-active-filter-button" type="button" disabled data-filter="Body%20parts">
+                    Body parts
+                </button>
+            </li>
+            <li>
+                <button class="exercise-section-button" type="button" data-filter="Muscles">
+                    Muscles
+                </button>
+            </li>
+            <li>
+                <button  class="exercise-section-button" type="button" data-filter="Equipment">
+                    Equipment
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="exercise-section-right-container">
+    <ul class="exercise-card-list">
+    </ul>
+
+    <p class="exercise-error" style="display: none;">Error has occurred</p>
+</div>
         
       </div>
     </section>
