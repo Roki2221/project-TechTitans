@@ -1,3 +1,4 @@
+/* Гріди для десктоп версії */
 @media only screen and (min-width: 1440px) {
     .exercise-container {
         display: grid;

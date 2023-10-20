@@ -1,5 +1,7 @@
 "use strict";
 
+import axios from "axios";
+
 const refs = {
     cardList: document.querySelector(".exercise-card-list"),
     buttonList: document.querySelectorAll(".exercise-section-button"),
@@ -42,6 +44,7 @@ async function getExerciseCardsData(query, limit) {
         return data;
     } catch (error) {
         console.log(error);
+        document.querySelector(".exercise-error").style.display = "block";
     }
 }
 
@@ -51,7 +54,6 @@ async function markupExerciseCards(query) {
     exerciseMarkup = "";
 
     const { results: cards } = await getExerciseCardsData(query, limit);
-    console.log(cards); 
 
     cards.forEach(card => {
         exerciseMarkup += `
