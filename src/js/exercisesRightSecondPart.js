@@ -23,10 +23,10 @@ function createMarkupCards(arr) {
       <div class="badge">
       <div class="badge-text">WORKOUT</div>
       </div>
-    <div><p class="rating">${rating}</p>
+    <div class="rating"><p class="rating-text">${rating}</p>
       <svg class="icon-star" width="18" height="18">
             <use href="/public/icon.svg#icon-star"></use>
-          </div>
+          </div >
           <button class="start-btn" type="submit">
               Start
               <svg class="start-btn-icon" width="16" height="16">
@@ -38,12 +38,12 @@ function createMarkupCards(arr) {
            <svg class="run-man-icon" width="24" height="24">
                 <use href="/public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
               </svg> 
-              <p>${name}</p>
+              <p class="exercise-name" >${name}</p>
               </div>
               <div class="third-part">
-              <p>Burned calories: ${burnedCalories} / ${time}</p>
-              <p>Body part: ${bodyPart}</p>
-              <p>Target: ${target}</p>
+              <p class="text-card">Burned calories: <span class="value-card">${burnedCalories} / ${time}</span></p>
+              <p class="text-card">Body part: <span class="value-card">${bodyPart}</span></p>
+              <p class="text-card">Target: <span class="value-card">${target}</span></p>
               </div>
 </div>
     `
