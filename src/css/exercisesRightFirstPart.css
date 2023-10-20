@@ -3,8 +3,8 @@
         display: grid;
         grid-template-columns: 444px 900px;
         grid-template-areas: 
-            "top top"
-            "left right";
+        "top top"
+        "left right";
         column-gap: 32px;
     }
     
@@ -20,22 +20,67 @@
     }
 }
 
-.section-title {
+.exercise-section-title {
     color: var(--main-dark);
     font-size: 28px;
     line-height: 1.35;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
     font-weight: 400;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 @media only screen and (min-width: 768px) {
-    .section-title {
+    .exercise-section-title {
         color: var(--main-dark);
         font-size: 44px;
         line-height: 1.09;
         margin-bottom: 32px;
     }
+}
+
+.exercise-section-title-span {
+    color: rgba(36, 36, 36, 0.50);
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.exercise-input-container {
+    position: relative;
+    margin: 20px 0;
+    max-width: 335px;
+}
+
+.exercise-section-input {
+    width: 100%;
+    padding: 12px 208px 12px 14px;
+    border-radius: 30px;
+    border: 1px solid var(--main-dark);
+
+    color: var(--main-dark);
+    font-size: 14px;
+
+    line-height: 1.42;
+}
+
+.exercise-section-input:focus {
+    outline: none;
+}
+
+.exercise-section-input::placeholder {
+    color: var(--main-dark);
+}
+
+.exercise-input-button {
+    position: absolute;
+    top: 15px;
+    right: 14px;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 
 .exercise-section-buttons-container {
