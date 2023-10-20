@@ -13,18 +13,15 @@ function fetchCards(category) {
   ).then(response => {
     return response.json();
   });
-  // .then(data => {
-  //   console.log(data);
-  //   return data;
-  // });
 }
 function createMarkupCards(arr) {
   return arr
     .map(
       ({ burnedCalories, name, target, rating, bodyPart, time }) => `
       <div class="card">
-      <div>
-      <p>WORKOUT</p>
+      <div class="first-part">
+      <div class="badge">
+      <div class="badge-text">WORKOUT</div>
       </div>
     <div><p class="rating">${rating}</p>
       <svg class="icon-star" width="18" height="18">
@@ -36,13 +33,18 @@ function createMarkupCards(arr) {
                 <use href="/public/icon.svg#icon-arrow"></use>
               </svg>
             </button>
+            </div>
+            <div class="second-part">
            <svg class="run-man-icon" width="24" height="24">
                 <use href="/public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
               </svg> 
               <p>${name}</p>
-              <p>Burned calories:${burnedCalories} / ${time}</p>
-              <p>Body part:${bodyPart}</p>
-              <p>Target:${target}</p>
+              </div>
+              <div class="third-part">
+              <p>Burned calories: ${burnedCalories} / ${time}</p>
+              <p>Body part: ${bodyPart}</p>
+              <p>Target: ${target}</p>
+              </div>
 </div>
     `
     )

@@ -1,7 +1,51 @@
+.search {
+  margin-bottom: 20px;
+}
 .run-man-icon {
   fill: var(--main-dark);
   fill: #242424;
 }
 .icon-star {
   fill: #eea10c;
+}
+.exercises-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.card {
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 335px;
+  height: 141px;
+  /* gap: 32px; */
+  background: #ffffff;
+  padding: 16px;
+}
+.first-part {
+  display: flex;
+}
+.badge {
+  width: 75px;
+  height: 24px;
+  display: inline-flex;
+  padding: 5px 7.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  border-radius: 15px; /* Закруглені кути */
+  border: 1px solid #242424; /* Границя */
+  font-weight: bold;
+}
+.badge-text {
+  width: 60px;
+  height: 14px;
+  color: var(--main-dark);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
