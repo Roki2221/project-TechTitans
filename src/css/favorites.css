@@ -26,6 +26,9 @@
         padding: 20px;
         max-width: 335px;
     }
+    .conteiner_quote{
+        width: 100%;
+    }
     .run_man{
         width: 34px;
         height: 32px;

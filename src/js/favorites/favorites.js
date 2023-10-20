@@ -72,11 +72,9 @@ async function quoteOfTheDay() {
               <button type="button" class="trash_btn"><svg width="16px" height="16px">
                   <use href="./public/icon.svg#icon-trash"></use>
                 </svg></button>
-              <button class="start_btn" type="submit">Start <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                  height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#242424" stroke-width="1.3"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg></button>
+              <button class="start_btn" type="submit">Start <svg width="16px" height="16px ">
+          <use href="./public/icon.svg#icon-arrow"></use>
+        </svg></button>
             </div>
             <div class="name-exercise-conteiner">
               <svg class="run-man-icon" width="24px" height="24px">
