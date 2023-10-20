@@ -60,10 +60,10 @@ async function quoteOfTheDay() {
             }
              else {
               refs.defaultText.style.display = "none";
-              const card = document.querySelector(".exercises-list")
+              const card = document.querySelector(".exercises-list");
         parsed.forEach((item) => {
               const {exName, calories, part, target} = item;
-              console.log(exName, calories, part, target);
+            //   console.log(exName, calories, part, target);
               const favCatd = document.createElement('li');
               favCatd.className = 'exercises-item';
             favCatd.innerHTML = 
@@ -109,21 +109,19 @@ async function quoteOfTheDay() {
        
 //       }
 
-// for (let i = 0; i < cardItem.length; i++) {
-    //     const trashBtn = document.querySelector(".trash_btn");
-    //     const element = array[i];
-    //     trashBtn.addEventListener("click", deleteCatd)
-    // }
     
-    const trashBtn = document.querySelectorAll(".trash_btn");
-    trashBtn.forEach((btn) =>
+        const trashBtn = document.querySelectorAll(".trash_btn");
+        trashBtn.forEach((btn) =>
     {
         btn.addEventListener("click", (evt) => {
-    const cardItem = document.querySelectorAll(".exercises-item")
-    const cardRemove = evt.target.closest("li");
+        const cardRemove = evt.target.closest("li");
+  
     if (cardRemove) {
         cardRemove.remove();
+        if (document.querySelectorAll(".exercises-item").length === 0) {
+        refs.defaultText.style.display = "block";
+      }
     }
-    // cardItem.remove(cardItem);
+
 })
 })
