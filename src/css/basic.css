@@ -30,7 +30,7 @@ body {
 @font-face {
   font-family: 'Neue Montreal';
   src: local('Neue Montreal Medium'), local('Neue-Montreal-Medium'),
-    url('../fonts/NeueMontreal-Italic.woff2') format('woff2'),
+    url('../fonts/NeueMontreal-Medium.woff2') format('woff2'),
     url('../fonts/NeueMontreal-Medium.woff') format('woff'),
     url('../fonts/NeueMontreal-Medium.ttf') format('truetype');
   font-weight: 500;
