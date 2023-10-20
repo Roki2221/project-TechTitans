@@ -1,17 +1,10 @@
-
-/*=========================Загальні стилі============================= */
-body{
-    background: #F4F4F4;
-}
-.conteiner{
+.favorite-conteiner{
     margin-right: auto;
     margin-left: auto;
 }
 
-
-
 /* ============================Mobile================================== */
-    .conteiner{
+    .favorite-conteiner{
         max-width: 335px;
     }
     h2{
@@ -43,14 +36,14 @@ body{
         font-feature-settings: 'clig' off, 'liga' off;
         font-size: 20px;
         font-weight: 500;
-        line-height: 1; /* 100% */
+        line-height: 1;
         margin-bottom: 7px;
     }
     .quote_text{
         color: rgba(244, 244, 244, 0.60);
         font-size: 14px;
         font-weight: 400;
-        line-height: 1.28 /* 128.571% */
+        line-height: 1.28
     }
     .author_name{
         display: none;
@@ -81,13 +74,13 @@ body{
 font-feature-settings: 'clig' off, 'liga' off;
 font-size: 20px;
 font-weight: 500;
-line-height: 1; /* 100% */
+line-height: 1;
     }
     .minute_norm > p{
        color: rgba(36, 36, 36, 0.60);
 font-size: 14px;
 font-weight: 400;
-line-height: 1.28 /* 128.571% */
+line-height: 1.28;
 
     }
 .default_text{
@@ -98,10 +91,6 @@ line-height: 1.28 /* 128.571% */
     line-height: 1.28;
 }
 /* =======================Cards=========================== */
-.favorite_exercises{
-}
-.exercises {
-}
 .exercises-list{
         display: flex;
     flex-wrap: wrap;
@@ -177,7 +166,7 @@ line-height: 1.28 /* 128.571% */
 /* =======================Cards=========================== */
 /* ============================Tablet================================== */
 @media screen and (min-width: 768px){
-    .conteiner{
+    .favorite-conteiner{
         max-width: 704px;
     }
     .exercises-list{
@@ -244,7 +233,7 @@ line-height: 1.28 /* 128.571% */
 }
 /* ===============================PC================================== */
 @media screen and (min-width: 1440px){
-    .conteiner{
+    .favorite-conteiner{
         max-width: 1440px;
         display: grid;
         grid-template-areas: "title title"

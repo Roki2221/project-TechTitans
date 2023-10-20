@@ -99,13 +99,31 @@ async function quoteOfTheDay() {
             
       }
 // ===============================ВИДАЛЕННЯ З LS=============================
-      const trashBtn = document.querySelector(".trash_btn")
-      trashBtn.addEventListener("click", deleteCatd)
+    //   const trashBtn = document.querySelectorAll(".trash_btn")
+    //   trashBtn.addEventListener("click", deleteCatd)
 
-      function deleteCatd(evt) {
-        evt.preventDefault();
+//       function deleteCatd(evt) {
+//         evt.preventDefault();
 
-        console.log("видалило");
+//         console.log("видалило");
+       
+//       }
 
-        
-      }
+// for (let i = 0; i < cardItem.length; i++) {
+    //     const trashBtn = document.querySelector(".trash_btn");
+    //     const element = array[i];
+    //     trashBtn.addEventListener("click", deleteCatd)
+    // }
+    
+    const trashBtn = document.querySelectorAll(".trash_btn");
+    trashBtn.forEach((btn) =>
+    {
+        btn.addEventListener("click", (evt) => {
+    const cardItem = document.querySelectorAll(".exercises-item")
+    const cardRemove = evt.target.closest("li");
+    if (cardRemove) {
+        cardRemove.remove();
+    }
+    // cardItem.remove(cardItem);
+})
+})
