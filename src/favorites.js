@@ -1,1 +1,1 @@
-import './js/favorites/favorites'
+import './js/favorites';
