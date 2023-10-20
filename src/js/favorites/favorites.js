@@ -96,18 +96,7 @@ async function quoteOfTheDay() {
 
             
       }
-// ===============================ВИДАЛЕННЯ З LS=============================
-    //   const trashBtn = document.querySelectorAll(".trash_btn")
-    //   trashBtn.addEventListener("click", deleteCatd)
-
-//       function deleteCatd(evt) {
-//         evt.preventDefault();
-
-//         console.log("видалило");
-       
-//       }
-
-    
+// ===============================ВИДАЛЕННЯ З LS=============================   
         const trashBtn = document.querySelectorAll(".trash_btn");
         trashBtn.forEach((btn) =>
     {
@@ -116,10 +105,26 @@ async function quoteOfTheDay() {
   
     if (cardRemove) {
         cardRemove.remove();
-        if (document.querySelectorAll(".exercises-item").length === 0) {
-        refs.defaultText.style.display = "block";
-      }
-    }
 
-})
-})
+        const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; 
+        const indexToDelete = findIndexToDelete(items, cardRemove);
+        if (indexToDelete !== -1) {
+        items.splice(indexToDelete, 1);
+      }  localStorage.setItem('exerciseCard', JSON.stringify(items));
+      if (items.length === 0) {
+        refs.
+       
+        defaultText.style.display = "block";
+      };
+
+        if (document.querySelectorAll(".exercises-item").length === 0) {
+        refs.defaultText.style.display = "block";}}
+
+        })
+        });
+        function findIndexToDelete(items, cardRemove) {
+        const indexToDelete = items.findIndex(item => {
+        return item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
+        });return indexToDelete;
+}
+
