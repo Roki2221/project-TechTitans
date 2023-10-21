@@ -14,11 +14,23 @@ fetchParams("64f389465ae26083f39b17a9")
     .then(renderModalCard)
     .catch(error => console.log(error));
 
-
-
+window.addEventListener('keydown', closeModal);
+backdrop.addEventListener('click', onCloseModalBackdrop);
+function closeModal(event) {
+    if (event.code === 'Escape') {
+        onCloseModal();
+    }
+}
+function onCloseModalBackdrop(event) {
+    if (event.target ===backdrop) {
+        onCloseModal();
+    }
+}
 function onCloseModal() {
     console.log('hi');
     backdrop.classList.add('is-hidden');
+    window.removeEventListener('keydown', closeModal);
+    backdrop.removeEventListener('click', onCloseModalBackdrop);
 }
 function addToFavorites() {
     console.log('by');
