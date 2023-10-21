@@ -127,3 +127,8 @@
     line-height: 1.33;
   }
 }
+@media screen and (min-width: 1440px) {
+  .exercises-cards {
+    max-width: 900px;
+  }
+}
