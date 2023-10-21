@@ -82,11 +82,11 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .wrapper {
-    display: grid;
-    column-gap: 16px;
+  .leftside {
+    display: flex;
+    column-gap: 20px;
     justify-content: center;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
   }
   h2 {
     font-size: 44px;
