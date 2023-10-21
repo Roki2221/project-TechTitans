@@ -156,6 +156,12 @@
     line-height: 1.28;
     /* 128.571% */
 }
+.btn-add-favorites:active,
+.btn-add-favorites:hover{
+    color: #F4F4F4;
+    background-color: #242424;
+    border: 1px solid #F4F4F4;
+}
 
 .btn-rating {
     width: 122px;
@@ -172,12 +178,19 @@
     line-height: 1.28;
     /* 128.571% */
 }
+.btn-rating:active,
+.btn-rating:hover {
+    color:#242424;
+    background-color: #F4F4F4;
+    border: 1px solid #242424;
+}
 
 .like-icon {
-    background-color: #F4F4F4;
+    background-color: none;
     fill: #F4F4F4;
     stroke: #242424;
 }
+
 
 
 .like-icon.add-red {
