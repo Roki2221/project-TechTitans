@@ -1,3 +1,5 @@
+const LOCALSTORAGE_KEY = 'exerciseCard ';
+
 const btnClose = document.querySelector('.button-close');
 const btnAddFavorites = document.querySelector('.btn-add-favorites');
 const btnRating = document.querySelector('.btn-rating');
@@ -8,7 +10,7 @@ const heart = document.querySelector('.like-icon');
 btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
 
-fetchParams("64f389465ae26083f39b17a2")
+fetchParams("64f389465ae26083f39b17a9")
     .then(renderModalCard)
     .catch(error => console.log(error));
 
@@ -20,19 +22,13 @@ function onCloseModal() {
 }
 function addToFavorites() {
     console.log('by');
-    heart.classList.toggle('add-red');
-
+    heart.classList.add('add-red');
+    writeFormToLS();
 
 
 }
-function writeForm(event) {
-    formData = {
-        email: emailInput.value,
-        message: messagesInput.value,
-    };
-    //formData[event.target.name] = event.target.value;
-    //console.log(formData);
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
+function writeFormToLS(event) {
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cardForLS));
 }
 
 function fetchParams(id) {
@@ -44,6 +40,24 @@ function renderModalCard(data) {
     const card = createMarkupModal(data);
     modalWindow.insertAdjacentHTML('afterbegin', card);
     createRating();
+    createDataCardToFavorite(data);
+    console.log(cardForLS);
+
+}
+let cardForLS;
+function createDataCardToFavorite(data) {
+    // обʼєкт для запису данних в local storage
+   cardForLS = {
+        gifUrl: `${data.gifUrl}`,
+        name: `${data.name}`,
+        rating: `${data.rating}`,
+        target: `${data.target}`,
+        bodyPart: `${data.bodyPart}`,
+        equipment: `${data.equipment}`,
+        popularity: `${data.popularity}`,
+        burnedCalories: `${data.burnedCalories}`,
+        description: `${data.description}`
+    }
 
 }
 function createMarkupModal(data) {
