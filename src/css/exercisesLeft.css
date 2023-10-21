@@ -85,7 +85,6 @@
   .leftside {
     display: flex;
     column-gap: 20px;
-    justify-content: center;
     flex-direction: column;
   }
   h2 {
