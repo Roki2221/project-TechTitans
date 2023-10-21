@@ -1,4 +1,4 @@
-
+/*=Mobile=*/
 .quote{
     display: flex;
     gap: 18px;
@@ -75,3 +75,76 @@ font-size: 14px;
 font-weight: 400;
 line-height: 1.28;
 }
+/* Tablet */
+@media screen and (min-width: 768px){
+    .wrapper{
+        display: grid;
+       column-gap: 16px;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+    }
+    h2{
+        font-size: 44px;
+        line-height: 1.09; /* 109.091% */
+        letter-spacing: -0.88px;
+    }
+    .quote{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        max-width: 704px;
+        padding: 40px;
+        margin-bottom: 16px;
+    }
+    .quote_title{
+        font-size: 24px;
+        line-height: 1.33;
+        }
+        .quote_text{
+            margin-bottom: 18px;
+        }
+        .author_name{
+            display: block;
+            color: #F4F4F4;
+            line-height: 1.5;
+        }
+     .sports_women{
+        max-width: 344px;
+        max-height: 141px;
+     }
+     .daily_norm{
+        max-width: 344px;
+        padding: 25px;
+        max-height: 141px;
+     }
+     .minute_norm > h3{
+        font-size: 24px;
+        line-height: 1.33;
+     }
+     .default_text{
+        max-width: 554px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 1.33;
+        padding-top: 132px;
+        padding-bottom: 180px;}
+}
+/* Desktop */
+
+@media screen and (min-width: 1440px){
+
+.wrapper{
+        grid-area: content;
+        align-self: start;
+    }
+    h2{
+        grid-area: title;
+        margin-bottom: 44px;
+    }
+    .sports_women{
+        width: 239px;
+    }
+    .default_text{
+        padding-top: 102px;
+    }
+    }
