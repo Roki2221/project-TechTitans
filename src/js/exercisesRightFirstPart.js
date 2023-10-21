@@ -5,6 +5,7 @@ import axios from "axios";
 const refs = {
     cardList: document.querySelector(".exercise-card-list"),
     buttonList: document.querySelectorAll(".exercise-section-button"),
+    inputContainer: document.querySelector(".exercise-input-container"),
 }
 
 let exerciseMarkup = "";
@@ -20,7 +21,8 @@ refs.buttonList.forEach(button => {
 })
 
 function handleClick(event) {
-    refs.cardList.innerHTML = '';
+    refs.cardList.innerHTML = "";
+    refs.inputContainer.style.display = "none";
 
     const activeButton = document.querySelector(".js-active-filter-button");
     const currentButton = event.currentTarget;
@@ -57,7 +59,7 @@ async function markupExerciseCards(query) {
 
     cards.forEach(card => {
         exerciseMarkup += `
-        <li class="exercise-card-item">
+        <li class="exercise-card-item" data-query="${card.name}" data-filter="${exerciseCardFilterText}">
             <img class="exercise-card-img" src="${card.imgURL}" alt="${card.name} card exercises">
             <div class="exercise-card-text-container">
                 <h2 class="exercise-card-title">${card.name}</h2>

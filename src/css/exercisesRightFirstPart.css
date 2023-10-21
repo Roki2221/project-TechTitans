@@ -89,7 +89,7 @@
 
 .exercise-section-input {
     width: 100%;
-    padding: 12px 208px 12px 14px;
+    padding: 12px 80px 12px 14px;
     border-radius: 30px;
     border: 1px solid var(--main-dark);
 
@@ -99,6 +99,7 @@
     line-height: 1.42;
 
     margin: 20px 0;
+    background-color: transparent;
 }
 
 @media only screen and (min-width: 768px) {
@@ -128,7 +129,7 @@
 
 @media only screen and (min-width: 768px) {
     .exercise-input-button {
-        top: 15px;
+        top: 16px;
     }
 }
 
@@ -193,6 +194,31 @@
     position: relative;
 }
 
+.exercise-card-item::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%);
+
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
+.exercise-card-item::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+}
+
 @media only screen and (min-width: 768px) {
     .exercise-card-item {
         width: calc((100% - 30px)/3);
@@ -208,30 +234,18 @@
     height: 225px;
 }
 
-.exercise-card-item::after {
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%);
-
-    background-repeat: no-repeat;
-    border-radius: 12px;
-}
 
 .exercise-card-text-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    z-index: 1;
 }
 
 .exercise-card-title {

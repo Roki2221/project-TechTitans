@@ -102,6 +102,7 @@ async function quoteOfTheDay() {
     {
         btn.addEventListener("click", (evt) => {
         const cardRemove = evt.target.closest("li");
+        evt.preventDefault();
   
     if (cardRemove) {
         cardRemove.remove();
@@ -128,3 +129,14 @@ async function quoteOfTheDay() {
         });return indexToDelete;
 }
 
+// =====================================ВИКЛИК МОДАЛКИ========================================
+
+const startBtn = document.querySelectorAll(".start_btn");
+
+startBtn.forEach((btn) => {
+  btn.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    console.log("модалка відкрийся!");
+  
+  })
+});
