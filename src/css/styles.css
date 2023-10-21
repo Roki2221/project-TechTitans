@@ -15,6 +15,7 @@
 @import url('./favorites.css');
 @import url('./footer.css');
 @import url('./modal.css');
+@import url('./pagination.css');
 
 :root {
   font-family: Neue Montreal, sans-serif;

@@ -1,0 +1,31 @@
+
+.tui-ico-first,
+.tui-ico-prev,
+.tui-ico-next,
+.tui-ico-last {
+    display: none;
+}
+
+strong.tui-page-btn{
+    width: 30px;
+    height: 30px;
+    margin: 0 12;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+   
+}
+
+.tui-pagination {
+margin-top: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+}
+
+
+
