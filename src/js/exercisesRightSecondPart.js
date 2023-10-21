@@ -3,11 +3,21 @@ import axios from 'axios';
 const refs = {
   cards: document.querySelector('.exercises-cards'),
   search: document.querySelector('.exercise-input-container'),
+  cardName: document.querySelector('.exercise-card-list'),
 };
-console.log(refs.search);
+refs.cardName.addEventListener('click', handleClickCard);
+// console.log(refs.cardName);
+
+function handleClickCard(event) {
+  if (event.target.classList.contains('exercise-card-item')) {
+    const currentCard = event.target;
+    console.log(currentCard);
+  }
+}
 
 fetchCards('waist').then(data => {
   console.log(data.results);
+  // console.log(refs.cardName);
   refs.cards.insertAdjacentHTML('beforeend', createMarkupCards(data.results));
 });
 
