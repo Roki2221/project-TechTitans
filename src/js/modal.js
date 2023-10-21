@@ -1,3 +1,5 @@
+const LOCALSTORAGE_KEY = 'exerciseCard ';
+
 const btnClose = document.querySelector('.button-close');
 const btnAddFavorites = document.querySelector('.btn-add-favorites');
 const btnRating = document.querySelector('.btn-rating');
@@ -8,7 +10,7 @@ const heart = document.querySelector('.like-icon');
 btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
 
-fetchParams("64f389465ae26083f39b18d9")
+fetchParams("64f389465ae26083f39b17a9")
     .then(renderModalCard)
     .catch(error => console.log(error));
 
@@ -20,19 +22,13 @@ function onCloseModal() {
 }
 function addToFavorites() {
     console.log('by');
-    heart.classList.toggle('add-red');
-
+    heart.classList.add('add-red');
+    writeFormToLS();
 
 
 }
-function writeForm(event) {
-    formData = {
-        email: emailInput.value,
-        message: messagesInput.value,
-    };
-    //formData[event.target.name] = event.target.value;
-    //console.log(formData);
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
+function writeFormToLS(event) {
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cardForLS));
 }
 
 function fetchParams(id) {
@@ -43,16 +39,52 @@ function fetchParams(id) {
 function renderModalCard(data) {
     const card = createMarkupModal(data);
     modalWindow.insertAdjacentHTML('afterbegin', card);
+    createRating();
+    createDataCardToFavorite(data);
+    console.log(cardForLS);
+
+}
+let cardForLS;
+function createDataCardToFavorite(data) {
+    // обʼєкт для запису данних в local storage
+   cardForLS = {
+        gifUrl: `${data.gifUrl}`,
+        name: `${data.name}`,
+        rating: `${data.rating}`,
+        target: `${data.target}`,
+        bodyPart: `${data.bodyPart}`,
+        equipment: `${data.equipment}`,
+        popularity: `${data.popularity}`,
+        burnedCalories: `${data.burnedCalories}`,
+        description: `${data.description}`
+    }
 
 }
 function createMarkupModal(data) {
-
+    let ratingStar = data.rating.toFixed(1);
     return (`      
+    
             <div class="info-card">
                 <img src="${data.gifUrl}" alt="${data.name}" class="main-modal-img">
                     <div>
                         <h3 class="modal-header">${data.name}</h3>
-                        <img src="./img/rating.png" alt="rating" class="rating-star">
+                        <form action="rating__form">
+                            <div class="form-item-rating">
+                                <div class="rating">
+                                        <div class="rating__value">${ratingStar}</div>
+                                    <div class="rating__body">
+                                        <div class="rating__active"></div>
+                                        <div class="rating__items">
+                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                             <div class="info">
                                 <p class="info-item">
                                     Target<span class="character">${data.target}</span>
@@ -74,6 +106,33 @@ function createMarkupModal(data) {
                     </div>
             </div>
     `)
-
+    
 }
+function createRating() {
+    
 
+    const ratings = document.querySelectorAll('.rating');
+    if (ratings.length > 0) {
+        initRatings();
+    }
+    function initRatings() {
+        let ratingActive, ratingValue;
+        for (let index = 0; index < ratings.length; index++) {
+            const rating = ratings[index];
+            initRating(rating);
+        }
+        function initRating(rating) {
+            initRatingVars(rating);
+            setRatingActiveWidth();
+        }
+        function initRatingVars(rating) {
+            ratingActive = rating.querySelector('.rating__active');
+            ratingValue = rating.querySelector('.rating__value');
+        }
+        function setRatingActiveWidth(index = ratingValue.innerHTML) {
+            const ratingActiveWidth = index / 0.05;
+            console.log(ratingActiveWidth);
+            ratingActive.style.width = `${ratingActiveWidth}%`;
+        }
+    }
+}
