@@ -35,12 +35,12 @@ function onCloseModalBackdrop(event) {
     onCloseModal();
   }
 }
-function onCloseModal() {
-  console.log('hi');
-  backdrop.classList.add('is-hidden');
-  window.removeEventListener('keydown', closeModal);
-  backdrop.removeEventListener('click', onCloseModalBackdrop);
-}
+// function onCloseModal() {
+//   console.log('hi');
+//   backdrop.classList.add('is-hidden');
+//   window.removeEventListener('keydown', closeModal);
+//   backdrop.removeEventListener('click', onCloseModalBackdrop);
+// }
 function addToFavorites() {
   console.log('by');
   heart.classList.add('add-red');
