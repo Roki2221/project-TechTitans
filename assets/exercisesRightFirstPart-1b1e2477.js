@@ -10,4 +10,4 @@
                 <p class="exercise-card-filter">${X}</p>
             </div>
         </li>
-        `}),M.cardList.innerHTML=G}ze("Body%20parts");
+        `}),M.cardList.innerHTML=G}ze("Body%20parts");export{un as a};
