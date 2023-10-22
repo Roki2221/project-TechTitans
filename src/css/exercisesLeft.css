@@ -1,4 +1,9 @@
 /*=Mobile=*/
+.exercise-container{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .quote {
   display: flex;
   gap: 18px;
@@ -151,4 +156,12 @@
   .default_text {
     padding-top: 102px;
   }
+  .exercise-container {
+    display: grid;
+    grid-template-columns: 444px 900px;
+    grid-template-areas: 
+    "top top"
+    "left right";
+    column-gap: 32px;
+}
 }
