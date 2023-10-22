@@ -1,5 +1,5 @@
 /*=Mobile=*/
-.exercise-container{
+.exercise-container {
   display: flex;
   flex-direction: column-reverse;
 }
@@ -84,7 +84,37 @@
   margin-bottom: 40px;
   border-radius: 20px;
 }
-
+.timework {
+  color: #242424;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Neue Montreal;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 100% */
+}
+.normdaily {
+  color: rgba(36, 36, 36, 0.6);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+.text110min {
+  overflow: hidden;
+  color: #242424;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  width: 245px;
+  height: 105px;
+  flex-shrink: 0;
+}
 /* Tablet */
 @media screen and (min-width: 768px) {
   .leftside {
@@ -92,6 +122,15 @@
     column-gap: 20px;
     flex-direction: column;
   }
+  .exercise-container {
+    display: grid;
+    grid-template-columns: 444px 900px;
+    grid-template-areas:
+      'top top'
+      'left right';
+    column-gap: 32px;
+  }
+
   h2 {
     font-size: 44px;
     line-height: 1.09; /* 109.091% */
@@ -138,14 +177,23 @@
     padding-top: 132px;
     padding-bottom: 180px;
   }
+  .timework {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+  }
+  .text110min {
+    width: 270px;
+    height: 97px;
+  }
 }
 /* Desktop */
 
 @media screen and (min-width: 1440px) {
-  .wrapper {
+  /* .leftside {
     grid-area: content;
     align-self: start;
-  }
+  } */
   h2 {
     grid-area: title;
     margin-bottom: 44px;
@@ -156,12 +204,13 @@
   .default_text {
     padding-top: 102px;
   }
-  .exercise-container {
-    display: grid;
-    grid-template-columns: 444px 900px;
-    grid-template-areas: 
-    "top top"
-    "left right";
-    column-gap: 32px;
-}
+  .timework {
+    font-size: 24px;
+    width: 314px;
+    height: 163px;
+  }
+  .text110min {
+    width: 314px;
+    height: 163px;
+  }
 }
