@@ -10,59 +10,53 @@ const heart = document.querySelector('.like-icon');
 btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
 
-fetchParams("64f389465ae26083f39b17a9")
-    .then(renderModalCard)
-    .catch(error => console.log(error));
-
-
+// fetchParams(id)
+//   .then(renderModalCard)
+//   .catch(error => console.log(error));
 
 function onCloseModal() {
-    console.log('hi');
-    backdrop.classList.add('is-hidden');
+  console.log('hi');
+  backdrop.classList.add('is-hidden');
 }
 function addToFavorites() {
-    console.log('by');
-    heart.classList.add('add-red');
-    writeFormToLS();
-
-
+  console.log('by');
+  heart.classList.add('add-red');
+  writeFormToLS();
 }
 function writeFormToLS(event) {
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cardForLS));
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cardForLS));
 }
 
-function fetchParams(id) {
-    return fetch(`https://your-energy.b.goit.study/api/exercises/${id}`)
-        .then(response => response.json())
-
+export function fetchParams(id) {
+  return fetch(`https://your-energy.b.goit.study/api/exercises/${id}`).then(
+    response => response.json()
+  );
 }
-function renderModalCard(data) {
-    const card = createMarkupModal(data);
-    modalWindow.insertAdjacentHTML('afterbegin', card);
-    createRating();
-    createDataCardToFavorite(data);
-    console.log(cardForLS);
-
+export function renderModalCard(data) {
+  const card = createMarkupModal(data);
+  modalWindow.insertAdjacentHTML('afterbegin', card);
+  createRating();
+  createDataCardToFavorite(data);
+  console.log(cardForLS);
 }
 let cardForLS;
 function createDataCardToFavorite(data) {
-    // обʼєкт для запису данних в local storage
-   cardForLS = {
-        gifUrl: `${data.gifUrl}`,
-        name: `${data.name}`,
-        rating: `${data.rating}`,
-        target: `${data.target}`,
-        bodyPart: `${data.bodyPart}`,
-        equipment: `${data.equipment}`,
-        popularity: `${data.popularity}`,
-        burnedCalories: `${data.burnedCalories}`,
-        description: `${data.description}`
-    }
-
+  // обʼєкт для запису данних в local storage
+  cardForLS = {
+    gifUrl: `${data.gifUrl}`,
+    name: `${data.name}`,
+    rating: `${data.rating}`,
+    target: `${data.target}`,
+    bodyPart: `${data.bodyPart}`,
+    equipment: `${data.equipment}`,
+    popularity: `${data.popularity}`,
+    burnedCalories: `${data.burnedCalories}`,
+    description: `${data.description}`,
+  };
 }
 function createMarkupModal(data) {
-    let ratingStar = data.rating.toFixed(1);
-    return (`      
+  let ratingStar = data.rating.toFixed(1);
+  return `      
     
             <div class="info-card">
                 <img src="${data.gifUrl}" alt="${data.name}" class="main-modal-img">
@@ -105,34 +99,31 @@ function createMarkupModal(data) {
                             <p class="text-info">${data.description}</p>
                     </div>
             </div>
-    `)
-    
+    `;
 }
 function createRating() {
-    
-
-    const ratings = document.querySelectorAll('.rating');
-    if (ratings.length > 0) {
-        initRatings();
+  const ratings = document.querySelectorAll('.rating');
+  if (ratings.length > 0) {
+    initRatings();
+  }
+  function initRatings() {
+    let ratingActive, ratingValue;
+    for (let index = 0; index < ratings.length; index++) {
+      const rating = ratings[index];
+      initRating(rating);
     }
-    function initRatings() {
-        let ratingActive, ratingValue;
-        for (let index = 0; index < ratings.length; index++) {
-            const rating = ratings[index];
-            initRating(rating);
-        }
-        function initRating(rating) {
-            initRatingVars(rating);
-            setRatingActiveWidth();
-        }
-        function initRatingVars(rating) {
-            ratingActive = rating.querySelector('.rating__active');
-            ratingValue = rating.querySelector('.rating__value');
-        }
-        function setRatingActiveWidth(index = ratingValue.innerHTML) {
-            const ratingActiveWidth = index / 0.05;
-            console.log(ratingActiveWidth);
-            ratingActive.style.width = `${ratingActiveWidth}%`;
-        }
+    function initRating(rating) {
+      initRatingVars(rating);
+      setRatingActiveWidth();
     }
+    function initRatingVars(rating) {
+      ratingActive = rating.querySelector('.rating__active');
+      ratingValue = rating.querySelector('.rating__value');
+    }
+    function setRatingActiveWidth(index = ratingValue.innerHTML) {
+      const ratingActiveWidth = index / 0.05;
+      console.log(ratingActiveWidth);
+      ratingActive.style.width = `${ratingActiveWidth}%`;
+    }
+  }
 }

@@ -1,30 +1,51 @@
 import axios from 'axios';
+import { fetchParams } from './modal';
+import { renderModalCard } from './modal';
 
 const refs = {
-  cards: document.querySelector('.exercises-cards'),
   search: document.querySelector('.exercise-input-container'),
-  cardName: document.querySelector('.exercise-card-list'),
+  cardList: document.querySelector('.exercise-card-list'),
+  titleSpan: document.querySelector('.exercise-section-title-span'),
+  startBtn: document.querySelector('.start-btn'),
 };
-refs.cardName.addEventListener('click', handleClickCard);
-// console.log(refs.cardName);
 
-function handleClickCard(event) {
-  if (event.target.classList.contains('exercise-card-item')) {
-    const currentCard = event.target;
-    console.log(currentCard);
+let idValue;
+refs.cardList.addEventListener('click', handleClickCard);
+
+async function handleClickCard(event) {
+  if (!event.target.classList.contains('exercise-card-item')) {
+    return;
+  }
+
+  const currentCard = event.target;
+  const queryValue = currentCard.dataset.query;
+  const filterValue = currentCard.dataset.filter;
+
+  try {
+    const data = await fetchCards(filterValue, queryValue);
+
+    refs.search.style.display = 'block';
+
+    refs.cardList.innerHTML = createMarkupCards(data.results);
+
+    const startButtonList = document.querySelectorAll('.start-btn');
+    startButtonList.forEach(button => {
+      button.addEventListener('click', event => {
+        idValue = button.dataset.id;
+        fetchParams(idValue)
+          .then(renderModalCard)
+          .catch(error => console.log);
+      });
+    });
+  } catch (error) {
+    console.log(error);
   }
 }
 
-fetchCards('waist').then(data => {
-  console.log(data.results);
-  // console.log(refs.cardName);
-  refs.cards.insertAdjacentHTML('beforeend', createMarkupCards(data.results));
-});
-
-async function fetchCards(category) {
+async function fetchCards(part, category) {
   try {
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?bodypart=${category}&page=1&limit=10`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=10`
     );
     return response.data;
   } catch (error) {
@@ -35,8 +56,8 @@ async function fetchCards(category) {
 function createMarkupCards(arr) {
   return arr
     .map(
-      ({ burnedCalories, name, target, rating, bodyPart, time }) => `
-      <div class="card">
+      ({ burnedCalories, name, target, rating, bodyPart, time, _id }) => `
+      <div class="card" >
         <div class="first-part">
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
@@ -47,7 +68,7 @@ function createMarkupCards(arr) {
               <use href="/public/icon.svg#icon-star"></use>
             </svg>
           </div>
-          <button class="start-btn" type="submit">
+          <button class="start-btn" data-id="${_id}" type="submit">
             Start
             <svg class="start-btn-icon" width="16" height="16">
               <use href="/public/icon.svg#icon-arrow"></use>
