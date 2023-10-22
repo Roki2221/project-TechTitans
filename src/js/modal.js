@@ -178,4 +178,10 @@ function createRating() {
 }
 // *==================================================*//
 
-export { onCloseModal, closeModal, onCloseModalBackdrop };
+export {
+  onCloseModal,
+  closeModal,
+  onCloseModalBackdrop,
+  fetchParams,
+  renderModalCard,
+};
