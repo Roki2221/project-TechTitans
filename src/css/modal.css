@@ -139,6 +139,31 @@
 
 
 
+.btn-delete-favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: 228px;
+    border: none;
+    width: 167px;
+    height: 42px;
+    border-radius: 30px;
+    color: #242424;
+    font-family: 'Neue Montreal';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28;
+    /* 128.571% */
+}
+.btn-delete-favorites:active,
+.btn-delete-favorites:hover{
+    color: #F4F4F4;
+    background-color: #242424;
+    border: 1px solid #F4F4F4;
+}
 .btn-add-favorites {
     display: flex;
     justify-content: center;
@@ -156,13 +181,13 @@
     line-height: 1.28;
     /* 128.571% */
 }
+
 .btn-add-favorites:active,
-.btn-add-favorites:hover{
+.btn-add-favorites:hover {
     color: #F4F4F4;
     background-color: #242424;
     border: 1px solid #F4F4F4;
 }
-
 .btn-rating {
     width: 122px;
     height: 42px;

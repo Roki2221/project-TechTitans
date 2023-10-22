@@ -1,32 +1,17 @@
 
-
-
-const LOCALSTORAGE_KEY = 'exerciseCard';
-let infoData = [];
-let cardForLS = {};
-let b;
-
 const btnClose = document.querySelector('.button-close');
-const btnAddFavorites = document.querySelector('.btn-add-favorites');
+const btnAddFavorites = document.querySelector('.btn-remove-favorites');
 const btnRating = document.querySelector('.btn-rating');
-const modalWindow = document.querySelector('.modal-card-container');
+const modalWindow = document.querySelector('.modal-card-container-f');
 const backdrop = document.querySelector('.backdrop');
-const heart = document.querySelector('.like-icon');
+let card1;
+ // const heart = document.querySelector('.like-icon');
 
-btnClose.addEventListener('click', onCloseModal);
-btnAddFavorites.addEventListener('click', addToFavorites);
+btnClose.addEventListener('click',onCloseModal);
+// btnAddFavorites.addEventListener('click', deleteFromFavorites);
 window.addEventListener('keydown', closeModal);
 backdrop.addEventListener('click', onCloseModalBackdrop);
 
- fetchParams("64f389465ae26083f39b17a6")  //!тут всередині повина бути id
-    .then(renderModalCard)
-     .catch(error => console.log(error));
-    
-function fetchParams(id) {
-    return fetch(`https://your-energy.b.goit.study/api/exercises/${id}`)
-        .then(response => response.json())
-
-}     
 // *==================================================*//
 // * функція закриття вікна *//
 function closeModal(event) {
@@ -46,78 +31,45 @@ function onCloseModal() {
     backdrop.removeEventListener('click', onCloseModalBackdrop);
 }
 // *==================================================*//
-// *  функції що додають дані в локал сторедж *//
-function addToFavorites(e) {
-    e.preventDefault();
-    console.log('by');
-    heart.classList.add('add-red');
-    writeFormToLS();
-}
-function writeFormToLS(event) {
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(infoData));
+
+
+function onClickStart() {
+    backdrop.classList.remove('is-hidden');
+    console.log(' привіт це імпорт');
+    renderModalCardFavorite();//!!! працює дуже дивно
+     modalWindow.innerHTML = card1;
+      createRating();
+    
+
 }
 
-function createObjectLS(data) {
-    createDataCardForLS(data);
-    b = {
-        cardForLS: cardForLS,
-        id: `${data._id}`,
-    }
-    if (!infoData.length) {
-        infoData.push(b);
-    } else {
-        infoData.map((info) => {
-            if (info.id === b.id) {
-                console.log('Ця вправа вже додана в улюблені!');
-                return;
-            }
-            else {
-                infoData.push(b);
-            }
 
-        })
-    }
-}
-function createDataCardForLS(data) {
-    // обʼєкт для запису данних в local storage
-    cardForLS = {
-        id: `${data._id}`,
-        gifUrl: `${data.gifUrl}`,
-        name: `${data.name}`,
-        rating: `${data.rating}`,
-        target: `${data.target}`,
-        bodyPart: `${data.bodyPart}`,
-        equipment: `${data.equipment}`,
-        popularity: `${data.popularity}`,
-        burnedCalories: `${data.burnedCalories}`,
-        description: `${data.description}`
-    }
-    infoData.push(cardForLS);
-}
 // *==================================================*//
 //*=== функція що рендерить картку====*/
-function renderModalCard(data) {
-    const card = createMarkupModal(data);
-    modalWindow.innerHTML = card;
-    createRating();
-    // createObjectLS(data);
-    // console.log(b);
-    createDataCardForLS(data);
-}
+function renderModalCardFavorite() {
+    const saved1 = localStorage.getItem("exerciseCard");
+    const parsed1 = JSON.parse(saved1);
+    // console.log(parsed1);
 
-function createMarkupModal(data) {
-    let ratingStar = data.rating.toFixed(1);
-    // console.log(data._id);
-    return (`      
+    if (!parsed1) {
+        return console.error("No data found in local storage");
+    }
+    else {
+      return  parsed1.forEach((itemForModal) => {
+            const { id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description } = itemForModal;
+            // console.log(id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description);
+          // let ratingStar = rating.toFixed(1);
+        //   console.log(rating);
+       return   card1 = (`      
     
             <div class="info-card">
-                <img src="${data.gifUrl}" alt="${data.name}" class="main-modal-img">
+                <img src="${gifUrl}" alt="${name}" class="main-modal-img">
                     <div>
-                        <h3 class="modal-header">${data.name}</h3>
+                        <h3 class="modal-header">${name}</h3>
                         <form action="rating__form">
                             <div class="form-item-rating">
                                 <div class="rating">
-                                        <div class="rating__value">${ratingStar}</div>
+                                        <div class="rating__value">${rating}</div>
                                     <div class="rating__body">
                                         <div class="rating__active"></div>
                                         <div class="rating__items">
@@ -133,28 +85,36 @@ function createMarkupModal(data) {
                         </form>
                             <div class="info">
                                 <p class="info-item">
-                                    Target<span class="character">${data.target}</span>
+                                    Target<span class="character">${target}</span>
                                 </p>
                                 <p class="info-item">
-                                    Body Part<span class="character">${data.bodyPart}</span>
+                                    Body Part<span class="character">${bodyPart}</span>
                                 </p>
                                 <p class="info-item">
-                                    Equipment<span class="character">${data.equipment}</span>
+                                    Equipment<span class="character">${equipment}</span>
                                 </p>
                                 <p class="info-item">
-                                    Popular<span class="character"> ${data.popularity}</span>
+                                    Popular<span class="character"> ${popularity}</span>
                                 </p>
                                 <p class="info-item">
-                                    Burned calories<span class="character"> ${data.burnedCalories}</span>
+                                    Burned calories<span class="character"> ${burnedCalories}</span>
                                 </p>
                             </div>
-                            <p class="text-info">${data.description}</p>
+                            <p class="text-info">${description}</p>
                     </div>
             </div>
     `)
 
+            
+        })
+    }
+
 }
+
 // *==================================================*//
+function deleteFromFavorites() {
+    console.log('delete');
+}
 //*=====  функція що відмальовує рейтинг з зірок =======*//
 function createRating() {
     const ratings = document.querySelectorAll('.rating');
@@ -182,6 +142,5 @@ function createRating() {
         }
     }
 }
-// *==================================================*//
-
-export  { onCloseModal, closeModal, onCloseModalBackdrop };
+// *===================
+export default { onClickStart };
