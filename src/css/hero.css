@@ -1,30 +1,25 @@
 .hero {
   padding: 80px 0;
-  background-color: var(--main-white-background);
 }
 
-.box {
-  display: flex;
-  gap: 6px;
-  padding: 0;
-}
 .hero-sun {
+  display: inline;
   width: 38px;
   height: 38px;
-  flex-shrink: 0;
+  padding-top: 5px;
 }
 .hero-title {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.8px;
-  max-width: 335px;
+  font-size: 40px;
 }
 .hero-span {
   font-style: italic;
 }
 .box-text-img {
   display: block;
-  width: 335px;
+  /* width: 335px; */
 }
 .hero-text {
   font-size: 14px;
@@ -33,16 +28,16 @@
   padding-bottom: 16px;
   padding-top: 20px;
 }
-/* .hero-img {
-  width: 335px;
-} */
+.hero-img {
+  display: flex;
+}
 .box-tag {
   /* max-width: 334px; */
   height: 26px;
   padding-top: 24px;
 }
 
-.img-yoga {
+.yoga {
   display: none;
 }
 .tag-list {
@@ -62,9 +57,12 @@
 
 /* -----------MEDIA----------*/
 
+/* -----------MEDIA-768--------- */
+
 @media screen and (min-width: 768px) {
-  .box-hero {
-    width: 704px;
+  .box {
+    width: 593px;
+    height: 148px;
   }
 
   .hero {
@@ -88,34 +86,64 @@
     line-height: 1.33;
   }
 
+  /* .hero-img {
+    width: 640px;
+  } */
+
   .tag-list {
     gap: 8px;
     justify-content: flex-end;
   }
 }
+/* --------------MEDIA-1440-------------- */
 
 @media screen and (min-width: 1440px) {
+  .hero {
+    padding: 96px 0;
+  }
+
   .box-hero {
-    width: 1376px;
+    display: flex;
+    align-items: center;
+    gap: 569px;
   }
 
   .box {
-    justify-content: space-evenly;
+    display: flex;
+    /* align-items: center; */
+  }
+
+  .hero-text {
+    padding-bottom: 32px;
+  }
+
+  .hero-img {
+    width: 1376px;
+  }
+
+  .yoga {
+    display: flex;
+    /* align-items: flex-end; */
+    /* flex-direction: row; */
   }
 
   .img-yoga {
-    display: inline-flex;
     max-width: 168px;
     height: 100px;
   }
 
-  .tag-list {
-    gap: 8px;
-  }
+  /* .box-tag {
+    display: flex;
+  } */
 
   .box-tag {
-    display: flex;
     width: 182px;
-    justify-content: end;
+    height: 72px;
+  }
+
+  .tag-list {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
