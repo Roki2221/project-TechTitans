@@ -2,7 +2,7 @@
 .exercise-container {
   display: flex;
   flex-direction: column-reverse;
-}
+} /*щоб була моя частина знизу*/
 
 .quote {
   display: flex;
