@@ -1,0 +1,140 @@
+.search {
+  margin-bottom: 20px;
+}
+
+.icon-star {
+  fill: #eea10c;
+}
+.exercises-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.card {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  max-width: 335px;
+  height: 141px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.first-part {
+  display: flex;
+  align-items: center;
+}
+.badge {
+  width: 75px;
+  height: 24px;
+  display: inline-flex;
+  padding: 5px 7.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  border-radius: 15px; /* Закруглені кути */
+  border: 1px solid #242424; /* Границя */
+  font-weight: bold;
+  margin-right: 16px;
+}
+.badge-text {
+  width: 60px;
+  height: 14px;
+  color: var(--main-dark);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.rating {
+  display: inline-flex;
+  gap: 2px;
+  margin-right: 121px;
+}
+.rating-text {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+}
+.start-btn {
+  width: 54px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+  padding: 0;
+}
+.start-btn-icon {
+  transform: rotate(90deg);
+}
+
+.second-part {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 16px;
+  align-items: center;
+  margin-top: 27px;
+}
+.run-man-icon {
+  background-color: var(--main-dark);
+  /* fill: #242424; */
+  border-radius: 50%;
+}
+.exercise-name {
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* max-width: 100%; */
+}
+
+.third-part {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.text-card {
+  color: rgba(36, 36, 36, 0.4);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+}
+.value-card {
+  color: var(--main-dark);
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-cards {
+    gap: 32px 16px;
+  }
+  .card {
+    width: 344px;
+  }
+  .start-btn {
+    width: 58px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .exercise-name {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .exercises-cards {
+    max-width: 900px;
+  }
+  .card {
+    width: 441px;
+  }
+}
