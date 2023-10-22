@@ -28,7 +28,7 @@
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: #242424;
+  background-color: var(--main-dark);
   border-radius: 5px;
 }
 
@@ -56,7 +56,7 @@
   overflow: auto;
   width: 100vw;
   height: 100%;
-  background-color: #242424;
+  background-color: var(--main-dark);
 }
 
 .close-mob-menu {
@@ -75,7 +75,7 @@
   display: block;
   width: 24px;
   height: 3px;
-  background-color: #f4f4f4;
+  background-color: var(--main-white-text);
 }
 
 .close-mob-menu::before {
@@ -97,7 +97,7 @@
 }
 
 .mob-menu-item {
-  color: #f4f4f4;
+  color: var(--main-white-text);
   font-size: 14px;
   line-height: 1.29;
 }
@@ -124,7 +124,7 @@
 }
 
 .mob-menu-soc-icon {
-  fill: #f4f4f4;
+  fill: var(--main-white-text);
   opacity: 0.8;
 }
 
@@ -145,7 +145,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 60px;
-    background-color: #242424;
+    background-color: var(--main-dark);
     gap: 20px;
     padding: 8px 36px;
     width: 235px;
@@ -153,7 +153,7 @@
   }
 
   .header-menu-item {
-    color: #f4f4f4;
+    color: var(--main-white-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,7 +163,7 @@
     color: #242424;
     padding: 6px 12px;
     border-radius: 30px;
-    background-color: #f4f4f4;
+    background-color: var(--main-white-text);
   }
 
   .header-soc {
@@ -184,14 +184,16 @@
     padding: 8px;
     border-radius: 10px;
     border: 1px solid rgba(36, 36, 36, 0.1);
+    transition: border-color 300ms linear;
   }
 
   .header-soc-icon {
     opacity: 0.8;
+    transition: fill 300ms linear;
   }
 
   .header-soc-link:is(:hover, :focus) {
-    fill: #f4f4f4;
+    fill: var(--main-white-text);
     background-color: rgba(36, 36, 36, 0.8);
   }
 }
