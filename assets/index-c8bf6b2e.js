@@ -62,7 +62,7 @@ import{a as G}from"./exercisesRightFirstPart-08564d63.js";const tt="exerciseCard
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="../public/favicon.svg#icon-running-stick-figure-in-cyrcle-black"></use>
+            <use href="./public/favicon.svg#icon-running-stick-figure-in-cyrcle-black"></use>
           </svg>
           <p class="exercise-name">${c}</p>
         </div>
