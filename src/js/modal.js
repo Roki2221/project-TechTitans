@@ -1,8 +1,16 @@
 const LOCALSTORAGE_KEY = 'exerciseCard';
-let infoData = [];
+let infoData;
 let cardForLS = {};
 let b;
-
+// ======== перевіряємо наявність даних   =========//
+  const LSData = localStorage.getItem('exerciseCard');
+infoData = JSON.parse(LSData);
+if (!infoData) {
+  console.log('якщо даних немає');
+  infoData = [];
+  }
+  console.log(infoData);
+// ========   =========//
 const btnClose = document.querySelector('.button-close');
 const btnAddFavorites = document.querySelector('.btn-add-favorites');
 const btnRating = document.querySelector('.btn-rating');
@@ -14,6 +22,7 @@ btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
 window.addEventListener('keydown', closeModal);
 backdrop.addEventListener('click', onCloseModalBackdrop);
+
 
 // fetchParams('64f389465ae26083f39b17a6') //!тут всередині повина бути id
 //   .then(renderModalCard)
@@ -40,6 +49,7 @@ function onCloseModalBackdrop(event) {
 function onCloseModal() {
   console.log('hi');
   backdrop.classList.add('is-hidden');
+  heart.classList.remove('add-red');
   // window.removeEventListener('keydown', closeModal);
   // backdrop.removeEventListener('click', onCloseModalBackdrop);
 }
@@ -88,6 +98,15 @@ function createDataCardForLS(data) {
     burnedCalories: `${data.burnedCalories}`,
     description: `${data.description}`,
   };
+  // infoData.map((info) => {
+  //   console.log('ми в мап');
+  //   if (info.id === cardForLS.id) {
+  //     console.log('Ця вправа вже додана в улюблені!');
+  //     return;
+  //   }
+  // });
+  // console.log('схожих немає');
+  // infoData.push(cardForLS); 
   infoData.push(cardForLS);
 }
 // *==================================================*//
