@@ -1,0 +1,163 @@
+.search {
+  margin-bottom: 20px;
+}
+
+.icon-star {
+  fill: #eea10c;
+}
+.exercises-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-cards {
+    gap: 32px 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercises-cards {
+    max-width: 900px;
+  }
+}
+
+.exercise-card {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 141px;
+  background: #ffffff;
+  padding: 16px;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-card {
+    width: calc((100% - 15px)/2);
+  }
+}
+
+.first-part {
+  display: flex;
+  align-items: center;
+}
+.badge {
+  width: 75px;
+  height: 24px;
+  display: inline-flex;
+  padding: 5px 7.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  border-radius: 15px; /* Закруглені кути */
+  border: 1px solid #242424; /* Границя */
+  font-weight: bold;
+  margin-right: 16px;
+}
+.badge-text {
+  color: var(--main-dark);
+  font-size: 12px;
+  font-weight: 500;
+}
+.exercise-card-rating {
+  display: inline-flex;
+  gap: 2px;
+}
+.rating-text {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  margin-right: 2px;
+}
+.start-btn {
+  width: 54px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.28;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .start-btn {
+    width: 58px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+.start-btn-icon {
+  transform: rotate(90deg);
+}
+
+.second-part {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 16px;
+  align-items: center;
+  margin-top: 27px;
+}
+
+.run-man-icon {
+  min-width: 24px;
+}
+
+.exercise-name {
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-name {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+.third-part {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .third-part {
+    margin-top: 8px;
+  }
+}
+.text-card {
+  color: rgba(36, 36, 36, 0.4);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.text-card:last-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.value-card {
+  color: var(--main-dark);
+  margin-left: 2px;
+  text-transform: capitalize;
+}
+

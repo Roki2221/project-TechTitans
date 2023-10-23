@@ -56,8 +56,12 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.667h-24"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
 </symbol>
+
 <symbol id="icon-scroll-up" viewBox="0 0 31 32">
 <path d="M16.413 7.652v17.019h-1.811v-17.019l-8.509 8.509-1.28-1.28 10.693-10.696 10.696 10.695-1.28 1.28-8.51-8.509z"></path>
+
+<symbol id="icon-logo-footer" viewBox="0 0 176 32">
+
 </symbol>
 
 </defs>
