@@ -6,7 +6,7 @@ const refs = {
   search: document.querySelector('.exercise-input-container'),
   cardList: document.querySelector('.exercise-card-list'),
   startBtn: document.querySelector('.start-btn'),
-  title: document.querySelector(".exercise-section-title"),
+  title: document.querySelector('.exercise-section-title'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
 };
 
@@ -28,7 +28,7 @@ async function handleClickCard(event) {
   let filterValue = currentCard.dataset.filter;
 
   if (filterValue === 'Body parts') {
-    filterValue = "bodypart"
+    filterValue = 'bodypart';
   }
 
   try {
@@ -76,19 +76,19 @@ function createMarkupCards(arr) {
           <div class="rating">
             <p class="rating-text">${rating}</p>
             <svg class="icon-star" width="18" height="18">
-              <use href="/public/icon.svg#icon-star"></use>
+              <use href="./public/icon.svg#icon-star"></use>
             </svg>
           </div>
           <button class="start-btn" data-id="${_id}" type="submit">
             Start
             <svg class="start-btn-icon" width="16" height="16">
-              <use href="/public/icon.svg#icon-arrow"></use>
+              <use href="./public/icon.svg#icon-arrow"></use>
             </svg>
           </button>
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="/public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+            <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
           </svg>
           <p class="exercise-name">${name}</p>
         </div>
