@@ -115,6 +115,12 @@
   height: 105px;
   flex-shrink: 0;
 }
+/* .dumbbell{
+  padding-top: 26px;
+  padding-left: 26px;
+  padding-right: 18px;
+} */
+
 /* Tablet */
 @media screen and (min-width: 768px) {
   .leftside {
