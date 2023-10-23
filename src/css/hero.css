@@ -1,0 +1,179 @@
+.hero {
+  padding: 80px 0;
+}
+
+.hero-sun {
+  display: inline;
+  width: 38px;
+  height: 38px;
+  padding-top: 5px;
+}
+.hero-title {
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  font-size: 40px;
+}
+.hero-span {
+  font-style: italic;
+}
+.box-img {
+  display: block;
+  /* width: 335px; */
+}
+.hero-text {
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+  padding-bottom: 16px;
+  padding-top: 20px;
+}
+.hero-img {
+  display: flex;
+}
+.box-tag {
+  /* max-width: 334px; */
+  /* height: 26px; */
+  padding-top: 24px;
+}
+
+.img-yoga {
+  display: none;
+}
+.tag-list {
+  gap: 6px;
+  display: flex;
+  justify-content: center;
+}
+.tag-items {
+  border-radius: 30px;
+  border: 1px solid var(--main-dark);
+  padding: 4px 15px;
+}
+.tag-item {
+  align-items: center;
+  line-height: 1.5;
+  justify-content: center;
+}
+
+.btn-scroll {
+  display: none;
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  z-index: 9999;
+  cursor: pointer;
+  /* background-color: #fff; */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.btn-show {
+  display: block;
+}
+
+.scroll-up {
+  fill: #242424;
+}
+
+/* -----------MEDIA----------*/
+
+/* -----------MEDIA-768--------- */
+
+@media screen and (min-width: 768px) {
+  .box {
+    width: 593px;
+  }
+
+  .hero {
+    padding: 100px 0;
+  }
+
+  .hero-sun {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-title {
+    font-size: 74px;
+    letter-spacing: -1.48px;
+    line-height: 1;
+  }
+
+  .hero-text {
+    width: 528px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .hero-img {
+    width: 640px;
+  }
+
+  .tag-list {
+    gap: 8px;
+    justify-content: flex-end;
+  }
+}
+
+/* --------------MEDIA-1440-------------- */
+
+@media screen and (min-width: 1440px) {
+  .shell {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hero {
+    padding: 96px 0;
+  }
+
+  .box-hero {
+    /* display: flex; */
+    align-items: center;
+    gap: 569px;
+  }
+
+  .hero-text {
+    padding-bottom: 32px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-img {
+    width: 1376px;
+  }
+
+  .img-yoga {
+    display: flex;
+    width: 168px;
+    padding-bottom: 30px;
+    /* height: 100px; */
+  }
+
+  .box-img {
+    order: 3;
+    width: 1376px;
+  }
+
+  .box-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    order: 2;
+    padding-top: 0;
+  }
+
+  .tag-list {
+    width: 182px;
+    gap: 8px 8px;
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
