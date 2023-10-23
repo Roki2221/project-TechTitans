@@ -88,7 +88,7 @@ function createMarkupCards(arr) {
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="../public/favicon.svg#icon-running-stick-figure-in-cyrcle-black"></use>
+            <use href="./public/favicon.svg#icon-running-stick-figure-in-cyrcle-black"></use>
           </svg>
           <p class="exercise-name">${name}</p>
         </div>
