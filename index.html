@@ -13,9 +13,9 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-TechTitans/assets/index-c8bf6b2e.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-TechTitans/assets/exercisesRightFirstPart-08564d63.js">
-    <link rel="stylesheet" href="/project-TechTitans/assets/exercisesRightFirstPart-cedd0cc7.css">
+    <script type="module" crossorigin src="/project-TechTitans/assets/index-0fb793a6.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-TechTitans/assets/exercisesRightFirstPart-e4d275f3.js">
+    <link rel="stylesheet" href="/project-TechTitans/assets/exercisesRightFirstPart-02e278e8.css">
   </head>
   <body>
     <header class="header">
@@ -148,6 +148,66 @@
 
     <section class="exercise-section">
       <div class="container exercise-container">
+        <div class="exercise-section-top-container">
+  <h2 class="exercise-section-title">Exercises<span class="exercise-section-title-span"></span>
+  </h2>
+
+  <div class="exercise-input-button-container">
+    <div class="exercise-input-container" style="display: none;">
+      <input
+        class="exercise-section-input"
+        placeholder="Search"
+        type="text"
+        name="filter"
+      />
+      <button type="button" class="exercise-input-button">
+        <svg class="" width="20" height="20">
+          <use href="/project-TechTitans/assets/icon-ad111886.svg#icon-search"></use>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="exercise-section-buttons-container">
+      <li>
+        <button
+          class="exercise-section-button js-active-filter-button"
+          type="button"
+          disabled
+          data-filter="Body%20parts"
+        >
+          Body parts
+        </button>
+      </li>
+      <li>
+        <button
+          class="exercise-section-button"
+          type="button"
+          data-filter="Muscles"
+        >
+          Muscles
+        </button>
+      </li>
+      <li>
+        <button
+          class="exercise-section-button"
+          type="button"
+          data-filter="Equipment"
+        >
+          Equipment
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="exercise-section-right-container">
+  <ul class="exercise-card-list"></ul>
+
+  <p class="exercise-error" style="display: none">Error has occurred</p>
+  <div id="tui-pagination-container" class="tui-pagination"></div>
+</div>
+
+        
         <div class="wrapper_left wrapper_up">
   <div class="quote_up">
     <svg width="34px" height="32px">
@@ -225,66 +285,6 @@
   </div>
 </div>
 
-        <div class="exercise-section-top-container">
-  <h2 class="exercise-section-title">Exercises<span class="exercise-section-title-span"></span>
-  </h2>
-
-  <div class="exercise-input-button-container">
-    <div class="exercise-input-container" style="display: none;">
-      <input
-        class="exercise-section-input"
-        placeholder="Search"
-        type="text"
-        name="filter"
-      />
-      <button type="button" class="exercise-input-button">
-        <svg class="" width="20" height="20">
-          <use href="/project-TechTitans/assets/icon-ad111886.svg#icon-search"></use>
-        </svg>
-      </button>
-    </div>
-
-    <ul class="exercise-section-buttons-container">
-      <li>
-        <button
-          class="exercise-section-button js-active-filter-button"
-          type="button"
-          disabled
-          data-filter="Body%20parts"
-        >
-          Body parts
-        </button>
-      </li>
-      <li>
-        <button
-          class="exercise-section-button"
-          type="button"
-          data-filter="Muscles"
-        >
-          Muscles
-        </button>
-      </li>
-      <li>
-        <button
-          class="exercise-section-button"
-          type="button"
-          data-filter="Equipment"
-        >
-          Equipment
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="exercise-section-right-container">
-  <ul class="exercise-card-list"></ul>
-
-  <p class="exercise-error" style="display: none">Error has occurred</p>
-  <div id="tui-pagination-container" class="tui-pagination"></div>
-</div>
-
-        
       </div>
     </section>
     <footer class="footer">

@@ -1,4 +1,4 @@
-import{a as G}from"./exercisesRightFirstPart-08564d63.js";const tt="exerciseCard";let z=[],j={};const et=document.querySelector(".button-close"),nt=document.querySelector(".btn-add-favorites");document.querySelector(".btn-rating");const it=document.querySelector(".modal-card-container"),F=document.querySelector(".backdrop"),rt=document.querySelector(".like-icon");et.addEventListener("click",U);nt.addEventListener("click",ct);window.addEventListener("keydown",at);F.addEventListener("click",ot);function st(d){return F.classList.remove("is-hidden"),fetch(`https://your-energy.b.goit.study/api/exercises/${d}`).then(B=>B.json())}function at(d){d.code==="Escape"&&U()}function ot(d){d.target===F&&U()}function U(){console.log("hi"),F.classList.add("is-hidden")}function ct(d){d.preventDefault(),console.log("by"),rt.classList.add("add-red"),ut()}function ut(d){localStorage.setItem(tt,JSON.stringify(z))}function lt(d){j={id:`${d._id}`,gifUrl:`${d.gifUrl}`,name:`${d.name}`,rating:`${d.rating}`,target:`${d.target}`,bodyPart:`${d.bodyPart}`,equipment:`${d.equipment}`,popularity:`${d.popularity}`,burnedCalories:`${d.burnedCalories}`,description:`${d.description}`},z.push(j)}function ft(d){const B=pt(d);it.innerHTML=B,dt(),lt(d)}function pt(d){let B=d.rating.toFixed(1);return`      
+import{a as G}from"./exercisesRightFirstPart-e4d275f3.js";const tt="exerciseCard";let z=[],j={};const et=document.querySelector(".button-close"),nt=document.querySelector(".btn-add-favorites");document.querySelector(".btn-rating");const it=document.querySelector(".modal-card-container"),F=document.querySelector(".backdrop"),rt=document.querySelector(".like-icon");et.addEventListener("click",U);nt.addEventListener("click",ct);window.addEventListener("keydown",at);F.addEventListener("click",ot);function st(d){return F.classList.remove("is-hidden"),fetch(`https://your-energy.b.goit.study/api/exercises/${d}`).then(B=>B.json())}function at(d){d.code==="Escape"&&U()}function ot(d){d.target===F&&U()}function U(){console.log("hi"),F.classList.add("is-hidden")}function ct(d){d.preventDefault(),console.log("by"),rt.classList.add("add-red"),ut()}function ut(d){localStorage.setItem(tt,JSON.stringify(z))}function lt(d){j={id:`${d._id}`,gifUrl:`${d.gifUrl}`,name:`${d.name}`,rating:`${d.rating}`,target:`${d.target}`,bodyPart:`${d.bodyPart}`,equipment:`${d.equipment}`,popularity:`${d.popularity}`,burnedCalories:`${d.burnedCalories}`,description:`${d.description}`},z.push(j)}function ft(d){const B=pt(d);it.innerHTML=B,dt(),lt(d)}function pt(d){let B=d.rating.toFixed(1);return`      
     
             <div class="info-card">
                 <img src="${d.gifUrl}" alt="${d.name}" class="main-modal-img">
@@ -47,8 +47,8 @@ import{a as G}from"./exercisesRightFirstPart-08564d63.js";const tt="exerciseCard
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
           </div>
-          <div class="rating">
-            <p class="rating-text">${e}</p>
+          <div class="exercise-card-rating">
+            <p class="rating-text">${e.toFixed(1)}</p>
             <svg class="icon-star" width="18" height="18">
               <use href="./public/icon.svg#icon-star"></use>
             </svg>
