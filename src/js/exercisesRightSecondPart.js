@@ -5,11 +5,17 @@ import { renderModalCard } from './modal';
 const refs = {
   search: document.querySelector('.exercise-input-container'),
   cardList: document.querySelector('.exercise-card-list'),
-  titleSpan: document.querySelector('.exercise-section-title-span'),
   startBtn: document.querySelector('.start-btn'),
+  title: document.querySelector(".exercise-section-title"),
+  titleSpan: document.querySelector('.exercise-section-title-span'),
 };
 
 let idValue;
+let limit = 10;
+if (window.innerWidth < 768) {
+  limit = 8;
+}
+
 refs.cardList.addEventListener('click', handleClickCard);
 
 async function handleClickCard(event) {
@@ -19,12 +25,19 @@ async function handleClickCard(event) {
 
   const currentCard = event.target;
   const queryValue = currentCard.dataset.query;
-  const filterValue = currentCard.dataset.filter;
+  let filterValue = currentCard.dataset.filter;
+
+  if (filterValue === 'Body parts') {
+    filterValue = "bodypart"
+  }
 
   try {
     const data = await fetchCards(filterValue, queryValue);
 
     refs.search.style.display = 'block';
+    refs.title.textContent = "Exercises /";
+    refs.titleSpan.textContent = `${data.results.bodyPart}`;
+    console.log(data.results)
 
     refs.cardList.innerHTML = createMarkupCards(data.results);
 
@@ -45,7 +58,7 @@ async function handleClickCard(event) {
 async function fetchCards(part, category) {
   try {
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=10`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limit}`
     );
     return response.data;
   } catch (error) {
@@ -57,7 +70,7 @@ function createMarkupCards(arr) {
   return arr
     .map(
       ({ burnedCalories, name, target, rating, bodyPart, time, _id }) => `
-      <div class="card" >
+      <li class="exercise-card" >
         <div class="first-part">
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
@@ -86,7 +99,7 @@ function createMarkupCards(arr) {
           <p class="text-card">Body part: <span class="value-card">${bodyPart}</span></p>
           <p class="text-card">Target: <span class="value-card">${target}</span></p>
         </div>
-      </div>
+      </li>
     `
     )
     .join('');

@@ -10,14 +10,14 @@
   flex-wrap: wrap;
   gap: 32px;
 }
-.card {
+.exercise-card {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  max-width: 335px;
   height: 141px;
   background: #ffffff;
   padding: 16px;
+  position: relative;
 }
 
 .first-part {
@@ -50,12 +50,12 @@
 .rating {
   display: inline-flex;
   gap: 2px;
-  margin-right: 121px;
 }
 .rating-text {
   font-size: 12px;
   font-style: normal;
   line-height: 1.5;
+  margin-right: 2px;
 }
 .start-btn {
   width: 54px;
@@ -64,10 +64,13 @@
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.28;
   padding: 0;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 .start-btn-icon {
   transform: rotate(90deg);
@@ -81,43 +84,45 @@
   align-items: center;
   margin-top: 27px;
 }
-.run-man-icon {
-  background-color: var(--main-dark);
-  /* fill: #242424; */
-  border-radius: 50%;
-}
 .exercise-name {
   font-size: 20px;
   font-style: normal;
   line-height: 1;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* max-width: 100%; */
+  text-transform: capitalize;
 }
 
 .third-part {
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 16px;
+  overflow: hidden;
 }
 .text-card {
   color: rgba(36, 36, 36, 0.4);
   font-size: 12px;
   font-style: normal;
   line-height: 1.5;
+  white-space: nowrap;
 }
+.text-card:last-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .value-card {
   color: var(--main-dark);
+  margin-left: 2px;
 }
 
 @media screen and (min-width: 768px) {
   .exercises-cards {
     gap: 32px 16px;
   }
-  .card {
-    width: 344px;
+  .exercise-card {
+    width: calc((100% - 15px)/2);
   }
   .start-btn {
     width: 58px;
