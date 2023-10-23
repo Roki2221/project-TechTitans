@@ -1,3 +1,22 @@
+/* Падінги для нашої секції */
+.exercise-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+@media only screen and (min-width: 768px) {
+    .exercise-section {
+        padding-top: 64px;
+        padding-bottom: 100px;
+    } 
+}
+
+@media only screen and (min-width: 1440px) {
+    .exercise-section {
+        padding-bottom: 132px;
+    } 
+}
+
 /* Гріди для десктоп версії */
 @media only screen and (min-width: 1440px) {
     .exercise-container {

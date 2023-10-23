@@ -46,7 +46,7 @@ async function markupExerciseCards(query) {
   cards.forEach(card => {
     exerciseMarkup += `
         <li class="exercise-card-item" data-query="${card.name}" data-filter="${exerciseCardFilterText}">
-            <img class="exercise-card-img" src="${card.imgURL}" alt="${card.name} card exercises">
+            <img class="exercise-card-img" src="${card.imgURL}" alt="${card.name} card exercises" loading="lazy">
             <div class="exercise-card-text-container">
                 <h2 class="exercise-card-title">${card.name}</h2>
                 <p class="exercise-card-filter">${exerciseCardFilterText}</p>

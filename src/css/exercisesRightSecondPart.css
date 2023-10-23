@@ -17,6 +17,12 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .exercises-cards {
+    max-width: 900px;
+  }
+}
+
 .exercise-card {
   border-radius: 15px;
   display: flex;
@@ -52,13 +58,9 @@
   margin-right: 16px;
 }
 .badge-text {
-  width: 60px;
-  height: 14px;
   color: var(--main-dark);
   font-size: 12px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 }
 .rating {
   display: inline-flex;
@@ -121,12 +123,25 @@
   text-transform: capitalize;
 }
 
+@media screen and (min-width: 768px) {
+  .exercise-name {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
 .third-part {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 16px;
   overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .third-part {
+    margin-top: 8px;
+  }
 }
 .text-card {
   color: rgba(36, 36, 36, 0.4);
@@ -143,19 +158,6 @@
 .value-card {
   color: var(--main-dark);
   margin-left: 2px;
+  text-transform: capitalize;
 }
 
-@media screen and (min-width: 768px) {
-  .exercise-name {
-    font-size: 24px;
-    line-height: 1.33;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .exercises-cards {
-    max-width: 900px;
-  }
-  .card {
-    width: 441px;
-  }
-}
