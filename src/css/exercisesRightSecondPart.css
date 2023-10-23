@@ -62,7 +62,7 @@
   font-size: 12px;
   font-weight: 500;
 }
-.rating {
+.exercise-card-rating {
   display: inline-flex;
   gap: 2px;
 }

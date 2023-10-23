@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { fetchParams } from './modal';
 import { renderModalCard } from './modal';
+import sprite from '../public/icon.svg';
+import spriteRunningMan from '../public/favicon.svg';
 
 const refs = {
   search: document.querySelector('.exercise-input-container'),
@@ -73,22 +75,22 @@ function createMarkupCards(arr) {
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
           </div>
-          <div class="rating">
-            <p class="rating-text">${rating}</p>
+          <div class="exercise-card-rating">
+            <p class="rating-text">${rating.toFixed(1)}</p>
             <svg class="icon-star" width="18" height="18">
-              <use href="./public/icon.svg#icon-star"></use>
+              <use href="${sprite}#icon-star"></use>
             </svg>
           </div>
           <button class="start-btn" data-id="${_id}" type="submit">
             Start
             <svg class="start-btn-icon" width="16" height="16">
-              <use href="./public/icon.svg#icon-arrow"></use>
+              <use href="${sprite}#icon-arrow"></use>
             </svg>
           </button>
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+            <use href="${spriteRunningMan}#icon-running-stick-figure-in-cyrcle-black"></use>
           </svg>
           <p class="exercise-name">${name}</p>
         </div>
