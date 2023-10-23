@@ -35,6 +35,7 @@ async function quoteOfTheDay() {
 // =======================================================================================
 
 // ============================ПРИКЛАД ЗАПИСУ В LS========================================
+<<<<<<< Updated upstream
         //     const cardLS = [
         //       {
         //         name: `${data.name}`,
@@ -47,6 +48,19 @@ async function quoteOfTheDay() {
         //         bodyPart: "head",
         //         target: "vizhit"}
         // ]
+=======
+            const cardLS = [{
+                name: "pinanie",
+                calories: 188,
+                part: "hand",
+                target: "stronger"
+            },
+            {name: "spat",
+                calories: 788,
+                part: "head",
+                target: "vizhit"}
+        ]
+>>>>>>> Stashed changes
 // const cardLS = {
 //   id: `${data._id}`,
 //   gifUrl: `${data.gifUrl}`,
@@ -68,10 +82,10 @@ async function quoteOfTheDay() {
         function createMurkup() {
           const saved = localStorage.getItem("exerciseCard");
             const parsed = JSON.parse(saved);
-            console.log(parsed);
+            console.log(parsed.length);
 
-            if (!parsed) {
-        return console.error("No data found in local storage");
+            if (parsed.length === 0) {
+        refs.defaultText.style.display = "block";
             }
              else {
               refs.defaultText.style.display = "none";
@@ -79,7 +93,10 @@ async function quoteOfTheDay() {
         parsed.forEach((item) => {
           //! const { exName, calories, part, target } = item;
           const { id, name, target, bodyPart, burnedCalories } = item;
+<<<<<<< Updated upstream
               console.log(name, burnedCalories, bodyPart, target);
+=======
+>>>>>>> Stashed changes
               const favCatd = document.createElement('li');
           favCatd.className = 'exercises-item';
           favCatd.setAttribute ('data-id',`${id}`);
@@ -147,18 +164,35 @@ async function quoteOfTheDay() {
         cardRemove.remove();
         const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; 
         const indexToDelete = findIndexToDelete(items, cardRemove);
+        console.log(indexToDelete);
         if (indexToDelete !== -1) {
         items.splice(indexToDelete, 1);
       }  localStorage.setItem('exerciseCard', JSON.stringify(items));
+<<<<<<< Updated upstream
   
       // if (items.length === 0) {
       //   refs.defaultText.style.display = "block";
       // };
+=======
+
+>>>>>>> Stashed changes
 
         if (document.querySelectorAll(".exercises-item").length === 0) {
-        refs.defaultText.style.display = "block";}}
-
+        refs.defaultText.style.display = "block";}
+      
+      }
+      function findIndexToDelete(items, cardRemove) {
+        console.log(items);
+        console.log(cardRemove);
+      const indexToDelete = items.findIndex(item => {
+       return  item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
+        
+            });
+      console.log(indexToDelete);
+      }
+      
         })
+<<<<<<< Updated upstream
         }); 
         function findIndexToDelete(items, cardRemove) {
         const indexToDelete = items.findIndex(item => {
@@ -166,6 +200,9 @@ async function quoteOfTheDay() {
         });
         return indexToDelete;
 }
+=======
+        });
+>>>>>>> Stashed changes
 
 // =====================================ВИКЛИК МОДАЛКИ========================================
 
