@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { fetchParams } from './modal';
 import { renderModalCard } from './modal';
 import sprite from '../public/icon.svg';
@@ -8,26 +9,29 @@ const refs = {
   search: document.querySelector('.exercise-input-container'),
   cardList: document.querySelector('.exercise-card-list'),
   startBtn: document.querySelector('.start-btn'),
+  inputQuery: document.querySelector('.exercise-section-input'),
   title: document.querySelector('.exercise-section-title'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
 };
 
+let queryValue;
+let filterValue;
 let idValue;
-let limit = 10;
+let limitCards = 10;
 if (window.innerWidth < 768) {
-  limit = 8;
+  limitCards = 8;
 }
 
 refs.cardList.addEventListener('click', handleClickCard);
+refs.search.addEventListener('submit', searchExercises);
 
 async function handleClickCard(event) {
   if (!event.target.classList.contains('exercise-card-item')) {
     return;
   }
-
   const currentCard = event.target;
-  const queryValue = currentCard.dataset.query;
-  let filterValue = currentCard.dataset.filter;
+  queryValue = currentCard.dataset.query;
+  filterValue = currentCard.dataset.filter;
 
   if (filterValue === 'Body parts') {
     filterValue = 'bodypart';
@@ -35,7 +39,6 @@ async function handleClickCard(event) {
 
   try {
     const data = await fetchCards(filterValue, queryValue);
-
     refs.search.style.display = 'block';
     refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
 
@@ -55,15 +58,43 @@ async function handleClickCard(event) {
   }
 }
 
+async function searchExercises(e) {
+  e.preventDefault();
+  try {
+    const keyword = e.currentTarget.elements.filter.value;
+    const data = await fetchSearch(keyword);
+    refs.inputQuery.value = '';
+    if (data.results.length === 0) {
+      throw new Error();
+    }
+    refs.cardList.innerHTML = createMarkupCards(data.results);
+  } catch (error) {
+    showErrorNotification();
+    // console.log('Nothing was found for your request');
+  }
+}
+
 async function fetchCards(part, category) {
   try {
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limit}`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {
     throw error;
   }
+}
+
+async function fetchSearch(inputWord) {
+  try {
+    if (inputWord.trim() === '') {
+      return;
+    }
+    const response = await axios.get(
+      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limitCards}`
+    );
+    return response.data;
+  } catch (error) {}
 }
 
 function createMarkupCards(arr) {
@@ -103,4 +134,12 @@ function createMarkupCards(arr) {
     `
     )
     .join('');
+}
+function showErrorNotification() {
+  Notiflix.Notify.failure('Nothing was found for your request', {
+    position: 'right-top',
+    timeout: 3000,
+    fontSize: '18px',
+    borderRadius: '15px',
+  });
 }
