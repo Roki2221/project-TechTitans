@@ -11,7 +11,7 @@
   border-radius: 20px;
   margin-bottom: 20px;
   padding: 20px;
-  max-width: 335px;
+  width: 335px;
 }
 .conteiner_quote {
   width: 100%;
@@ -55,8 +55,8 @@
 } */
 
 .daily_norm_up {
-  width: 400px;
-  height: 249px;
+  width: 335px;
+  height: 203px;
   padding: 20px;
   border-radius: 20px;
   background: #fff;
@@ -91,8 +91,8 @@
   line-height: 1.28;
 }
 .sports_women_up {
-  width: 335px;
-  height: 242px;
+  max-width: 335px;
+  max-height: 242px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -187,13 +187,17 @@
     line-height: 1.5;
   }
   .sports_women_up {
-    width: 288px;
-    height: 258px;
+    max-width: 288px;
+    max-height: 258px;
   }
-  .daily_norm {
+  /* .daily_norm {
     max-width: 344px;
     padding: 25px;
     max-height: 141px;
+  } */
+  .daily_norm_up {
+    width: 400px;
+    height: 249px;
   }
   .minute_norm > h3 {
     font-size: 24px;
@@ -232,7 +236,7 @@
       'minute'
       'daily';
   }
-  .wrapper_left{
+  .wrapper_left {
     grid-area: unset;
     align-self: start;
     display: grid;
@@ -251,19 +255,18 @@
   }
   .quote_up {
     width: 444px;
-    
   }
-   .daily_norm_up{
+  .daily_norm_up {
     width: 444px;
     height: 315px;
-   }
+  }
   h2 {
     grid-area: title;
     margin-bottom: 44px;
   }
   .sports_women_up {
-    width: 444px;
-    height: 242px;
+   max-width: 444px;
+   max-height: 242px;
   }
   .default_text {
     padding-top: 102px;
