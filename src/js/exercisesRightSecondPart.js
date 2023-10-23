@@ -9,7 +9,8 @@ const refs = {
   startBtn: document.querySelector('.start-btn'),
   inputQuery: document.querySelector('.exercise-section-input'),
 };
-
+let queryValue;
+let filterValue;
 let idValue;
 let limit = 10;
 if (window.innerWidth < 768) {
@@ -17,7 +18,7 @@ if (window.innerWidth < 768) {
 }
 
 refs.cardList.addEventListener('click', handleClickCard);
-refs.search.addEventListener('click', searchExercises);
+refs.search.addEventListener('submit', searchExercises);
 // console.log(refs.search);
 
 async function handleClickCard(event) {
@@ -25,8 +26,8 @@ async function handleClickCard(event) {
     return;
   }
   const currentCard = event.target;
-  const queryValue = currentCard.dataset.query;
-  const filterValue = currentCard.dataset.filter;
+  queryValue = currentCard.dataset.query;
+  filterValue = currentCard.dataset.filter;
 
   try {
     const data = await fetchCards(filterValue, queryValue);
@@ -51,11 +52,10 @@ async function handleClickCard(event) {
 
 async function searchExercises(e) {
   e.preventDefault();
-
   try {
     const keyword = e.currentTarget.elements.filter.value;
+
     const data = await fetchSearch(keyword);
-    console.log(data.results);
     if (data.results.length === 0) {
       throw new Error();
     }
@@ -67,6 +67,8 @@ async function searchExercises(e) {
 
 async function fetchCards(part, category) {
   try {
+    // console.log(part.toLowerCase());
+    // console.log(category);
     const response = await axios.get(
       `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limit}`
     );
@@ -78,18 +80,17 @@ async function fetchCards(part, category) {
 
 async function fetchSearch(inputWord) {
   try {
-    // if (inputWord === '') {
-    //   console.log(inputWord);
-    //   throw new Error();
-    //   console.log(inputWord);
-    // }
+    if (inputWord.trim() === '') {
+      return;
+    }
+    // console.log(filterValue.toLowerCase());
+    // console.log(queryValue);
+
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?bodypart=back&keyword=${inputWord}&page=1&limit=${limit}`
+      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limit}`
     );
     return response.data;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 function createMarkupCards(arr) {
