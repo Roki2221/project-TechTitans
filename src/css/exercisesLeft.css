@@ -36,7 +36,14 @@
   line-height: 1.28;
 }
 .author_name {
-  display: none;
+  color: #F4F4F4;
+font-family: Neue Montreal;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 128.571% */
+padding-bottom: 20px;
+padding-top: 16px;
 }
 
 /* .sports_women{
@@ -78,10 +85,10 @@
   font-weight: 400;
   line-height: 1.28;
 }
-.sports_women {
+.sports_women_up {
   width: 345px;
   height: 242px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 .timework {
