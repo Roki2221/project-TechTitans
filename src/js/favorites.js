@@ -136,33 +136,34 @@ async function quoteOfTheDay() {
       }
 // ===============================ВИДАЛЕННЯ З LS=============================   
         const trashBtn = document.querySelectorAll(".trash_btn");  //! щось у вас не вірно видаляє картку, коли обновляєш сторінку картка повертається
+        
         trashBtn.forEach((btn) =>
-    {
-        btn.addEventListener("click", (evt) => {
+        {btn.addEventListener("click", (evt) => {
         const cardRemove = evt.target.closest("li");
         evt.preventDefault();
   
     if (cardRemove) {
         cardRemove.remove();
-
         const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; 
         const indexToDelete = findIndexToDelete(items, cardRemove);
         if (indexToDelete !== -1) {
         items.splice(indexToDelete, 1);
       }  localStorage.setItem('exerciseCard', JSON.stringify(items));
-      if (items.length === 0) {
-        refs.defaultText.style.display = "block";
-      };
+  
+      // if (items.length === 0) {
+      //   refs.defaultText.style.display = "block";
+      // };
 
         if (document.querySelectorAll(".exercises-item").length === 0) {
         refs.defaultText.style.display = "block";}}
 
         })
-        });
+        }); 
         function findIndexToDelete(items, cardRemove) {
         const indexToDelete = items.findIndex(item => {
         return item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
-        });return indexToDelete;
+        });
+        return indexToDelete;
 }
 
 // =====================================ВИКЛИК МОДАЛКИ========================================
