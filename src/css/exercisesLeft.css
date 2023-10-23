@@ -158,13 +158,7 @@
       'top top'
       'left right';
     column-gap: 32px; */
-  }
-
-  h2 {
-    font-size: 44px;
-    line-height: 1.09; /* 109.091% */
-    letter-spacing: -0.88px;
-  }
+  } 
   .quote_up {
     grid-column-start: 1;
     /* grid-column-end: 3; */
