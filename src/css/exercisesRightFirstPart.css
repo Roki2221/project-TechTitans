@@ -1,3 +1,22 @@
+/* Падінги для нашої секції */
+.exercise-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+@media only screen and (min-width: 768px) {
+    .exercise-section {
+        padding-top: 64px;
+        padding-bottom: 100px;
+    } 
+}
+
+@media only screen and (min-width: 1440px) {
+    .exercise-section {
+        padding-bottom: 132px;
+    } 
+}
+
 /* Гріди для десктоп версії */
 @media only screen and (min-width: 1440px) {
     .exercise-container {
@@ -48,6 +67,7 @@
     font-size: 20px;
     line-height: 1;
     letter-spacing: -0.02em;
+    text-transform: capitalize;
 }
 
 @media only screen and (min-width: 768px) {
@@ -226,12 +246,24 @@
     }
 }
 
+@media only screen and (min-width: 1440px) {
+    .exercise-card-item {
+        height: 242px;
+    }
+}
+
 .exercise-card-img {
     object-fit: cover;
     width: 100%;
     display: block;
     border-radius: 12px;
     height: 225px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .exercise-card-img {
+        height: 242px;
+    }
 }
 
 

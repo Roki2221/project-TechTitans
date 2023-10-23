@@ -1,25 +1,29 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { fetchParams } from './modal';
 import { renderModalCard } from './modal';
+import sprite from '../public/icon.svg';
+import spriteRunningMan from '../public/favicon.svg';
 
 const refs = {
   search: document.querySelector('.exercise-input-container'),
   cardList: document.querySelector('.exercise-card-list'),
-  titleSpan: document.querySelector('.exercise-section-title-span'),
   startBtn: document.querySelector('.start-btn'),
   inputQuery: document.querySelector('.exercise-section-input'),
+  title: document.querySelector('.exercise-section-title'),
+  titleSpan: document.querySelector('.exercise-section-title-span'),
 };
+
 let queryValue;
 let filterValue;
 let idValue;
-let limit = 10;
+let limitCards = 10;
 if (window.innerWidth < 768) {
-  limit = 8;
+  limitCards = 8;
 }
 
 refs.cardList.addEventListener('click', handleClickCard);
 refs.search.addEventListener('submit', searchExercises);
-// console.log(refs.search);
 
 async function handleClickCard(event) {
   if (!event.target.classList.contains('exercise-card-item')) {
@@ -29,10 +33,14 @@ async function handleClickCard(event) {
   queryValue = currentCard.dataset.query;
   filterValue = currentCard.dataset.filter;
 
+  if (filterValue === 'Body parts') {
+    filterValue = 'bodypart';
+  }
+
   try {
     const data = await fetchCards(filterValue, queryValue);
-
     refs.search.style.display = 'block';
+    refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
 
     refs.cardList.innerHTML = createMarkupCards(data.results);
 
@@ -54,23 +62,22 @@ async function searchExercises(e) {
   e.preventDefault();
   try {
     const keyword = e.currentTarget.elements.filter.value;
-
     const data = await fetchSearch(keyword);
+    refs.inputQuery.value = '';
     if (data.results.length === 0) {
       throw new Error();
     }
     refs.cardList.innerHTML = createMarkupCards(data.results);
   } catch (error) {
-    console.log('Nothing was found for your request');
+    showErrorNotification();
+    // console.log('Nothing was found for your request');
   }
 }
 
 async function fetchCards(part, category) {
   try {
-    // console.log(part.toLowerCase());
-    // console.log(category);
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limit}`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {
@@ -83,11 +90,8 @@ async function fetchSearch(inputWord) {
     if (inputWord.trim() === '') {
       return;
     }
-    // console.log(filterValue.toLowerCase());
-    // console.log(queryValue);
-
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limit}`
+      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {}
@@ -97,27 +101,27 @@ function createMarkupCards(arr) {
   return arr
     .map(
       ({ burnedCalories, name, target, rating, bodyPart, time, _id }) => `
-      <div class="card" >
+      <li class="exercise-card" >
         <div class="first-part">
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
           </div>
-          <div class="rating">
-            <p class="rating-text">${rating}</p>
+          <div class="exercise-card-rating">
+            <p class="rating-text">${rating.toFixed(1)}</p>
             <svg class="icon-star" width="18" height="18">
-              <use href="/public/icon.svg#icon-star"></use>
+              <use href="${sprite}#icon-star"></use>
             </svg>
           </div>
           <button class="start-btn" data-id="${_id}" type="submit">
             Start
             <svg class="start-btn-icon" width="16" height="16">
-              <use href="/public/icon.svg#icon-arrow"></use>
+              <use href="${sprite}#icon-arrow"></use>
             </svg>
           </button>
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="/public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+            <use href="${spriteRunningMan}#icon-running-stick-figure-in-cyrcle-black"></use>
           </svg>
           <p class="exercise-name">${name}</p>
         </div>
@@ -126,8 +130,16 @@ function createMarkupCards(arr) {
           <p class="text-card">Body part: <span class="value-card">${bodyPart}</span></p>
           <p class="text-card">Target: <span class="value-card">${target}</span></p>
         </div>
-      </div>
+      </li>
     `
     )
     .join('');
+}
+function showErrorNotification() {
+  Notiflix.Notify.failure('Nothing was found for your request', {
+    position: 'right-top',
+    timeout: 3000,
+    fontSize: '18px',
+    borderRadius: '15px',
+  });
 }

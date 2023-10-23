@@ -1,8 +1,7 @@
 /*=Mobile=*/
-.exercise-container {
-  display: flex;
-  flex-direction: column-reverse;
-} /*щоб була моя частина знизу*/
+.wrapper_left {
+  margin-top: 80px;
+}
 
 .quote_up {
   display: flex;
@@ -148,17 +147,8 @@
     column-gap: 16px;
     justify-content: center;
     grid-template-columns: 1fr 1fr;
+    margin-top: 64px;
   }
-  .exercise-container {
-    display: flex;
-    flex-direction: column-reverse;
-    /* display: grid;
-    grid-template-columns: 444px 900px;
-    grid-template-areas:
-      'top top'
-      'left right';
-    column-gap: 32px; */
-  } 
   .quote_up {
     grid-column-start: 1;
     /* grid-column-end: 3; */
@@ -236,6 +226,7 @@
     display: grid;
     column-gap: 16px;
     justify-content: center;
+    margin-top: 0px;
   }
   .exercise-container {
     display: flex;

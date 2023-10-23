@@ -35,17 +35,19 @@ async function quoteOfTheDay() {
 // =======================================================================================
 
 // ============================ПРИКЛАД ЗАПИСУ В LS========================================
-        //     const cardLS = [{
-        //         exName: "pinanie",
-        //         calories: 188,
-        //         part: "hand",
-        //         target: "stronger"
+        //     const cardLS = [
+        //       {
+        //         name: `${data.name}`,
+        //         burnedCalories: `${data.burnedCalories}`,
+        //         bodyPart: `${data.bodyPart}`,
+        //         target: `${data.target}`
         //     },
-        //     {exName: "spat",
-        //         calories: 788,
-        //         part: "head",
+        //     {name: "spat",
+        //         burnedCalories: 788,
+        //         bodyPart: "head",
         //         target: "vizhit"}
         // ]
+
 // const cardLS = {
 //   id: `${data._id}`,
 //   gifUrl: `${data.gifUrl}`,
@@ -58,7 +60,7 @@ async function quoteOfTheDay() {
 //   burnedCalories: `${data.burnedCalories}`,
 //   description: `${data.description}`
 //         }
-        //     localStorage.setItem("exerciseCard", JSON.stringify(cardLS));
+            // localStorage.setItem("exerciseCard", JSON.stringify(cardLS));
 // =========================================================================================
 
 // ===============================СТВОРЕННЯ РОЗМІТКИ========================================
@@ -67,10 +69,10 @@ async function quoteOfTheDay() {
         function createMurkup() {
           const saved = localStorage.getItem("exerciseCard");
             const parsed = JSON.parse(saved);
-            console.log(parsed);
+            console.log(parsed.length);
 
-            if (!parsed) {
-        return console.error("No data found in local storage");
+            if (parsed.length === 0) {
+        refs.defaultText.style.display = "block";
             }
              else {
               refs.defaultText.style.display = "none";
@@ -78,7 +80,9 @@ async function quoteOfTheDay() {
         parsed.forEach((item) => {
           //! const { exName, calories, part, target } = item;
           const { id, name, target, bodyPart, burnedCalories } = item;
-            //   console.log(exName, calories, part, target);
+              console.log(name, burnedCalories, bodyPart, target);
+
+
               const favCatd = document.createElement('li');
           favCatd.className = 'exercises-item';
           favCatd.setAttribute ('data-id',`${id}`);
@@ -136,34 +140,44 @@ async function quoteOfTheDay() {
       }
 // ===============================ВИДАЛЕННЯ З LS=============================   
         const trashBtn = document.querySelectorAll(".trash_btn");  //! щось у вас не вірно видаляє картку, коли обновляєш сторінку картка повертається
+        
         trashBtn.forEach((btn) =>
-    {
-        btn.addEventListener("click", (evt) => {
+        {btn.addEventListener("click", (evt) => {
         const cardRemove = evt.target.closest("li");
         evt.preventDefault();
   
     if (cardRemove) {
         cardRemove.remove();
-
         const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; 
         const indexToDelete = findIndexToDelete(items, cardRemove);
+        console.log(indexToDelete);
         if (indexToDelete !== -1) {
         items.splice(indexToDelete, 1);
       }  localStorage.setItem('exerciseCard', JSON.stringify(items));
-      if (items.length === 0) {
-        refs.defaultText.style.display = "block";
-      };
-
         if (document.querySelectorAll(".exercises-item").length === 0) {
-        refs.defaultText.style.display = "block";}}
-
+        refs.defaultText.style.display = "block";}
+      
+      }
+      function findIndexToDelete(items, cardRemove) {
+        console.log(items);
+        console.log(cardRemove);
+      const indexToDelete = items.findIndex(item => {
+       return  item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
+        
+            });
+      console.log(indexToDelete);
+      }
+      
         })
-        });
+
+        }); 
         function findIndexToDelete(items, cardRemove) {
         const indexToDelete = items.findIndex(item => {
         return item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
-        });return indexToDelete;
+        });
+        return indexToDelete;
 }
+
 
 // =====================================ВИКЛИК МОДАЛКИ========================================
 
