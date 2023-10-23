@@ -15,18 +15,19 @@ btnAddFavorites.addEventListener('click', addToFavorites);
 window.addEventListener('keydown', closeModal);
 backdrop.addEventListener('click', onCloseModalBackdrop);
 
-fetchParams('64f389465ae26083f39b17a6') //!тут всередині повина бути id
-  .then(renderModalCard)
-  .catch(error => console.log(error));
+// fetchParams('64f389465ae26083f39b17a6') //!тут всередині повина бути id
+//   .then(renderModalCard)
+//   .catch(error => console.log(error));
 
 function fetchParams(id) {
+  backdrop.classList.remove('is-hidden');
   return fetch(`https://your-energy.b.goit.study/api/exercises/${id}`).then(
-    response => response.json()
-  );
+    response => response.json());
 }
 // *==================================================*//
 // * функція закриття вікна *//
 function closeModal(event) {
+
   if (event.code === 'Escape') {
     onCloseModal();
   }
@@ -39,8 +40,8 @@ function onCloseModalBackdrop(event) {
 function onCloseModal() {
   console.log('hi');
   backdrop.classList.add('is-hidden');
-  window.removeEventListener('keydown', closeModal);
-  backdrop.removeEventListener('click', onCloseModalBackdrop);
+  // window.removeEventListener('keydown', closeModal);
+  // backdrop.removeEventListener('click', onCloseModalBackdrop);
 }
 // *==================================================*//
 // *  функції що додають дані в локал сторедж *//
