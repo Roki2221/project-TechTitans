@@ -246,12 +246,24 @@
     }
 }
 
+@media only screen and (min-width: 1440px) {
+    .exercise-card-item {
+        height: 242px;
+    }
+}
+
 .exercise-card-img {
     object-fit: cover;
     width: 100%;
     display: block;
     border-radius: 12px;
     height: 225px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .exercise-card-img {
+        height: 242px;
+    }
 }
 
 

@@ -73,8 +73,8 @@ function createMarkupCards(arr) {
           <div class="badge">
             <div class="badge-text">WORKOUT</div>
           </div>
-          <div class="rating">
-            <p class="rating-text">${rating}</p>
+          <div class="exercise-card-rating">
+            <p class="rating-text">${rating.toFixed(1)}</p>
             <svg class="icon-star" width="18" height="18">
               <use href="./public/icon.svg#icon-star"></use>
             </svg>
