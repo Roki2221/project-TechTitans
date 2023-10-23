@@ -35,15 +35,16 @@ async function quoteOfTheDay() {
 // =======================================================================================
 
 // ============================ПРИКЛАД ЗАПИСУ В LS========================================
-        //     const cardLS = [{
-        //         exName: "pinanie",
-        //         calories: 188,
-        //         part: "hand",
-        //         target: "stronger"
+        //     const cardLS = [
+        //       {
+        //         name: `${data.name}`,
+        //         burnedCalories: `${data.burnedCalories}`,
+        //         bodyPart: `${data.bodyPart}`,
+        //         target: `${data.target}`
         //     },
-        //     {exName: "spat",
-        //         calories: 788,
-        //         part: "head",
+        //     {name: "spat",
+        //         burnedCalories: 788,
+        //         bodyPart: "head",
         //         target: "vizhit"}
         // ]
 // const cardLS = {
@@ -58,7 +59,7 @@ async function quoteOfTheDay() {
 //   burnedCalories: `${data.burnedCalories}`,
 //   description: `${data.description}`
 //         }
-        //     localStorage.setItem("exerciseCard", JSON.stringify(cardLS));
+            // localStorage.setItem("exerciseCard", JSON.stringify(cardLS));
 // =========================================================================================
 
 // ===============================СТВОРЕННЯ РОЗМІТКИ========================================
@@ -78,7 +79,7 @@ async function quoteOfTheDay() {
         parsed.forEach((item) => {
           //! const { exName, calories, part, target } = item;
           const { id, name, target, bodyPart, burnedCalories } = item;
-            //   console.log(exName, calories, part, target);
+              console.log(name, burnedCalories, bodyPart, target);
               const favCatd = document.createElement('li');
           favCatd.className = 'exercises-item';
           favCatd.setAttribute ('data-id',`${id}`);
