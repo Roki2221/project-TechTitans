@@ -35,9 +35,7 @@ async function handleClickCard(event) {
     const data = await fetchCards(filterValue, queryValue);
 
     refs.search.style.display = 'block';
-    refs.title.textContent = "Exercises /";
-    refs.titleSpan.textContent = `${data.results.bodyPart}`;
-    console.log(data.results)
+    refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
 
     refs.cardList.innerHTML = createMarkupCards(data.results);
 

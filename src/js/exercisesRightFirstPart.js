@@ -4,6 +4,7 @@ const refs = {
   cardList: document.querySelector('.exercise-card-list'),
   buttonList: document.querySelectorAll('.exercise-section-button'),
   inputContainer: document.querySelector('.exercise-input-container'),
+  title: document.querySelector('.exercise-section-title'),
 };
 let exerciseMarkup = '';
 let exerciseCardFilterText = 'Body parts';
@@ -15,6 +16,7 @@ refs.buttonList.forEach(button => {
   button.addEventListener('click', handleClick);
 });
 function handleClick(event) {
+  refs.title.innerHTML = `Exercises<span class="exercise-section-title-span"></span>`;
   refs.cardList.innerHTML = '';
   refs.inputContainer.style.display = 'none';
   const activeButton = document.querySelector('.js-active-filter-button');

@@ -10,6 +10,13 @@
   flex-wrap: wrap;
   gap: 32px;
 }
+
+@media screen and (min-width: 768px) {
+  .exercises-cards {
+    gap: 32px 16px;
+  }
+}
+
 .exercise-card {
   border-radius: 15px;
   display: flex;
@@ -18,6 +25,12 @@
   background: #ffffff;
   padding: 16px;
   position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-card {
+    width: calc((100% - 15px)/2);
+  }
 }
 
 .first-part {
@@ -72,6 +85,15 @@
   top: 16px;
   right: 16px;
 }
+
+@media screen and (min-width: 768px) {
+  .start-btn {
+    width: 58px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
 .start-btn-icon {
   transform: rotate(90deg);
 }
@@ -84,11 +106,17 @@
   align-items: center;
   margin-top: 27px;
 }
+
+.run-man-icon {
+  min-width: 24px;
+}
+
 .exercise-name {
   font-size: 20px;
   font-style: normal;
   line-height: 1;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
   text-transform: capitalize;
 }
@@ -118,18 +146,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .exercises-cards {
-    gap: 32px 16px;
-  }
-  .exercise-card {
-    width: calc((100% - 15px)/2);
-  }
-  .start-btn {
-    width: 58px;
-    height: 24px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
   .exercise-name {
     font-size: 24px;
     line-height: 1.33;
