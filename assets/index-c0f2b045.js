@@ -50,19 +50,19 @@ import{a as G}from"./exercisesRightFirstPart-c5fc599b.js";const tt="exerciseCard
           <div class="rating">
             <p class="rating-text">${e}</p>
             <svg class="icon-star" width="18" height="18">
-              <use href="/public/icon.svg#icon-star"></use>
+              <use href="./public/icon.svg#icon-star"></use>
             </svg>
           </div>
           <button class="start-btn" data-id="${u}" type="submit">
             Start
             <svg class="start-btn-icon" width="16" height="16">
-              <use href="/public/icon.svg#icon-arrow"></use>
+              <use href="./public/icon.svg#icon-arrow"></use>
             </svg>
           </button>
         </div>
         <div class="second-part">
           <svg class="run-man-icon" width="24" height="24">
-            <use href="/public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+            <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
           </svg>
           <p class="exercise-name">${c}</p>
         </div>
