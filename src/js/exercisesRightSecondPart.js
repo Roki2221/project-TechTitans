@@ -7,16 +7,23 @@ const refs = {
   cardList: document.querySelector('.exercise-card-list'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
   startBtn: document.querySelector('.start-btn'),
+  inputQuery: document.querySelector('.exercise-section-input'),
 };
 
 let idValue;
+let limit = 10;
+if (window.innerWidth < 768) {
+  limit = 8;
+}
+
 refs.cardList.addEventListener('click', handleClickCard);
+refs.search.addEventListener('click', searchExercises);
+// console.log(refs.search);
 
 async function handleClickCard(event) {
   if (!event.target.classList.contains('exercise-card-item')) {
     return;
   }
-
   const currentCard = event.target;
   const queryValue = currentCard.dataset.query;
   const filterValue = currentCard.dataset.filter;
@@ -42,14 +49,46 @@ async function handleClickCard(event) {
   }
 }
 
+async function searchExercises(e) {
+  e.preventDefault();
+
+  try {
+    const keyword = e.currentTarget.elements.filter.value;
+    const data = await fetchSearch(keyword);
+    console.log(data.results);
+    if (data.results.length === 0) {
+      throw new Error();
+    }
+    refs.cardList.innerHTML = createMarkupCards(data.results);
+  } catch (error) {
+    console.log('Nothing was found for your request');
+  }
+}
+
 async function fetchCards(part, category) {
   try {
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=10`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limit}`
     );
     return response.data;
   } catch (error) {
     throw error;
+  }
+}
+
+async function fetchSearch(inputWord) {
+  try {
+    // if (inputWord === '') {
+    //   console.log(inputWord);
+    //   throw new Error();
+    //   console.log(inputWord);
+    // }
+    const response = await axios.get(
+      `https://your-energy.b.goit.study/api/exercises?bodypart=back&keyword=${inputWord}&page=1&limit=${limit}`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
 }
 
