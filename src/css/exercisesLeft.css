@@ -55,8 +55,8 @@
 } */
 
 .daily_norm_up {
-  max-width: 400px;
-  max-height: 249px;
+  width: 400px;
+  height: 249px;
   padding: 20px;
   border-radius: 20px;
   background: #fff;
@@ -91,8 +91,8 @@
   line-height: 1.28;
 }
 .sports_women_up {
-  width: 288px;
-  height: 258px;
+  width: 335px;
+  height: 242px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -138,10 +138,16 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .wrapper {
+  /* .wrapper_up {
     display: flex;
     column-gap: 20px;
     flex-direction: column;
+  } */
+  .wrapper_left {
+    display: grid;
+    column-gap: 16px;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
   }
   .exercise-container {
     display: flex;
@@ -215,16 +221,49 @@
 /* Desktop */
 
 @media screen and (min-width: 1440px) {
-  .wrapper {
-    grid-area: content;
+  .wrapper_up {
+    display: grid;
+    grid-template-columns: 1fr;
     align-self: start;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'quote'
+      'picture'
+      'minute'
+      'daily';
   }
+  .wrapper_left{
+    grid-area: unset;
+    align-self: start;
+    display: grid;
+    column-gap: 16px;
+    justify-content: center;
+  }
+  .exercise-container {
+    display: flex;
+    flex-direction: column-reverse;
+    display: grid;
+    grid-template-columns: 444px 230px;
+    grid-template-areas:
+      'top top'
+      'left right';
+    column-gap: 32px;
+  }
+  .quote_up {
+    width: 444px;
+    
+  }
+   .daily_norm_up{
+    width: 444px;
+    height: 315px;
+   }
   h2 {
     grid-area: title;
     margin-bottom: 44px;
   }
   .sports_women_up {
-    width: 239px;
+    width: 444px;
+    height: 242px;
   }
   .default_text {
     padding-top: 102px;
@@ -232,10 +271,23 @@
   .timework {
     font-size: 24px;
     width: 314px;
-    height: 163px;
+    /* height: 163px; */
   }
   .text110min {
     width: 314px;
     height: 163px;
+  }
+  .text110min {
+    overflow: hidden;
+    color: #242424;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+    width: 314px;
+    flex-shrink: 0;
   }
 }
