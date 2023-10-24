@@ -1,5 +1,5 @@
 .hero {
-  padding: 80px 0;
+  padding: 80px 0 0;
 }
 
 .hero-sun {
@@ -67,10 +67,10 @@
   display: none;
   /* position: absolute; */
   position: fixed;
-  /* position: relative; */
-  right: 220px;
+  bottom: 0px;
+  right: 20px;
   top: 50%;
-  z-index: 9999;
+  z-index: 999;
   cursor: pointer;
   background-color: #f4f4f4;
   border-radius: 50%;
@@ -78,6 +78,7 @@
   height: 40px;
   border: none;
   margin: 0 auto;
+  transition: opacity 0.3s ease-in-out;
   /* justify-content: center;
   align-items: center; */
   padding: 0;
@@ -86,10 +87,6 @@
 .btn-show {
   display: block;
 }
-
-/* .scroll-up {
-  fill: #242424;
-} */
 
 /* -----------MEDIA----------*/
 
@@ -101,7 +98,7 @@
   }
 
   .hero {
-    padding: 100px 0;
+    padding: 100px 0 0;
   }
 
   .hero-sun {
@@ -141,7 +138,7 @@
   }
 
   .hero {
-    padding: 96px 0;
+    padding: 96px 0 0;
   }
 
   .box-hero {
@@ -159,11 +156,13 @@
   .hero-img {
     width: 1376px;
   }
-
   .img-yoga {
     display: flex;
     width: 168px;
     padding-bottom: 30px;
+  }
+
+  .yoga {
     border-radius: 20px;
   }
 
