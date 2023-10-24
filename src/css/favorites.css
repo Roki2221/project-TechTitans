@@ -130,6 +130,9 @@
   border: none;
   background-color: inherit;
 }
+.start_btn > svg {
+  rotate: 90deg;
+}
 .name-exercise-conteiner {
   display: flex;
   align-items: center;
@@ -142,7 +145,7 @@
   line-height: 1;
 }
 .run-man-icon {
-  /* background-color: #242424; */
+  background-color: #242424;
   border-radius: 50%;
 }
 .discription {
@@ -176,7 +179,7 @@
     justify-content: center;
     grid-template-columns: 1fr 1fr;
   }
-  h2 {
+  .section-title {
     font-size: 44px;
     line-height: 1.09; /* 109.091% */
     letter-spacing: -0.88px;
@@ -249,7 +252,7 @@
   .favorite_exercises {
     grid-area: exercise;
   }
-  h2 {
+  .section-title {
     grid-area: title;
     margin-bottom: 44px;
   }
