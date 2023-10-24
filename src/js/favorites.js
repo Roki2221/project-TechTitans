@@ -95,14 +95,10 @@ async function quoteOfTheDay() {
         if (indexToDelete !== -1) {
         items.splice(indexToDelete, 1);
       }  localStorage.setItem('exerciseCard', JSON.stringify(items));
-      // if (items.length === 0) {
-      //   refs.defaultText.style.display = "block";
-      // };
 
         if (document.querySelectorAll(".exercises-item").length === 0) {
         refs.defaultText.style.display = "block";}
       }
-
         })
         });
         function findIndexToDelete(items, cardRemove) {
