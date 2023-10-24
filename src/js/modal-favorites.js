@@ -1,14 +1,14 @@
-
+import {createMurkup} from './favorites';
 const btnClose = document.querySelector('.button-close');
-const btnAddFavorites = document.querySelector('.btn-remove-favorites');
+const btnRemoveFavorites = document.querySelector('.btn-delete-favorites');
 const btnRating = document.querySelector('.btn-rating');
 const modalWindow = document.querySelector('.modal-card-container-f');
 const backdrop = document.querySelector('.backdrop');
+const cardModal = document.querySelector('.modal-window');
 let card1;
- // const heart = document.querySelector('.like-icon');
+// const heart = document.querySelector('.like-icon');
 
-btnClose.addEventListener('click',onCloseModal);
-// btnAddFavorites.addEventListener('click', deleteFromFavorites);
+btnClose.addEventListener('click', onCloseModal);
 window.addEventListener('keydown', closeModal);
 backdrop.addEventListener('click', onCloseModalBackdrop);
 
@@ -33,14 +33,16 @@ function onCloseModal() {
 // *==================================================*//
 
 
+
 function onClickStart(dataIdF) {
-   
+
     backdrop.classList.remove('is-hidden');
     console.log(' привіт це імпорт');
     renderModalCardFavorite(dataIdF);//!!! працює дуже дивно
-     modalWindow.innerHTML = card1;
-      createRating();
-    
+    modalWindow.innerHTML = card1;
+    createRating();
+
+
 
 }
 
@@ -58,10 +60,10 @@ function renderModalCardFavorite(dataIdF) {
     else {
         return parsed1.forEach((itemForModal) => {
             // console.log(dataIdF);
-           
+
             const { id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description } = itemForModal;
             // console.log(id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description);
-          // let ratingStar = rating.toFixed(1);
+            // let ratingStar = rating.toFixed(1);
             //   console.log(rating); 
 
             if (id != dataIdF) {
@@ -69,6 +71,7 @@ function renderModalCardFavorite(dataIdF) {
                 return;
             }
             else {
+                cardModal.setAttribute('data-id', `${id}`);
                 return card1 = (`      
     
             <div class="info-card">
@@ -114,7 +117,7 @@ function renderModalCardFavorite(dataIdF) {
             </div>
     `)
             }
-            
+
         })
     }
 
@@ -152,4 +155,45 @@ function createRating() {
     }
 }
 // *===================
-export default { onClickStart };
+// * функція видалення вправи з локал сторедж *//
+btnRemoveFavorites.addEventListener('click', onClickBtnRemoveFavorites);
+
+function onClickBtnRemoveFavorites(evt) {
+    const saved2 = localStorage.getItem("exerciseCard");
+    let parsed2 = JSON.parse(saved2);
+    console.log(parsed2);
+
+    const idCardModalF = evt.target.closest('.modal-window').dataset.id;
+    console.log(idCardModalF);
+    let i = 0;
+    parsed2.forEach((item,i) => {
+       console.log(i);
+       
+        // const hasId = parsed2.includes(id.idCardModalF);
+        //  console.log(hasId);
+        if (item.id != idCardModalF) {
+            console.log('немає співпадіння');
+            return;
+        }
+        else {
+            if (parsed2.length === 1) {
+                parsed2 = [];
+            } else {
+                parsed2.splice(i, 1);
+                console.log('є співпадіння');
+
+                console.log(parsed2);
+            }
+            localStorage.setItem("exerciseCard", JSON.stringify(parsed2));
+            onCloseModal();
+            
+        }
+        i = +1;
+    })
+    
+    // ?createMurkup(); не знаю як вірно прибрати карточки, обновити
+    // reWrite.createMurkup;
+}
+
+        // *==================================================*//
+        export default { onClickStart };

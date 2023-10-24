@@ -13,10 +13,12 @@ if (!infoData) {
 // ========   =========//
 const btnClose = document.querySelector('.button-close');
 const btnAddFavorites = document.querySelector('.btn-add-favorites');
+const btnRemoveFavorites = document.querySelector('.btn-delete-favorites');
 const btnRating = document.querySelector('.btn-rating');
 const modalWindow = document.querySelector('.modal-card-container');
 const backdrop = document.querySelector('.backdrop');
 const heart = document.querySelector('.like-icon');
+const cardModalE = document.querySelector('.modal-window');
 
 btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
@@ -49,16 +51,20 @@ function onCloseModalBackdrop(event) {
 function onCloseModal() {
   console.log('hi');
   backdrop.classList.add('is-hidden');
-  heart.classList.remove('add-red');
+  // heart.classList.remove('add-red');
   // window.removeEventListener('keydown', closeModal);
   // backdrop.removeEventListener('click', onCloseModalBackdrop);
 }
 // *==================================================*//
 // *  функції що додають дані в локал сторедж *//
 function addToFavorites(e) {
+  btnAddFavorites.removeEventListener('click', addToFavorites);
+  btnAddFavorites.style.display = 'none';
+  btnRemoveFavorites.classList.remove('is-hidden');
+  btnRemoveFavorites.addEventListener('click', onClickBtnRemoveFavorites);
   e.preventDefault();
   console.log('by');
-  heart.classList.add('add-red');
+  // heart.classList.add('add-red');
   writeFormToLS();
 }
 function writeFormToLS(event) {
@@ -123,6 +129,7 @@ function renderModalCard(data) {
 function createMarkupModal(data) {
   let ratingStar = data.rating.toFixed(1);
   // console.log(data._id);
+  cardModalE.setAttribute('data-id', `${data._id}`);
   return `      
     
             <div class="info-card">
@@ -197,6 +204,47 @@ function createRating() {
   }
 }
 // *==================================================*//
+// * функція видалення вправи з локал сторедж *//
+
+function onClickBtnRemoveFavorites(evt) {
+  btnAddFavorites.style.display = '';
+  btnRemoveFavorites.style.display = 'none';
+  btnRemoveFavorites.removeEventListener('click', onClickBtnRemoveFavorites);
+  const saved2 = localStorage.getItem("exerciseCard");
+  let parsed2 = JSON.parse(saved2);
+  console.log(parsed2);
+
+  const idCardModalF = evt.target.closest('.modal-window').dataset.id;
+  console.log(idCardModalF);
+  let i = 0;
+  parsed2.forEach((item, i) => {
+    console.log(i);
+
+    // const hasId = parsed2.includes(id.idCardModalF);
+    //  console.log(hasId);
+    if (item.id != idCardModalF) {
+      console.log('немає співпадіння');
+      return;
+    }
+    else {
+      if (parsed2.length === 1) {
+        parsed2 = [];
+      } else {
+        parsed2.splice(i, 1);
+        console.log('є співпадіння');
+
+        console.log(parsed2);
+      }
+      localStorage.setItem("exerciseCard", JSON.stringify(parsed2));
+    }
+    i = +1;
+  })
+  // onCloseModal();
+  
+  //reWrite.createMurkup;
+}
+
+        // *==================================================*//
 
 export {
   onCloseModal,
