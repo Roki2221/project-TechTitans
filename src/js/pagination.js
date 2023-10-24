@@ -1,27 +1,46 @@
 import Pagination from 'tui-pagination';
 
-const paginationContainer = document.getElementById('tui-pagination-container');
-const exerciseList = document.querySelector('.exercise-card-list');
+import { getExerciseCardsData } from './exercisesRightFirstPart';
+import { markupExerciseCards } from './exercisesRightFirstPart';
 
-const itemsPerPage = 5;
-const totalItems = 15;
-const totalPages = 3;
+const paginationContainer = document.getElementById('tui-pagination-container');
+
+
+let itemsPerPage = 12;
+if (window.innerWidth < 768) {
+  itemsPerPage = 9;
+}
+let totalItems = 146;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+
 const pagination = new Pagination(paginationContainer, {
   totalItems: totalItems,
   itemsPerPage: itemsPerPage,
-  visiblePages: totalPages,
+  visiblePages: 3,
+  firstItemClassName: 'first-child',
+  lastItemClassName: 'last-child',
 });
 
-pagination.on('beforeMove', function (event) {
+
+pagination.on('afterMove', (event) => {
   const currentPage = event.page;
-  displayExercisePage(currentPage);
+  const selectedSection = document.querySelector('.js-active-filter-button').dataset.filter;
+  getExerciseCardsData(selectedSection, currentPage, itemsPerPage)
+    .then(() => {
+      markupExerciseCards(selectedSection);
+    });
 });
 
-function displayExercisePage(page) {
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-}
 
-pagination.reset(totalItems);
+const sectionButtons = document.querySelectorAll('.exercise-section-button');
+const activeClass = 'js-active-filter-button';
 
-displayExercisePage(1);
+sectionButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    sectionButtons.forEach((btn) => btn.classList.remove(activeClass));
+    button.classList.add(activeClass);
+    const selectedSection = button.dataset.filter;
+    getExerciseCardsData(selectedSection, 1, itemsPerPage);
+  });
+});
