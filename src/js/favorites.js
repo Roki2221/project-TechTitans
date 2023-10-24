@@ -54,11 +54,12 @@ async function quoteOfTheDay() {
           
           favCatd.innerHTML =
             ` <div class="exercise-navigation">
-              <button class="workout-btn">WORKOUT</button>
-              <button type="button" class="trash_btn"><svg width="16px" height="16px">
-                  <use href="./public/icon.svg#icon-trash"></use>
-                </svg></button>
-              <button class="start_btn" type="submit">Start <svg width="16px" height="16px">
+                <button class="workout-btn">WORKOUT</button>
+                <button type="button" class="trash_btn">
+                  <svg width="16px" height="16px">
+                    <use href="./public/icon.svg#icon-trash"></use>
+                  </svg></button>
+                <button class="start_btn" type="submit">Start <svg width="16px" height="16px">
           <use href="./public/icon.svg#icon-arrow"></use>
         </svg></button>
             </div>
@@ -81,17 +82,17 @@ async function quoteOfTheDay() {
       }
 // ===============================ВИДАЛЕННЯ З LS=============================   
         const trashBtn = document.querySelectorAll(".trash_btn");  
-         trashBtn.forEach((btn) =>
+         trashBtn.forEach((btn) => 
     {
-        btn.addEventListener("click", (evt) => {
-        const cardRemove = evt.target.closest("li");
+        btn.addEventListener("click", (evt) => {  
+        const cardRemove = evt.target.closest("li"); // записуємо елемент на який відбуваєтся клік
         evt.preventDefault();
   
     if (cardRemove) {
-        cardRemove.remove();
+        cardRemove.remove(); // видаляємо елемент на якому відбулася дія
 
-        const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; 
-        const indexToDelete = findIndexToDelete(items, cardRemove);
+        const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; // отримуємо дані з LS
+        const indexToDelete = findIndexToDelete(items, cardRemove); // якщо функція findIndexToDelete задовільняє вимоги тоді спрацьовує cardRemove.remove()
         if (indexToDelete !== -1) {
         items.splice(indexToDelete, 1);
       }  localStorage.setItem('exerciseCard', JSON.stringify(items));
@@ -101,12 +102,12 @@ async function quoteOfTheDay() {
       }
         })
         });
-        function findIndexToDelete(items, cardRemove) {
-        const indexToDelete = items.findIndex(item => {
-        return item.exName === cardRemove.querySelector('.card-exercise-title').textContent;
-        });
-}
-
+        function findIndexToDelete(items, cardRemove) { //отримуємо items(масив обєктів з LS)
+            const indexToDelete = items.findIndex(itm => { 
+            return itm.id === cardRemove.getAttribute('data-id'); //отримуємо індекс елементу якщо індекси співпадають 
+          })
+            return indexToDelete; 
+        }
 // =====================================ВИКЛИК МОДАЛКИ========================================
 
 const startBtn = document.querySelectorAll(".start_btn");
