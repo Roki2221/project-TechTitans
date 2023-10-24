@@ -8,7 +8,7 @@ authorTitle: document.querySelector(".author_name"),
 favoriteEx: document.querySelector(".favorite_exercises"),
 defaultText: document.querySelector(".default_text"),
 }
-
+let favCatd;
 // ============================ОТРИМАННЯ ЦИТАТИ ДНЯ=====================================
 quoteOfTheDay()
 async function quoteOfTheDay() {
@@ -83,7 +83,7 @@ async function quoteOfTheDay() {
               console.log(name, burnedCalories, bodyPart, target);
 
 
-              const favCatd = document.createElement('li');
+              favCatd = document.createElement('li');
           favCatd.className = 'exercises-item';
           favCatd.setAttribute ('data-id',`${id}`);
         //     favCatd.innerHTML = 
@@ -187,8 +187,9 @@ startBtn.forEach((btn) => {
   btn.addEventListener("click",(evt) => {
     evt.preventDefault();
     console.log("модалка відкрийся!");
-    clickOnBtnStart.onClickStart();
-  
+    const dataId = evt.target.closest('.exercises-item').dataset.id;
+    console.log(dataId);
+    clickOnBtnStart.onClickStart(dataId);
   })
 });
 

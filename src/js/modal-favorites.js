@@ -33,10 +33,11 @@ function onCloseModal() {
 // *==================================================*//
 
 
-function onClickStart() {
+function onClickStart(dataIdF) {
+   
     backdrop.classList.remove('is-hidden');
     console.log(' привіт це імпорт');
-    renderModalCardFavorite();//!!! працює дуже дивно
+    renderModalCardFavorite(dataIdF);//!!! працює дуже дивно
      modalWindow.innerHTML = card1;
       createRating();
     
@@ -46,21 +47,29 @@ function onClickStart() {
 
 // *==================================================*//
 //*=== функція що рендерить картку====*/
-function renderModalCardFavorite() {
+function renderModalCardFavorite(dataIdF) {
     const saved1 = localStorage.getItem("exerciseCard");
     const parsed1 = JSON.parse(saved1);
     // console.log(parsed1);
 
-    if (!parsed1) {
+    if (!parsed1.length) {
         return console.error("No data found in local storage");
     }
     else {
-      return  parsed1.forEach((itemForModal) => {
+        return parsed1.forEach((itemForModal) => {
+            // console.log(dataIdF);
+           
             const { id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description } = itemForModal;
             // console.log(id, gifUrl, name, rating, target, bodyPart, equipment, popularity, burnedCalories, description);
           // let ratingStar = rating.toFixed(1);
-        //   console.log(rating);
-       return   card1 = (`      
+            //   console.log(rating); 
+
+            if (id != dataIdF) {
+                console.log('немає співпадіння');
+                return;
+            }
+            else {
+                return card1 = (`      
     
             <div class="info-card">
                 <img src="${gifUrl}" alt="${name}" class="main-modal-img">
@@ -104,7 +113,7 @@ function renderModalCardFavorite() {
                     </div>
             </div>
     `)
-
+            }
             
         })
     }
