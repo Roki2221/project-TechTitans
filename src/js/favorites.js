@@ -64,9 +64,10 @@ async function quoteOfTheDay() {
 // =========================================================================================
 
 // ===============================СТВОРЕННЯ РОЗМІТКИ========================================
-        createMurkup();
+       createMurkup();
         
-        function createMurkup() {
+ function createMurkup() {
+         console.log( 'ми перемальовуємо розмітку');
           const saved = localStorage.getItem("exerciseCard");
             const parsed = JSON.parse(saved);
             console.log(parsed.length);
@@ -139,7 +140,7 @@ async function quoteOfTheDay() {
         })}      
       }
 // ===============================ВИДАЛЕННЯ З LS=============================   
-        const trashBtn = document.querySelectorAll(".trash_btn");  //! щось у вас не вірно видаляє картку, коли обновляєш сторінку картка повертається
+        const trashBtn = document.querySelectorAll(".trash_btn");
         
         trashBtn.forEach((btn) =>
         {btn.addEventListener("click", (evt) => {
@@ -193,3 +194,4 @@ startBtn.forEach((btn) => {
   })
 });
 
+export { createMurkup };
