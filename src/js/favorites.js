@@ -48,7 +48,6 @@ async function quoteOfTheDay() {
               refs.defaultText.style.display = "none";
               const card = document.querySelector(".exercises-list");
         parsed.forEach((item) => {
-          //! const { exName, calories, part, target } = item;
           const { id, name, target, bodyPart, burnedCalories } = item;
               favCatd = document.createElement('li');
           favCatd.className = 'exercises-item';
@@ -70,7 +69,7 @@ async function quoteOfTheDay() {
               <h3 class="card-exercise-title">${name}</h3>
             </div>
             <ul class="discription">
-              <li class="discription-title">Burned calories: <p class="discription-title-text">${burnedCalories}/ 3 min</p>
+              <li class="discription-title">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
               </li>
               <li class="discription-title">Body part: <p class="discription-title-text">${bodyPart}</p>
               </li>
