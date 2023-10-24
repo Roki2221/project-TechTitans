@@ -1,41 +1,46 @@
 import Pagination from 'tui-pagination';
 
+import { getExerciseCardsData } from './exercisesRightFirstPart';
+import { markupExerciseCards } from './exercisesRightFirstPart';
 
 const paginationContainer = document.getElementById('tui-pagination-container');
-const exerciseList = document.querySelector('.exercise-card-list');
 
-const itemsPerPage = 5;
-const totalItems = 15;
-const totalPages = 3;
+
+let itemsPerPage = 12;
+if (window.innerWidth < 768) {
+  itemsPerPage = 9;
+}
+let totalItems = 146;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
+
 
 const pagination = new Pagination(paginationContainer, {
-  firstItemClassName: 'first-child',
-  lastItemClassName: 'last-child',
   totalItems: totalItems,
   itemsPerPage: itemsPerPage,
-  visiblePages: totalPages,
+  visiblePages: 3,
+  firstItemClassName: 'first-child',
+  lastItemClassName: 'last-child',
 });
+
+
+pagination.on('afterMove', (event) => {
+  const currentPage = event.page;
+  const selectedSection = document.querySelector('.js-active-filter-button').dataset.filter;
+  getExerciseCardsData(selectedSection, currentPage, itemsPerPage)
+    .then(() => {
+      markupExerciseCards(selectedSection);
+    });
+});
+
 
 const sectionButtons = document.querySelectorAll('.exercise-section-button');
 const activeClass = 'js-active-filter-button';
 
 sectionButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    // Удаляем класс активной кнопки у всех кнопок
     sectionButtons.forEach((btn) => btn.classList.remove(activeClass));
-    // Добавляем класс активной кнопке, которую нажали
     button.classList.add(activeClass);
-
-    // Здесь можно выполнить действия, связанные с выбранным разделом
     const selectedSection = button.dataset.filter;
-
-    // Пример: показать или скрыть контент, связанный с разделами
-    if (selectedSection === 'Body%20parts') {
-      // Показать контент для раздела "Body parts"
-    } else if (selectedSection === 'Muscles') {
-      // Показать контент для раздела "Muscles"
-    } else if (selectedSection === 'Equipment') {
-      // Показать контент для раздела "Equipment"
-    }
+    getExerciseCardsData(selectedSection, 1, itemsPerPage);
   });
 });

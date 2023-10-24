@@ -6,48 +6,16 @@
 }
 
 strong.tui-page-btn {
-    color: #D4D4D4;
     width: 30px;
     height: 30px;
-    margin: 0 4px;
-    border: none;
+    margin: 0 12;
+    border: 2px solid #ddd;
     border-radius: 50%;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
-    transition: color 0.3s, border 0.3s;
- 
-}
+    transition: background-color 0.2s, color 0.2s;
 
-strong.tui-page-btn:hover,
-strong.tui-page-btn:focus {
-border: 1px solid #242424;
-color: #242424;
-}
-strong.tui-page-btn.active {
-border: 1px solid #242424;
-color: #242424;
-
-}
-
-a.tui-page-btn:nth-child(4),
-a.tui-page-btn:nth-child(5) {
-    color: rgba(36, 36, 36, 0.8);
-}
-
-a.tui-page-btn:nth-child(4),
-a.tui-page-btn:nth-child(5) {
-    color: #D4D4D4;
-    transition: color 0.3s;
-    /* Добавляем анимацию перехода цвета текста */
-}
-
-a.tui-page-btn:nth-child(4):hover,
-a.tui-page-btn:nth-child(4):focus,
-a.tui-page-btn:nth-child(5):hover,
-a.tui-page-btn:nth-child(5):focus {
-    color: rgba(244, 244, 244, 0.8);
-    /* Новый цвет текста при наведении и фокусе */
 }
 
 .tui-pagination {

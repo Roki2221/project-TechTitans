@@ -28,7 +28,7 @@ function handleClick(event) {
   const query = currentButton.dataset.filter;
   markupExerciseCards(query);
 }
-async function getExerciseCardsData(query, limit) {
+export async function getExerciseCardsData(query, limit) {
   try {
     const endpoint = `https://your-energy.b.goit.study/api/filters?filter=${query}&page=1&limit=${limit}`;
     const res = await axios.get(endpoint);
@@ -39,7 +39,7 @@ async function getExerciseCardsData(query, limit) {
     document.querySelector('.exercise-error').style.display = 'block';
   }
 }
-async function markupExerciseCards(query) {
+export async function markupExerciseCards(query) {
   exerciseCardFilterText = query.split('%20').join(' ');
   exerciseMarkup = '';
   const { results: cards } = await getExerciseCardsData(query, limit);
