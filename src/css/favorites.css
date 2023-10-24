@@ -130,6 +130,9 @@
   border: none;
   background-color: inherit;
 }
+.start_btn > svg {
+  rotate: 90deg;
+}
 .name-exercise-conteiner {
   display: flex;
   align-items: center;
@@ -142,7 +145,7 @@
   line-height: 1;
 }
 .run-man-icon {
-  /* background-color: #242424; */
+  background-color: #242424;
   border-radius: 50%;
 }
 .discription {
