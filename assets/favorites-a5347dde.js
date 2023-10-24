@@ -1,4 +1,4 @@
-import"./exercisesRightFirstPart-6db6c9e6.js";const S=document.querySelector(".button-close"),_=document.querySelector(".btn-delete-favorites");document.querySelector(".btn-rating");const q=document.querySelector(".modal-card-container-f"),u=document.querySelector(".backdrop"),T=document.querySelector(".modal-window");let p;S.addEventListener("click",g);window.addEventListener("keydown",m);u.addEventListener("click",f);function m(e){e.code==="Escape"&&g()}function f(e){e.target===u&&g()}function g(){console.log("hi"),u.classList.add("is-hidden"),window.removeEventListener("keydown",m),u.removeEventListener("click",f)}function k(e){u.classList.remove("is-hidden"),console.log(" привіт це імпорт"),w(e);q.innerHTML=p,C()}function w(e){const i=localStorage.getItem("exerciseCard"),t=JSON.parse(i);return t.length?t.forEach(n=>{const{id:o,gifUrl:s,name:l,rating:a,target:r,bodyPart:v,equipment:h,popularity:y,burnedCalories:x,description:b}=n;if(o!=e){console.log("немає співпадіння");return}else return T.setAttribute("data-id",`${o}`),p=`      
+import"./exercisesRightFirstPart-c8490b2c.js";const S=document.querySelector(".button-close"),_=document.querySelector(".btn-delete-favorites");document.querySelector(".btn-rating");const q=document.querySelector(".modal-card-container-f"),u=document.querySelector(".backdrop"),T=document.querySelector(".modal-window");let p;S.addEventListener("click",g);window.addEventListener("keydown",m);u.addEventListener("click",f);function m(e){e.code==="Escape"&&g()}function f(e){e.target===u&&g()}function g(){console.log("hi"),u.classList.add("is-hidden"),window.removeEventListener("keydown",m),u.removeEventListener("click",f)}function k(e){u.classList.remove("is-hidden"),console.log(" привіт це імпорт"),w(e);q.innerHTML=p,C()}function w(e){const i=localStorage.getItem("exerciseCard"),t=JSON.parse(i);return t.length?t.forEach(n=>{const{id:o,gifUrl:s,name:l,rating:a,target:r,bodyPart:v,equipment:h,popularity:y,burnedCalories:x,description:b}=n;if(o!=e){console.log("немає співпадіння");return}else return T.setAttribute("data-id",`${o}`),p=`      
     
             <div class="info-card">
                 <img src="${s}" alt="${l}" class="main-modal-img">
@@ -57,7 +57,7 @@ import"./exercisesRightFirstPart-6db6c9e6.js";const S=document.querySelector(".b
               <h3 class="card-exercise-title">${s}</h3>
             </div>
             <ul class="discription">
-              <li class="discription-title">Burned calories: <p class="discription-title-text">${r}/ 3 min</p>
+              <li class="discription-title">Burned calories: <p class="discription-title-text">${r} / 3 min</p>
               </li>
               <li class="discription-title">Body part: <p class="discription-title-text">${a}</p>
               </li>
