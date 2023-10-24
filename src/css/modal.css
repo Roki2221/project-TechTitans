@@ -234,7 +234,7 @@
     }
 
     .btn-modal {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
 }
 
