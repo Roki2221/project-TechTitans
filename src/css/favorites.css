@@ -130,6 +130,9 @@
   border: none;
   background-color: inherit;
 }
+.start_btn > svg {
+  rotate: 90deg;
+}
 .name-exercise-conteiner {
   display: flex;
   align-items: center;

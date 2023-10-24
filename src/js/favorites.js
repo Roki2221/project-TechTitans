@@ -58,7 +58,7 @@ async function quoteOfTheDay() {
               <button type="button" class="trash_btn"><svg width="16px" height="16px">
                   <use href="./public/icon.svg#icon-trash"></use>
                 </svg></button>
-              <button class="start_btn" type="submit">Start <svg width="16px" height="16px ">
+              <button class="start_btn" type="submit">Start <svg width="16px" height="16px">
           <use href="./public/icon.svg#icon-arrow"></use>
         </svg></button>
             </div>
