@@ -27,7 +27,7 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    background-color: #242424;
+    background-color:var(--main-dark);
     max-width: 335px;
     /* height: 754px; */
 
@@ -52,10 +52,10 @@
     position: absolute;
     top: 14px;
     right: 14px;
-    fill: #F4F4F4;
+    fill: var(--main-white-text);
     padding-bottom: 2px;
     background-color: rgba(0, 0, 0, 0);
-    stroke: #F4F4F4;
+    stroke: var(--main-white-text);
     border: none;
     display: flex;
     justify-content: flex-end;
@@ -72,7 +72,7 @@
 
 
 .modal-header {
-    color: #F4F4F4;
+    color: var(--main-white-text);
     font-family: 'Neue Montreal';   
     font-weight: 500;
     font-size: 20px;
@@ -119,7 +119,7 @@
 }
 
 .character {
-    color: #F4F4F4;
+    color: var(--main-white-text);
     font-family: 'Neue Montreal';
     font-size: 14px;
     font-style: normal;
@@ -164,16 +164,15 @@
 }
 .btn-delete-favorites:active,
 .btn-delete-favorites:hover{
-    color: #F4F4F4;
-    background-color: #242424;
-    border: 1px solid #F4F4F4;
+    color: var(--main-white-text);
+    background-color: var(--main-dark);
+    border: 1px solid var(--main-white-text);
 
 }
 .btn-delete-favorites:active .icon-trash,
 .btn-delete-favorites:hover .icon-trash {
-    fill: #F4F4F4;
-    stroke: #F4F4F4;
-    color: #F4F4F4;
+    fill: var(--main-white-text);
+
 }
 .btn-add-favorites {
     display: flex;
@@ -184,7 +183,7 @@
     width: 167px;
     height: 42px;
     border-radius: 30px;
-    color: #242424;
+    color: var(--main-dark);
     font-family: 'Neue Montreal';
     font-size: 14px;
     font-style: normal;
@@ -197,14 +196,14 @@
 
 .btn-add-favorites:active,
 .btn-add-favorites:hover {
-    color: #F4F4F4;
-    background-color: #242424;
-    border: 1px solid #F4F4F4;
+    color: var(--main-white-text);
+    background-color: var(--main-dark);
+    border: 1px solid var(--main-white-text);
 }
 .btn-delete-favorites:active .like-icon,
 .btn-add-favorites:hover .like-icon{
-    fill: #242424;
-    stroke: #F4F4F4;
+    fill: var(--main-dark);
+    stroke: var(--main-white-text);
   
 }
 
@@ -212,10 +211,10 @@
     width: 122px;
     height: 42px;
     border-radius: 30px;
-    border: 1px solid #F4F4F4;
+    border: 1px solid var(--main-white-text);
     background-color: rgba(255, 222, 173, 0);
 
-    color: #F4F4F4;
+    color: var(--main-white-text);
     font-family: 'Neue Montreal';
     font-size: 14px;
     font-style: normal;
@@ -226,14 +225,14 @@
 .btn-rating:active,
 .btn-rating:hover {
     color:#242424;
-    background-color: #F4F4F4;
-    border: 1px solid #242424;
+    background-color:var(--main-white-text);
+    border: 1px solid var(--main-dark);
 }
 
 .like-icon {
     background-color: none;
-    fill: #F4F4F4;
-    stroke: #242424;
+    fill:var(--main-white-text);
+    stroke: var(--main-dark);
 }
 
 
@@ -387,7 +386,7 @@
     } */
     .rating__value{
         font-family: 'Neue Montreal';
-        color: #F4F4F4;
+        color: var(--main-white-text);
         font-size: 12px;
         padding: 0 10px 0 0;
     }
