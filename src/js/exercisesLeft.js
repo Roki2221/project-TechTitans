@@ -3,9 +3,7 @@ const quoteURL = "https://your-energy.b.goit.study/api/quote"
 const refs = {
     quote: document.querySelector(".quote_text"),
     authorTitle: document.querySelector(".author_name"),
-    favoriteEx: document.querySelector(".favorite_exercises"),
-    defaultText: document.querySelector(".default_text"),
-}
+    }
 
 // ============================ОТРИМАННЯ ЦИТАТИ ДНЯ=====================================
 quoteOfTheDay()
