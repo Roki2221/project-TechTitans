@@ -169,6 +169,7 @@
     border: 1px solid #F4F4F4;
 
 }
+.btn-delete-favorites:active .icon-trash,
 .btn-delete-favorites:hover .icon-trash {
     fill: #F4F4F4;
     stroke: #F4F4F4;
@@ -200,6 +201,7 @@
     background-color: #242424;
     border: 1px solid #F4F4F4;
 }
+.btn-delete-favorites:active .like-icon,
 .btn-add-favorites:hover .like-icon{
     fill: #242424;
     stroke: #F4F4F4;
