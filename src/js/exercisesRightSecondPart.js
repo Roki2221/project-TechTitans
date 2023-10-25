@@ -43,16 +43,7 @@ async function handleClickCard(event) {
     refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
 
     refs.cardList.innerHTML = createMarkupCards(data.results);
-
-    const startButtonList = document.querySelectorAll('.start-btn');
-    startButtonList.forEach(button => {
-      button.addEventListener('click', event => {
-        idValue = button.dataset.id;
-        fetchParams(idValue)
-          .then(renderModalCard)
-          .catch(error => console.log);
-      });
-    });
+    pushStartOnModal();
   } catch (error) {
     console.log(error);
   }
@@ -68,9 +59,9 @@ async function searchExercises(e) {
       throw new Error();
     }
     refs.cardList.innerHTML = createMarkupCards(data.results);
+    pushStartOnModal();
   } catch (error) {
     showErrorNotification();
-    // console.log('Nothing was found for your request');
   }
 }
 
@@ -140,6 +131,17 @@ function showErrorNotification() {
     position: 'right-top',
     timeout: 3000,
     fontSize: '18px',
-    borderRadius: '15px',
+    borderRadius: '40px',
+  });
+}
+function pushStartOnModal() {
+  const startButtonList = document.querySelectorAll('.start-btn');
+  startButtonList.forEach(button => {
+    button.addEventListener('click', event => {
+      idValue = button.dataset.id;
+      fetchParams(idValue)
+        .then(renderModalCard)
+        .catch(error => console.log);
+    });
   });
 }
