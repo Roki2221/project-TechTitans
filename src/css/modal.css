@@ -147,10 +147,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 8px;
     width: 228px;
+    gap: 8px;
     border: none;
-    width: 167px;
     height: 42px;
     border-radius: 30px;
     color: #242424;
@@ -159,6 +158,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.28;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     /* 128.571% */
 }
 .btn-delete-favorites:active,
@@ -166,6 +167,12 @@
     color: #F4F4F4;
     background-color: #242424;
     border: 1px solid #F4F4F4;
+
+}
+.btn-delete-favorites:hover .icon-trash {
+    fill: #F4F4F4;
+    stroke: #F4F4F4;
+    color: #F4F4F4;
 }
 .btn-add-favorites {
     display: flex;
@@ -182,6 +189,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.28;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     /* 128.571% */
 }
 
@@ -191,6 +200,12 @@
     background-color: #242424;
     border: 1px solid #F4F4F4;
 }
+.btn-add-favorites:hover .like-icon{
+    fill: #242424;
+    stroke: #F4F4F4;
+  
+}
+
 .btn-rating {
     width: 122px;
     height: 42px;
