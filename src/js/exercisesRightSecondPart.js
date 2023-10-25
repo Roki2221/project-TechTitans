@@ -13,7 +13,7 @@ const refs = {
   inputQuery: document.querySelector('.exercise-section-input'),
   title: document.querySelector('.exercise-section-title'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
-  pagination: document.getElementById("tui-pagination-container"),
+  pagination: document.getElementById('tui-pagination-container'),
 };
 
 let queryValue;
@@ -46,9 +46,13 @@ async function handleClickCard(event) {
   }
 }
 
-export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 1) {
-  refs.pagination.style.display = "none";
-  refs.cardList.dataset.page = "exercises";
+export async function exercisesCardGenerateFunc(
+  queryValue,
+  filterValue,
+  page = 1
+) {
+  refs.pagination.style.display = 'none';
+  refs.cardList.dataset.page = 'exercises';
 
   if (filterValue === 'Body parts') {
     filterValue = 'bodypart';
@@ -58,15 +62,8 @@ export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 
 
   setPagination(totalPages, page);
 
-<<<<<<< HEAD
-    refs.cardList.innerHTML = createMarkupCards(data.results);
-    pushStartOnModal();
-  } catch (error) {
-    console.log(error);
-=======
   if (!(totalPages === 1)) {
-    refs.pagination.style.display = "flex";
->>>>>>> main
+    refs.pagination.style.display = 'flex';
   }
 
   refs.search.style.display = 'block';
@@ -74,15 +71,7 @@ export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 
 
   refs.cardList.innerHTML = createMarkupCards(data.results);
 
-  const startButtonList = document.querySelectorAll('.start-btn');
-  startButtonList.forEach(button => {
-    button.addEventListener('click', event => {
-      idValue = button.dataset.id;
-      fetchParams(idValue)
-        .then(renderModalCard)
-        .catch(error => console.log);
-    });
-  });
+  pushStartOnModal();
 }
 
 async function searchExercises(e) {
