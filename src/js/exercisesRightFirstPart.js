@@ -31,11 +31,9 @@ function handleClick(event) {
   const activeButton = document.querySelector('.js-active-filter-button');
   const currentButton = event.currentTarget;
 
-  activeButton.disabled = false;
   activeButton.classList.remove('js-active-filter-button');
 
   currentButton.classList.add('js-active-filter-button');
-  currentButton.disabled = true;
 
   const query = currentButton.dataset.filter;
 

@@ -82,7 +82,11 @@ async function searchExercises(e) {
   e.preventDefault();
   try {
     const keyword = e.currentTarget.elements.filter.value;
+    if (filterValue === 'Body parts') {
+      filterValue = 'bodypart';
+    }
     const data = await fetchSearch(keyword);
+    refs.pagination.style.display = "none";
     refs.inputQuery.value = '';
     if (data.results.length === 0) {
       throw new Error();
@@ -90,7 +94,7 @@ async function searchExercises(e) {
     refs.cardList.innerHTML = createMarkupCards(data.results);
   } catch (error) {
     showErrorNotification();
-    // console.log('Nothing was found for your request');
+    console.log(error);
   }
 }
 
