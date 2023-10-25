@@ -191,7 +191,7 @@ function onClickBtnRemoveFavorites(evt) {
         i = +1;
     })
     
-    // ?createMurkup(); не знаю як вірно прибрати карточки, обновити
+    createMurkup(); //не знаю як вірно прибрати карточки, обновити
     // reWrite.createMurkup;
 }
 

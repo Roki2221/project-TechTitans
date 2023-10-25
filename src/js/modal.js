@@ -1,15 +1,7 @@
 const LOCALSTORAGE_KEY = 'exerciseCard';
 let infoData;
 let cardForLS = {};
-let b;
-// ======== перевіряємо наявність даних   =========//
-  const LSData = localStorage.getItem('exerciseCard');
-infoData = JSON.parse(LSData);
-if (!infoData) {
-  console.log('якщо даних немає');
-  infoData = [];
-  }
-  console.log(infoData);
+
 // ========   =========//
 const btnClose = document.querySelector('.button-close');
 const btnAddFavorites = document.querySelector('.btn-add-favorites');
@@ -24,11 +16,6 @@ btnClose.addEventListener('click', onCloseModal);
 btnAddFavorites.addEventListener('click', addToFavorites);
 window.addEventListener('keydown', closeModal);
 backdrop.addEventListener('click', onCloseModalBackdrop);
-
-
-// fetchParams('64f389465ae26083f39b17a6') //!тут всередині повина бути id
-//   .then(renderModalCard)
-//   .catch(error => console.log(error));
 
 function fetchParams(id) {
   backdrop.classList.remove('is-hidden');
@@ -58,38 +45,46 @@ function onCloseModal() {
 // *==================================================*//
 // *  функції що додають дані в локал сторедж *//
 function addToFavorites(e) {
-  btnAddFavorites.removeEventListener('click', addToFavorites);
-  btnAddFavorites.style.display = 'none';
-  btnRemoveFavorites.classList.remove('is-hidden');
-  btnRemoveFavorites.addEventListener('click', onClickBtnRemoveFavorites);
+  createBtnDelete();
   e.preventDefault();
   console.log('by');
   // heart.classList.add('add-red');
   writeFormToLS();
 }
-function writeFormToLS(event) {
+// ======== перевіряємо наявність даних   =========//
+
+let LSData;
+LSData = localStorage.getItem(LOCALSTORAGE_KEY);
+
+console.log(LSData);
+// if (!LSData || LSData === undefined) {
+//   infoData = [];
+// }
+// else {
+//   LSData = localStorage.getItem(LOCALSTORAGE_KEY);
+//   infoData = JSON.parse(LSData);
+//   console.log(infoData,'якщо лс щось було');
+// }
+if (LSData) {
+  infoData = JSON.parse(LSData);
+
+  if (infoData.length) {
+    LSData = localStorage.getItem(LOCALSTORAGE_KEY);
+    infoData = JSON.parse(LSData);
+    console.log(infoData, 'якщо лс щось було');
+  }
+  else {
+    infoData = [];
+  }
+}
+else {
+  infoData = [];
+}
+console.log(infoData);
+function writeFormToLS() {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(infoData));
 }
 
-function createObjectLS(data) {
-  createDataCardForLS(data);
-  b = {
-    cardForLS: cardForLS,
-    id: `${data._id}`,
-  };
-  if (!infoData.length) {
-    infoData.push(b);
-  } else {
-    infoData.map(info => {
-      if (info.id === b.id) {
-        console.log('Ця вправа вже додана в улюблені!');
-        return;
-      } else {
-        infoData.push(b);
-      }
-    });
-  }
-}
 function createDataCardForLS(data) {
   // обʼєкт для запису данних в local storage
   cardForLS = {
@@ -104,15 +99,6 @@ function createDataCardForLS(data) {
     burnedCalories: `${data.burnedCalories}`,
     description: `${data.description}`,
   };
-  // infoData.map((info) => {
-  //   console.log('ми в мап');
-  //   if (info.id === cardForLS.id) {
-  //     console.log('Ця вправа вже додана в улюблені!');
-  //     return;
-  //   }
-  // });
-  // console.log('схожих немає');
-  // infoData.push(cardForLS); 
   infoData.push(cardForLS);
 }
 // *==================================================*//
@@ -129,6 +115,39 @@ function renderModalCard(data) {
 function createMarkupModal(data) {
   let ratingStar = data.rating.toFixed(1);
   // console.log(data._id);
+  
+  // const saved = localStorage.getItem("exerciseCard");
+  // let parsed = JSON.parse(saved);
+  // console.log(parsed);
+
+  console.log(infoData);
+  for (let item of infoData) {
+    console.log(item.id);
+      console.log(data._id);
+    if (item.id != data._id) {
+      console.log('співпадінь немає, кнопка додати');
+      createBtnAdd();
+    }
+    else {
+      console.log('у нас є співпадіння, значить кнопка видалити');
+      createBtnDelete();
+    }
+  }
+    // for (let item of infoData) {
+    //   console.log(item.id);
+    //   console.log(data._id);
+    //   if (item.id != data._id) {
+    //     console.log( 'співпадінь немає, кнопка додати');
+    //     createBtnAdd();
+
+    //   }
+    //   else {
+    //     console.log( 'у нас є співпадіння, значить кнопка видалити');
+    //     createBtnDelete();
+    //     return
+    //   }
+    // }
+
   cardModalE.setAttribute('data-id', `${data._id}`);
   return `      
     
@@ -207,9 +226,7 @@ function createRating() {
 // * функція видалення вправи з локал сторедж *//
 
 function onClickBtnRemoveFavorites(evt) {
-  btnAddFavorites.style.display = '';
-  btnRemoveFavorites.style.display = 'none';
-  btnRemoveFavorites.removeEventListener('click', onClickBtnRemoveFavorites);
+  createBtnAdd();
   const saved2 = localStorage.getItem("exerciseCard");
   let parsed2 = JSON.parse(saved2);
   console.log(parsed2);
@@ -240,11 +257,22 @@ function onClickBtnRemoveFavorites(evt) {
     i = +1;
   })
   // onCloseModal();
-  
+
   //reWrite.createMurkup;
 }
-
-        // *==================================================*//
+function createBtnAdd() {
+  btnAddFavorites.addEventListener('click', addToFavorites);
+  btnAddFavorites.style.display = '';
+  btnRemoveFavorites.style.display = 'none';
+  btnRemoveFavorites.removeEventListener('click', onClickBtnRemoveFavorites);
+}
+function createBtnDelete() {
+  btnAddFavorites.removeEventListener('click', addToFavorites);
+  btnAddFavorites.style.display = 'none';
+  btnRemoveFavorites.style.display = '';
+  btnRemoveFavorites.addEventListener('click', onClickBtnRemoveFavorites);
+}
+// *==================================================*//
 
 export {
   onCloseModal,
