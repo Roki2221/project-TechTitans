@@ -1,5 +1,6 @@
 const LOCALSTORAGE_KEY = 'exerciseCard';
-let infoData;
+let savedModal;
+let parsedModal;
 let cardForLS = {};
 
 // ========   =========//
@@ -51,38 +52,8 @@ function addToFavorites(e) {
   // heart.classList.add('add-red');
   writeFormToLS();
 }
-// ======== перевіряємо наявність даних   =========//
-
-let LSData;
-LSData = localStorage.getItem(LOCALSTORAGE_KEY);
-
-console.log(LSData);
-// if (!LSData || LSData === undefined) {
-//   infoData = [];
-// }
-// else {
-//   LSData = localStorage.getItem(LOCALSTORAGE_KEY);
-//   infoData = JSON.parse(LSData);
-//   console.log(infoData,'якщо лс щось було');
-// }
-if (LSData) {
-  infoData = JSON.parse(LSData);
-
-  if (infoData.length) {
-    LSData = localStorage.getItem(LOCALSTORAGE_KEY);
-    infoData = JSON.parse(LSData);
-    console.log(infoData, 'якщо лс щось було');
-  }
-  else {
-    infoData = [];
-  }
-}
-else {
-  infoData = [];
-}
-console.log(infoData);
 function writeFormToLS() {
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(infoData));
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(parsedModal));
 }
 
 function createDataCardForLS(data) {
@@ -99,7 +70,7 @@ function createDataCardForLS(data) {
     burnedCalories: `${data.burnedCalories}`,
     description: `${data.description}`,
   };
-  infoData.push(cardForLS);
+  parsedModal.push(cardForLS);
 }
 // *==================================================*//
 //*=== функція що рендерить картку====*/
@@ -115,13 +86,24 @@ function renderModalCard(data) {
 function createMarkupModal(data) {
   let ratingStar = data.rating.toFixed(1);
   // console.log(data._id);
-  
-  // const saved = localStorage.getItem("exerciseCard");
-  // let parsed = JSON.parse(saved);
-  // console.log(parsed);
+  savedModal = localStorage.getItem(LOCALSTORAGE_KEY);
+  parsedModal = JSON.parse(savedModal);
 
-  console.log(infoData);
-  for (let item of infoData) {
+  if (savedModal) {
+    parsedModal = JSON.parse(savedModal);
+    if (parsedModal.length) {
+      // LSData = localStorage.getItem(LOCALSTORAGE_KEY);
+       // infoData = JSON.parse(LSData);
+      console.log(parsedModal, 'якщо лс щось було');
+    }
+    else {
+      parsedModal = [];
+    }
+  }
+  else {
+    parsedModal = [];
+  }
+  for (let item of parsedModal) {
     console.log(item.id);
       console.log(data._id);
     if (item.id != data._id) {
@@ -131,23 +113,9 @@ function createMarkupModal(data) {
     else {
       console.log('у нас є співпадіння, значить кнопка видалити');
       createBtnDelete();
+      break
     }
   }
-    // for (let item of infoData) {
-    //   console.log(item.id);
-    //   console.log(data._id);
-    //   if (item.id != data._id) {
-    //     console.log( 'співпадінь немає, кнопка додати');
-    //     createBtnAdd();
-
-    //   }
-    //   else {
-    //     console.log( 'у нас є співпадіння, значить кнопка видалити');
-    //     createBtnDelete();
-    //     return
-    //   }
-    // }
-
   cardModalE.setAttribute('data-id', `${data._id}`);
   return `      
     
@@ -227,38 +195,31 @@ function createRating() {
 
 function onClickBtnRemoveFavorites(evt) {
   createBtnAdd();
-  const saved2 = localStorage.getItem("exerciseCard");
-  let parsed2 = JSON.parse(saved2);
-  console.log(parsed2);
-
+  console.log(parsedModal);
+  console.log(savedModal);
   const idCardModalF = evt.target.closest('.modal-window').dataset.id;
   console.log(idCardModalF);
   let i = 0;
-  parsed2.forEach((item, i) => {
+ parsedModal.forEach((item, i) => {
     console.log(i);
-
-    // const hasId = parsed2.includes(id.idCardModalF);
-    //  console.log(hasId);
     if (item.id != idCardModalF) {
       console.log('немає співпадіння');
       return;
     }
     else {
-      if (parsed2.length === 1) {
-        parsed2 = [];
+      if (parsedModal.length === 1) {
+          parsedModal = [];
       } else {
-        parsed2.splice(i, 1);
+        // let newLS =
+          parsedModal.splice(i, 1);
         console.log('є співпадіння');
 
-        console.log(parsed2);
+        console.log(parsedModal);
       }
-      localStorage.setItem("exerciseCard", JSON.stringify(parsed2));
+      localStorage.setItem("exerciseCard", JSON.stringify(parsedModal));
     }
     i = +1;
   })
-  // onCloseModal();
-
-  //reWrite.createMurkup;
 }
 function createBtnAdd() {
   btnAddFavorites.addEventListener('click', addToFavorites);
