@@ -19,6 +19,7 @@ const refs = {
 let queryValue;
 let filterValue;
 let idValue;
+let currentPage = 0;
 let limitCards = 10;
 if (window.innerWidth < 768) {
   limitCards = 8;
@@ -59,7 +60,7 @@ export async function exercisesCardGenerateFunc(
   }
   const data = await fetchCards(filterValue, queryValue, page);
   const { totalPages } = data;
-
+  currentPage = page;
   setPagination(totalPages, page);
 
   if (!(totalPages === 1)) {
@@ -91,7 +92,6 @@ async function searchExercises(e) {
     pushStartOnModal();
   } catch (error) {
     showErrorNotification();
-    // console.log('Nothing was found for your request');
   }
 }
 
@@ -112,7 +112,7 @@ async function fetchSearch(inputWord) {
       return;
     }
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limitCards}`
+      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=${currentPage}&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {}
