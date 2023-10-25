@@ -38,6 +38,47 @@ async function quoteOfTheDay() {
 // ===============================СТВОРЕННЯ РОЗМІТКИ========================================
 createMurkup();
 
+// function createMurkup() {
+//   const saved = localStorage.getItem('exerciseCard');
+//   const parsed = JSON.parse(saved);
+
+//   if (parsed.length === 0) {
+//     refs.defaultText.style.display = 'block';
+//   } else {
+//     refs.defaultText.style.display = 'none';
+//     const card = document.querySelector('.exercises-list');
+//     parsed.forEach(item => {
+//       const { id, name, target, bodyPart, burnedCalories } = item;
+//       favCatd = document.createElement('li');
+//       favCatd.className = 'exercises-item';
+//       favCatd.setAttribute('data-id', `${id}`);
+//       favCatd.innerHTML = ` <div class="exercise-navigation">
+//               <button class="workout-btn">WORKOUT</button>
+//               <button type="button" class="trash_btn"><svg width="16px" height="16px">
+//                   <use href="${sprite}#icon-trash"></use>
+//                 </svg></button>
+//               <button class="start_btn" type="submit">Start <svg width="16px" height="16px ">
+//           <use href="${sprite}#icon-arrow"></use>
+//         </svg></button>
+//             </div>
+//             <div class="name-exercise-conteiner">
+//               <svg class="run-man-icon" width="24px" height="24px">
+//                 <use href="${spriteRunningMan}#icon-running-stick-figure-in-cyrcle-black"></use>
+//               </svg>
+//               <h3 class="exercise-name">${name}</h3>
+//             </div>
+//             <ul class="discription">
+//               <li class="text-card">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
+//               </li>
+//               <li class="text-card">Body part: <p class="discription-title-text">${bodyPart}</p>
+//               </li>
+//               <li class="text-card">Target: <p class="discription-title-text">${target}</p>
+//               </li>
+//             </ul>`;
+//       card.appendChild(favCatd);
+//     });
+//   }
+// }
 function createMurkup() {
   const saved = localStorage.getItem('exerciseCard');
   const parsed = JSON.parse(saved);
@@ -47,12 +88,10 @@ function createMurkup() {
   } else {
     refs.defaultText.style.display = 'none';
     const card = document.querySelector('.exercises-list');
-    parsed.forEach(item => {
-      const { id, name, target, bodyPart, burnedCalories } = item;
-      favCatd = document.createElement('li');
-      favCatd.className = 'exercises-item';
-      favCatd.setAttribute('data-id', `${id}`);
-      favCatd.innerHTML = ` <div class="exercise-navigation">
+    card.innerHTML = parsed.map(
+       ({id, name, target, bodyPart, burnedCalories })=>
+      <li class="exercises-item" data-id ="${id}"> 
+      <div class="exercise-navigation">
               <button class="workout-btn">WORKOUT</button>
               <button type="button" class="trash_btn"><svg width="16px" height="16px">
                   <use href="${sprite}#icon-trash"></use>
@@ -65,18 +104,17 @@ function createMurkup() {
               <svg class="run-man-icon" width="24px" height="24px">
                 <use href="${spriteRunningMan}#icon-running-stick-figure-in-cyrcle-black"></use>
               </svg>
-              <h3 class="exercise-name">${name}</h3>
+              <h3 class="card-exercise-title">${name}</h3>
             </div>
             <ul class="discription">
-              <li class="text-card">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
+              <li class="discription-title">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
               </li>
-              <li class="text-card">Body part: <p class="discription-title-text">${bodyPart}</p>
+              <li class="discription-title">Body part: <p class="discription-title-text">${bodyPart}</p>
               </li>
-              <li class="text-card">Target: <p class="discription-title-text">${target}</p>
+              <li class="discription-title">Target: <p class="discription-title-text">${target}</p>
               </li>
-            </ul>`;
-      card.appendChild(favCatd);
-    });
+            </ul>
+      </li>).join('')
   }
 }
 // ===============================ВИДАЛЕННЯ З LS=============================
