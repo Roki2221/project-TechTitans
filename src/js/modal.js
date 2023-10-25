@@ -13,10 +13,7 @@ const backdrop = document.querySelector('.backdrop');
 const heart = document.querySelector('.like-icon');
 const cardModalE = document.querySelector('.modal-window');
 
-btnClose.addEventListener('click', onCloseModal);
-btnAddFavorites.addEventListener('click', addToFavorites);
-window.addEventListener('keydown', closeModal);
-backdrop.addEventListener('click', onCloseModalBackdrop);
+
 
 function fetchParams(id) {
   backdrop.classList.remove('is-hidden');
@@ -37,20 +34,22 @@ function onCloseModalBackdrop(event) {
   }
 }
 function onCloseModal() {
-  console.log('hi');
-  backdrop.classList.add('is-hidden');
+
+  backdrop.style.display = 'none';
   // heart.classList.remove('add-red');
-  // window.removeEventListener('keydown', closeModal);
-  // backdrop.removeEventListener('click', onCloseModalBackdrop);
+  window.removeEventListener('keydown', closeModal);
+  backdrop.removeEventListener('click', onCloseModalBackdrop);
+  btnClose.removeEventListener('click', onCloseModal);
+
 }
 // *==================================================*//
 // *  функції що додають дані в локал сторедж *//
 function addToFavorites(e) {
-  createBtnDelete();
+  
   e.preventDefault();
-  console.log('by');
   // heart.classList.add('add-red');
   writeFormToLS();
+  createBtnDelete();
 }
 function writeFormToLS() {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(parsedModal));
@@ -75,6 +74,7 @@ function createDataCardForLS(data) {
 // *==================================================*//
 //*=== функція що рендерить картку====*/
 function renderModalCard(data) {
+  backdrop.style.display = '';
   const card = createMarkupModal(data);
   modalWindow.innerHTML = card;
   createRating();
@@ -84,8 +84,12 @@ function renderModalCard(data) {
 }
 
 function createMarkupModal(data) {
-  let ratingStar = data.rating.toFixed(1);
-  // console.log(data._id);
+  btnClose.addEventListener('click', onCloseModal);
+  btnAddFavorites.addEventListener('click', addToFavorites);
+  window.addEventListener('keydown', closeModal);
+  backdrop.addEventListener('click', onCloseModalBackdrop);
+
+  
   savedModal = localStorage.getItem(LOCALSTORAGE_KEY);
   parsedModal = JSON.parse(savedModal);
 
@@ -117,6 +121,7 @@ function createMarkupModal(data) {
     }
   }
   cardModalE.setAttribute('data-id', `${data._id}`);
+  let ratingStar = data.rating.toFixed(1);
   return `      
     
             <div class="info-card">
@@ -194,7 +199,7 @@ function createRating() {
 // * функція видалення вправи з локал сторедж *//
 
 function onClickBtnRemoveFavorites(evt) {
-  createBtnAdd();
+  
   console.log(parsedModal);
   console.log(savedModal);
   const idCardModalF = evt.target.closest('.modal-window').dataset.id;
@@ -204,30 +209,32 @@ function onClickBtnRemoveFavorites(evt) {
     console.log(i);
     if (item.id != idCardModalF) {
       console.log('немає співпадіння');
+      createBtnAdd();
       return;
     }
     else {
-      if (parsedModal.length === 1) {
+      if (parsedModal.length === 1) {//! чомусь при одному елементі рахує, що довжина 2(через це не видаляється останній масив)
           parsedModal = [];
       } else {
-        // let newLS =
-          parsedModal.splice(i, 1);
+        parsedModal.splice(i, 1);
         console.log('є співпадіння');
-
         console.log(parsedModal);
       }
       localStorage.setItem("exerciseCard", JSON.stringify(parsedModal));
     }
     i = +1;
-  })
+ })
+  createBtnAdd();
 }
 function createBtnAdd() {
+  console.log('btn add');
   btnAddFavorites.addEventListener('click', addToFavorites);
   btnAddFavorites.style.display = '';
   btnRemoveFavorites.style.display = 'none';
   btnRemoveFavorites.removeEventListener('click', onClickBtnRemoveFavorites);
 }
 function createBtnDelete() {
+  console.log('btn delete');
   btnAddFavorites.removeEventListener('click', addToFavorites);
   btnAddFavorites.style.display = 'none';
   btnRemoveFavorites.style.display = '';
