@@ -1,4 +1,11 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
+
+Notiflix.Notify.init({
+  position: 'center-top',
+  messageMaxLength: 200,
+  width: '300px',
+});
 
 const refs = {
   form: document.querySelector('form.subscribe-form'),
@@ -20,11 +27,11 @@ function handleSubmit(event) {
 
   subscribeService(inputData)
     .then(({ data }) => {
-      alert(data.message);
+      Notiflix.Notify.success(data.message);
       refs.form.reset();
     })
     .catch(({ response }) => {
-      alert(response.data.message);
+      Notiflix.Notify.info(response.data.message);
       if (response.status === 409) {
         refs.form.reset();
       }
