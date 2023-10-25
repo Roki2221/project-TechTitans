@@ -27,9 +27,23 @@ function windowWidth() {
 }
 windowWidth();
 
+
+
+
+
+
 const activeLinks = document.querySelectorAll('.header-menu-item');
+const logoLink = document.querySelector('.header-logo-link');
 
 let activeNavItemIndex = sessionStorage.getItem('activeNavItemIndex');
+
+logoLink.addEventListener('click', function (e) {
+  activeLinks.forEach(function (activeLink) {
+    activeLink.classList.remove('active');
+  });
+  activeLinks[0].classList.add('active');
+  sessionStorage.setItem('activeNavItemIndex', 0);
+});
 
 if (activeNavItemIndex === null) {
   activeNavItemIndex = 0;
