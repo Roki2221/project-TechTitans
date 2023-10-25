@@ -15,11 +15,6 @@
 .conteiner_quote {
   width: 100%;
 }
-/* .run_man {
-  width: 34px;
-  height: 32px;
-  border-radius: 50%;
-} */
 .quote_title {
   color: #f4f4f4;
   font-feature-settings: 'clig' off, 'liga' off;
@@ -34,7 +29,7 @@
   font-weight: 400;
   line-height: 1.28;
 }
-.author_name_up {
+.author_name {
   color: #f4f4f4;
   font-family: Neue Montreal;
   font-size: 14px;
@@ -59,18 +54,18 @@
   padding: 20px;
   border-radius: 20px;
   background: #fff;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .minute_norm_up {
-  display: inline-flex;
+  /* display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 4px; */
   padding-left: 50px;
   padding-right: 20px;
 }
-.minute_norm_up > h3 {
-  margin-bottom: 6px;
+.minute_norm_up {
+  /* margin-bottom: 6px; */
   font-feature-settings: 'clig' off, 'liga' off;
   font-size: 20px;
   font-weight: 500;
@@ -121,7 +116,7 @@
   overflow: hidden;
   color: #242424;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: wrap;
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -183,27 +178,14 @@
     width: 400px;
     height: 249px;
   }
-  .minute_norm > h3 {
-    font-size: 24px;
-    line-height: 1.33;
-  }
-  .default_text {
-    max-width: 554px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 18px;
-    line-height: 1.33;
-    padding-top: 132px;
-    padding-bottom: 180px;
-  }
-  .timework {
+    .timework {
     font-size: 24px;
     font-weight: 500;
     line-height: 32px; /* 133.333% */
   }
   .text110min {
     width: 270px;
-    height: 97px;
+    /* height: 97px; */
   }
 }
 /* Desktop */
@@ -228,7 +210,7 @@
     justify-content: center;
     margin-top: 0px;
   }
-  .exercise-container {
+  /* .exercise-container {
     display: flex;
     flex-direction: column-reverse;
     display: grid;
@@ -237,7 +219,7 @@
       'top top'
       'left right';
     column-gap: 32px;
-  }
+  } */
   .quote_up {
     width: 444px;
   }
@@ -245,11 +227,7 @@
     width: 444px;
     height: 315px;
   }
-  h2 {
-    grid-area: title;
-    margin-bottom: 44px;
-  }
-  .sports_women_up {
+   .sports_women_up {
    max-width: 444px;
    max-height: 242px;
   }
