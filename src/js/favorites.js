@@ -65,14 +65,14 @@ function createMurkup() {
               <svg class="run-man-icon" width="24px" height="24px">
                 <use href="${spriteRunningMan}#icon-running-stick-figure-in-cyrcle-black"></use>
               </svg>
-              <h3 class="card-exercise-title">${name}</h3>
+              <h3 class="exercise-name">${name}</h3>
             </div>
             <ul class="discription">
-              <li class="discription-title">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
+              <li class="text-card">Burned calories: <p class="discription-title-text">${burnedCalories} / 3 min</p>
               </li>
-              <li class="discription-title">Body part: <p class="discription-title-text">${bodyPart}</p>
+              <li class="text-card">Body part: <p class="discription-title-text">${bodyPart}</p>
               </li>
-              <li class="discription-title">Target: <p class="discription-title-text">${target}</p>
+              <li class="text-card">Target: <p class="discription-title-text">${target}</p>
               </li>
             </ul>`;
       card.appendChild(favCatd);

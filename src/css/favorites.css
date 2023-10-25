@@ -150,7 +150,7 @@
 }
 .discription {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
 }
 .discription-title {
   color: rgba(36, 36, 36, 0.4);
