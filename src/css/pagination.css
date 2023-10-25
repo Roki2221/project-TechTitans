@@ -6,13 +6,16 @@
 }
 
 strong.tui-page-btn {
-    width: 30px;
-    height: 30px;
-    margin: 0 12;
-    border: 2px solid #ddd;
+    width: 32px;
+    height: 32px;
+    color: var(--main-dark);
     border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
+    border: 1px solid var(--main-dark);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 
@@ -23,5 +26,11 @@ strong.tui-page-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+    .tui-pagination {    
+        margin-top: 32px;
+    }
 }

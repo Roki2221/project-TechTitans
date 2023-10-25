@@ -2,6 +2,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { fetchParams } from './modal';
 import { renderModalCard } from './modal';
+import { setPagination } from './pagination';
 import sprite from '../public/icon.svg';
 import spriteRunningMan from '../public/favicon.svg';
 
@@ -12,6 +13,7 @@ const refs = {
   inputQuery: document.querySelector('.exercise-section-input'),
   title: document.querySelector('.exercise-section-title'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
+  pagination: document.getElementById("tui-pagination-container"),
 };
 
 let queryValue;
@@ -30,23 +32,57 @@ async function handleClickCard(event) {
     return;
   }
   const currentCard = event.target;
+
   queryValue = currentCard.dataset.query;
   filterValue = currentCard.dataset.filter;
+
+  refs.cardList.dataset.query = queryValue;
+  refs.cardList.dataset.filter = filterValue;
+
+  try {
+    exercisesCardGenerateFunc(queryValue, filterValue);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 1) {
+  refs.pagination.style.display = "none";
+  refs.cardList.dataset.page = "exercises";
 
   if (filterValue === 'Body parts') {
     filterValue = 'bodypart';
   }
+  const data = await fetchCards(filterValue, queryValue, page);
+  const { totalPages } = data;
 
-  try {
-    const data = await fetchCards(filterValue, queryValue);
-    refs.search.style.display = 'block';
-    refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
+  setPagination(totalPages, page);
 
+<<<<<<< HEAD
     refs.cardList.innerHTML = createMarkupCards(data.results);
     pushStartOnModal();
   } catch (error) {
     console.log(error);
+=======
+  if (!(totalPages === 1)) {
+    refs.pagination.style.display = "flex";
+>>>>>>> main
   }
+
+  refs.search.style.display = 'block';
+  refs.title.innerHTML = `Exercises /<span class="exercise-section-title-span">${queryValue}</span>`;
+
+  refs.cardList.innerHTML = createMarkupCards(data.results);
+
+  const startButtonList = document.querySelectorAll('.start-btn');
+  startButtonList.forEach(button => {
+    button.addEventListener('click', event => {
+      idValue = button.dataset.id;
+      fetchParams(idValue)
+        .then(renderModalCard)
+        .catch(error => console.log);
+    });
+  });
 }
 
 async function searchExercises(e) {
@@ -65,10 +101,10 @@ async function searchExercises(e) {
   }
 }
 
-async function fetchCards(part, category) {
+async function fetchCards(part, category, page) {
   try {
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=1&limit=${limitCards}`
+      `https://your-energy.b.goit.study/api/exercises?${part.toLowerCase()}=${category}&page=${page}&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {
