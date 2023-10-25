@@ -48,7 +48,6 @@ function onCloseModal() {
 function addToFavorites(e) {
   createBtnDelete();
   e.preventDefault();
-  console.log('by');
   // heart.classList.add('add-red');
   writeFormToLS();
 }
@@ -102,6 +101,7 @@ function createMarkupModal(data) {
   }
   else {
     parsedModal = [];
+    createBtnAdd();
   }
   for (let item of parsedModal) {
     console.log(item.id);
@@ -194,7 +194,7 @@ function createRating() {
 // * функція видалення вправи з локал сторедж *//
 
 function onClickBtnRemoveFavorites(evt) {
-  createBtnAdd();
+  createBtnAdd(evt);
   console.log(parsedModal);
   console.log(savedModal);
   const idCardModalF = evt.target.closest('.modal-window').dataset.id;
@@ -204,17 +204,17 @@ function onClickBtnRemoveFavorites(evt) {
     console.log(i);
     if (item.id != idCardModalF) {
       console.log('немає співпадіння');
+      createBtnAdd();
       return;
     }
     else {
-      if (parsedModal.length === 1) {
+      console.log(parsedModal.length,'(parsedModal.length');
+      if (parsedModal.length === 1) {       
           parsedModal = [];
       } else {
-        // let newLS =
+         createBtnDelete();
           parsedModal.splice(i, 1);
-        console.log('є співпадіння');
-
-        console.log(parsedModal);
+         console.log('є співпадіння');
       }
       localStorage.setItem("exerciseCard", JSON.stringify(parsedModal));
     }
