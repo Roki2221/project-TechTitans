@@ -39,14 +39,16 @@ async function quoteOfTheDay() {
 createMurkup();
 
 function createMurkup() {
+  const card = document.querySelector('.exercises-list');
   const saved = localStorage.getItem('exerciseCard');
   const parsed = JSON.parse(saved);
 
   if (parsed.length === 0) {
+    card.innerHTML = '';
     refs.defaultText.style.display = 'block';
   } else {
     refs.defaultText.style.display = 'none';
-    const card = document.querySelector('.exercises-list');
+
     parsed.forEach(item => {
       const { id, name, target, bodyPart, burnedCalories } = item;
       favCatd = document.createElement('li');
@@ -82,26 +84,29 @@ function createMurkup() {
 // ===============================ВИДАЛЕННЯ З LS=============================
 const trashBtn = document.querySelectorAll('.trash_btn');
 trashBtn.forEach(btn => {
-  btn.addEventListener('click', evt => {
-    const cardRemove = evt.target.closest('li'); // записуємо елемент на який відбуваєтся клік
-    evt.preventDefault();
-
-    if (cardRemove) {
-      cardRemove.remove();
-
-      const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; // отримуємо дані з LS
-      const indexToDelete = findIndexToDelete(items, cardRemove); // якщо функція findIndexToDelete задовільняє вимоги тоді спрацьовує cardRemove.remove()
-      if (indexToDelete !== -1) {
-        items.splice(indexToDelete, 1);
-      }
-      localStorage.setItem('exerciseCard', JSON.stringify(items));
-
-      if (document.querySelectorAll('.exercises-item').length === 0) {
-        refs.defaultText.style.display = 'block';
-      }
-    }
-  });
+  btn.addEventListener('click', handleClick);
 });
+
+function handleClick(evt) {
+  const cardRemove = evt.target.closest('li'); // записуємо елемент на який відбуваєтся клік
+  evt.preventDefault();
+
+  if (cardRemove) {
+    cardRemove.remove();
+
+    const items = JSON.parse(localStorage.getItem('exerciseCard')) || []; // отримуємо дані з LS
+    const indexToDelete = findIndexToDelete(items, cardRemove); // якщо функція findIndexToDelete задовільняє вимоги тоді спрацьовує cardRemove.remove()
+    if (indexToDelete !== -1) {
+      items.splice(indexToDelete, 1);
+    }
+    localStorage.setItem('exerciseCard', JSON.stringify(items));
+
+    if (document.querySelectorAll('.exercises-item').length === 0) {
+      refs.defaultText.style.display = 'block';
+    }
+  }
+}
+
 function findIndexToDelete(items, cardRemove) {
   //отримуємо items(масив обєктів з LS)
   const indexToDelete = items.findIndex(itm => {
@@ -119,9 +124,10 @@ startBtn.forEach(btn => {
     evt.preventDefault();
     console.log('модалка відкрийся!');
     const dataId = evt.target.closest('.exercises-item').dataset.id;
+    const cardRemove = evt.target.closest('li');
     console.log(dataId);
-    clickOnBtnStart.onClickStart(dataId);
+    clickOnBtnStart.onClickStart(cardRemove, dataId);
   });
 });
 
-export { createMurkup, quoteOfTheDay };
+export { createMurkup, findIndexToDelete };
