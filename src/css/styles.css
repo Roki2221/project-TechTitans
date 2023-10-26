@@ -16,6 +16,7 @@
 @import url('./footer.css');
 @import url('./modal.css');
 @import url('./pagination.css');
+@import url('./give-rating.css');
 
 :root {
   font-family: Neue Montreal, sans-serif;

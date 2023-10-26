@@ -85,41 +85,43 @@ function renderModalCard(data) {
 
 function createMarkupModal(data) {
   btnClose.addEventListener('click', onCloseModal);
-  btnAddFavorites.addEventListener('click', addToFavorites);
+  // btnAddFavorites.addEventListener('click', addToFavorites);
   window.addEventListener('keydown', closeModal);
   backdrop.addEventListener('click', onCloseModalBackdrop);
 
   
   savedModal = localStorage.getItem(LOCALSTORAGE_KEY);
-  parsedModal = JSON.parse(savedModal);
+  //parsedModal = JSON.parse(savedModal);
 
   if (savedModal) {
     parsedModal = JSON.parse(savedModal);
     if (parsedModal.length) {
-      // LSData = localStorage.getItem(LOCALSTORAGE_KEY);
-       // infoData = JSON.parse(LSData);
       console.log(parsedModal, 'якщо лс щось було');
+      for (let item of parsedModal) {
+        console.log(item.id);
+        console.log(data._id);
+        if (item.id != data._id) {
+          console.log('співпадінь немає, кнопка додати');
+          createBtnAdd();
+        }
+        else {
+          console.log('у нас є співпадіння, значить кнопка видалити');
+          createBtnDelete();
+          break
+        }
+      }
+     
     }
     else {
       parsedModal = [];
+      createBtnAdd();
     }
   }
   else {
     parsedModal = [];
+    createBtnAdd();
   }
-  for (let item of parsedModal) {
-    console.log(item.id);
-      console.log(data._id);
-    if (item.id != data._id) {
-      console.log('співпадінь немає, кнопка додати');
-      createBtnAdd();
-    }
-    else {
-      console.log('у нас є співпадіння, значить кнопка видалити');
-      createBtnDelete();
-      break
-    }
-  }
+  
   cardModalE.setAttribute('data-id', `${data._id}`);
   let ratingStar = data.rating.toFixed(1);
   return `      
@@ -199,26 +201,25 @@ function createRating() {
 // * функція видалення вправи з локал сторедж *//
 
 function onClickBtnRemoveFavorites(evt) {
-  
+  parsedModal = JSON.parse(savedModal);
   console.log(parsedModal);
-  console.log(savedModal);
+  console.log(parsedModal.length);
   const idCardModalF = evt.target.closest('.modal-window').dataset.id;
   console.log(idCardModalF);
   let i = 0;
  parsedModal.forEach((item, i) => {
-    console.log(i);
     if (item.id != idCardModalF) {
       console.log('немає співпадіння');
       createBtnAdd();
       return;
     }
     else {
-      if (parsedModal.length === 1) {//! чомусь при одному елементі рахує, що довжина 2(через це не видаляється останній масив)
-          parsedModal = [];
-      } else {
+      if (parsedModal.length > 1) {//! чомусь при одному елементі рахує, що довжина 2(через це не видаляється останній масив)
         parsedModal.splice(i, 1);
-        console.log('є співпадіння');
-        console.log(parsedModal);
+        console.log('є співпадіння'); 
+      } else {
+        console.log('є співпадіння, останній елемент');
+        parsedModal = [];
       }
       localStorage.setItem("exerciseCard", JSON.stringify(parsedModal));
     }
