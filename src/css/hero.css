@@ -49,7 +49,12 @@
 .tag-items {
   border-radius: 30px;
   border: 1px solid var(--main-dark);
-  padding: 4px 15px;
+  padding: 4px 10px;
+}
+@media only screen and (min-width: 375px) {
+  .tag-items {
+    padding: 4px 15px;
+  }
 }
 .tag-item {
   align-items: center;

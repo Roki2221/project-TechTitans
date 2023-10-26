@@ -47,7 +47,7 @@
 } */
 
 .daily_norm_up {
-  width: 335px;
+  max-width: 335px;
   height: 203px;
   padding: 20px;
   border-radius: 20px;
@@ -83,7 +83,6 @@
   line-height: 1.28;
 }
 .sports_women_up {
-  max-width: 335px;
   max-height: 242px;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -116,7 +115,6 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
-  width: 245px;
   height: 105px;
   flex-shrink: 0;
   position: relative;
@@ -178,7 +176,7 @@
     max-height: 141px;
   } */
   .daily_norm_up {
-    width: 400px;
+    max-width: 400px;
     height: 249px;
   }
   .timework {
@@ -227,7 +225,7 @@
     width: 444px;
   }
   .daily_norm_up {
-    width: 444px;
+    max-width: 444px;
     height: 315px;
   }
   .sports_women_up {
