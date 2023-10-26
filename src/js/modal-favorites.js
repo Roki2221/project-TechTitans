@@ -37,6 +37,9 @@ function onCloseModal() {
 // *==================================================*//
 
 function onClickStart(cardRemove, dataIdF) {
+  btnClose.addEventListener('click', onCloseModal);
+  window.addEventListener('keydown', closeModal);
+  backdrop.addEventListener('click', onCloseModalBackdrop);
   cardToRemove = cardRemove; // записуємо елемент на який відбуваєтся клік
   console.log(cardRemove, ' to remove');
   backdrop.classList.remove('is-hidden');
@@ -181,6 +184,7 @@ function handleClick(evt) {
       refs.defaultText.style.display = 'block';
     }
   }
+  onCloseModal();
 }
 // function onClickBtnRemoveFavorites(evt) {
 //     const saved2 = localStorage.getItem("exerciseCard");
