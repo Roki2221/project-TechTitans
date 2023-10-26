@@ -124,4 +124,4 @@ startBtn.forEach(btn => {
   });
 });
 
-export { createMurkup };
+export { createMurkup, quoteOfTheDay };

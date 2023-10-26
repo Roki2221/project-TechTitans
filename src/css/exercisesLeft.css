@@ -10,11 +10,10 @@
   border-radius: 20px;
   margin-bottom: 20px;
   padding: 20px;
-  width: 335px;
 }
-.conteiner_quote {
+/* .conteiner_quote {
   width: 100%;
-}
+} */
 .quote_title {
   color: #f4f4f4;
   font-feature-settings: 'clig' off, 'liga' off;
@@ -22,22 +21,21 @@
   font-weight: 500;
   line-height: 1;
   margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
 }
 .quote_text {
   color: rgba(244, 244, 244, 0.6);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
+  margin-bottom: 16px;
 }
 .author_name {
   color: #f4f4f4;
-  font-family: Neue Montreal;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
-  padding-bottom: 20px;
-  padding-top: 16px;
+  line-height: 1.2; /* 128.571% */
 }
 
 /* .sports_women{
@@ -114,17 +112,22 @@
 }
 .text110min {
   overflow: hidden;
-  color: #242424;
   text-overflow: ellipsis;
-  white-space: wrap;
-  font-family: Neue Montreal;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
   width: 245px;
   height: 105px;
   flex-shrink: 0;
+  position: relative;
+}
+
+.text110min::before {
+  content: '...'; /* Три крапки, які відобразяться після тексту */
+  position: absolute;
+  right: 4px;
+  bottom: -3px;
+  background: white; /* Забарвлення для приховування трьох крапок */
 }
 .dumbbell {
   position: absolute;
@@ -147,7 +150,7 @@
   .quote_up {
     grid-column-start: 1;
     /* grid-column-end: 3; */
-    max-width: 704px;
+    /* max-width: 704px; */
     padding: 40px;
     margin-bottom: 16px;
     width: 400px;
@@ -178,7 +181,7 @@
     width: 400px;
     height: 249px;
   }
-    .timework {
+  .timework {
     font-size: 24px;
     font-weight: 500;
     line-height: 32px; /* 133.333% */
@@ -227,9 +230,9 @@
     width: 444px;
     height: 315px;
   }
-   .sports_women_up {
-   max-width: 444px;
-   max-height: 242px;
+  .sports_women_up {
+    max-width: 444px;
+    max-height: 242px;
   }
   .default_text {
     padding-top: 102px;
@@ -244,16 +247,18 @@
     height: 163px;
   }
   .text110min {
-    overflow: hidden;
-    color: #242424;
+    /* color: #242424;
     text-overflow: ellipsis;
     white-space: wrap;
-    font-family: Neue Montreal;
+    font-family: Neue Montreal; */
     font-size: 14px;
-    font-style: normal;
+    /* font-style: normal; */
     font-weight: 400;
-    line-height: 18px; /* 128.571% */
+    line-height: 1.28; /* 128.571% */
     width: 314px;
     flex-shrink: 0;
+  }
+  .text110min::before {
+    display: none;
   }
 }

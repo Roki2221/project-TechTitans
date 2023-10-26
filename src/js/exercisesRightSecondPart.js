@@ -13,12 +13,13 @@ const refs = {
   inputQuery: document.querySelector('.exercise-section-input'),
   title: document.querySelector('.exercise-section-title'),
   titleSpan: document.querySelector('.exercise-section-title-span'),
-  pagination: document.getElementById("tui-pagination-container"),
+  pagination: document.getElementById('tui-pagination-container'),
 };
 
 let queryValue;
 let filterValue;
 let idValue;
+let currentPage = 0;
 let limitCards = 10;
 if (window.innerWidth < 768) {
   limitCards = 8;
@@ -46,20 +47,24 @@ async function handleClickCard(event) {
   }
 }
 
-export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 1) {
-  refs.pagination.style.display = "none";
-  refs.cardList.dataset.page = "exercises";
+export async function exercisesCardGenerateFunc(
+  queryValue,
+  filterValue,
+  page = 1
+) {
+  refs.pagination.style.display = 'none';
+  refs.cardList.dataset.page = 'exercises';
 
   if (filterValue === 'Body parts') {
     filterValue = 'bodypart';
   }
   const data = await fetchCards(filterValue, queryValue, page);
   const { totalPages } = data;
-
+  currentPage = page;
   setPagination(totalPages, page);
 
   if (!(totalPages === 1)) {
-    refs.pagination.style.display = "flex";
+    refs.pagination.style.display = 'flex';
   }
 
   refs.search.style.display = 'block';
@@ -67,15 +72,7 @@ export async function exercisesCardGenerateFunc(queryValue, filterValue, page = 
 
   refs.cardList.innerHTML = createMarkupCards(data.results);
 
-  const startButtonList = document.querySelectorAll('.start-btn');
-  startButtonList.forEach(button => {
-    button.addEventListener('click', event => {
-      idValue = button.dataset.id;
-      fetchParams(idValue)
-        .then(renderModalCard)
-        .catch(error => console.log);
-    });
-  });
+  pushStartOnModal();
 }
 
 async function searchExercises(e) {
@@ -86,15 +83,15 @@ async function searchExercises(e) {
       filterValue = 'bodypart';
     }
     const data = await fetchSearch(keyword);
-    refs.pagination.style.display = "none";
+    refs.pagination.style.display = 'none';
     refs.inputQuery.value = '';
     if (data.results.length === 0) {
       throw new Error();
     }
     refs.cardList.innerHTML = createMarkupCards(data.results);
+    pushStartOnModal();
   } catch (error) {
     showErrorNotification();
-    console.log(error);
   }
 }
 
@@ -115,7 +112,7 @@ async function fetchSearch(inputWord) {
       return;
     }
     const response = await axios.get(
-      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=1&limit=${limitCards}`
+      `https://your-energy.b.goit.study/api/exercises?${filterValue.toLowerCase()}=${queryValue}&keyword=${inputWord}&page=${currentPage}&limit=${limitCards}`
     );
     return response.data;
   } catch (error) {}
@@ -164,6 +161,17 @@ function showErrorNotification() {
     position: 'right-top',
     timeout: 3000,
     fontSize: '18px',
-    borderRadius: '15px',
+    borderRadius: '40px',
+  });
+}
+function pushStartOnModal() {
+  const startButtonList = document.querySelectorAll('.start-btn');
+  startButtonList.forEach(button => {
+    button.addEventListener('click', event => {
+      idValue = button.dataset.id;
+      fetchParams(idValue)
+        .then(renderModalCard)
+        .catch(error => console.log);
+    });
   });
 }
