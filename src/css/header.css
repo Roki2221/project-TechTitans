@@ -57,6 +57,8 @@
   width: 100%;
   height: 100%;
   background-color: var(--main-dark);
+  display: flex;
+  flex-direction: column;
 }
 
 .close-mob-menu {
@@ -103,7 +105,7 @@
 }
 
 .mob-menu-soc {
-  margin-top: 416px;
+  /* margin-top: 416px; */
   margin-bottom: 20px;
 }
 
