@@ -1,3 +1,4 @@
+import { openRatingModal } from './give-rating';
 const LOCALSTORAGE_KEY = 'exerciseCard';
 let savedModal;
 let parsedModal = [];
@@ -86,6 +87,7 @@ function createMarkupModal(data) {
   }
 
   cardModalE.setAttribute('data-id', `${data._id}`);
+  cardModalE.setAttribute('data-rating', `${data.rating}`);
   let ratingStar = data.rating.toFixed(1);
   return `      
             <div class="info-card">
@@ -197,6 +199,15 @@ function createBtnDelete() {
   btnRemoveFavorites.addEventListener('click', onClickBtnRemoveFavorites);
 }
 // *==================================================*//
+// ======відкрити вікно рейтинг =======//
+btnRating.addEventListener('click', onBtnRating);
+function onBtnRating(e) {
+  e.preventDefault();
+  const dataIdRating = e.target.closest('.modal-window').dataset.id;
+  openRatingModal(dataIdRating);
+  onCloseModal();
+}
+
 export {
   onCloseModal,
   closeModal,

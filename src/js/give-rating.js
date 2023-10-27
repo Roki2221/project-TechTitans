@@ -11,6 +11,11 @@ function onCloseBtnRating(e) {
     e.preventDefault();
     refs.ratingModalWindow.style.display = 'none';
 }
+function openRatingModal(value) {
+    console.log(value);
+    refs.ratingForm.setAttribute('data-id', value);
+    refs.ratingModalWindow.style.display = '';
+}
 //! =======частина Олексія =====//
 refs.ratingForm.addEventListener('submit', addRating);
 
@@ -41,3 +46,4 @@ function patchRating(rating) {
     );
 }
 //! =========    ==========//
+export { openRatingModal };
