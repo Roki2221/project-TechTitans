@@ -152,75 +152,90 @@
 
     <section class="hero">
   <div class="container">
+    <div class="shell">
+      <div class="box-hero">
+        <div class="box">
+          <h1 class="hero-title">
+            <img
+              class="hero-sun"
+              srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAABUUExURUdwTCQkJCQkJCUlJSMjIyUlJSQkJCAgICAgICQkJCQkJCMjIyMjIyQkJCUlJSMjIyQkJCMjIyQkJCMjIyMjIyQkJCEhISQkJCUlJSUlJSQkJCQkJIR3Ma4AAAAbdFJOUwCAv2DfMO8gEEBwUGDPn5CvoH9fn48fsG/fP/V6IGcAAAMxSURBVBgZzcFbcts4EEDRC6CB7gafethJBvvf51AkJTuJZMkfUzXn8L+iXOk7V8Z36TtXymsss9N3dplXObuc2TmvcmPjzkadl1U27mw6nlBuAht3NoEb466OK+9YdT2r5Fx13Gc9VzOr1LM6c5WUB7RjF5yL1HORJ3ad8pCf2PjIReq5OGc2p8wX6onNbCxCYKHC5lT5UjixCoFFCCxqZXUKPHE4caGFRQgsRLk4HbjD+MQG5yJ2wDQBKXKRB+MedT7okFnUCBxGIPYs8qB8UOWDOzcqGbDmcBhBmwJZlCvrOuMzTb2y85KBOMFhhHMEcunYWa3Gn3QalU0tGWox4g+09ZBLYGPHYNyjh1FZTUWxEoiR1BQtgZWfo/JIHqJzMYsSCzEiP1CZufAYna8kkR4wEU3NY0ytVxEDUhTnmSTSKyqSS5RfsaiIYsdSel4RREbNRWJrpUUpasdSgvEaPbQ2hlZC9lDa27mVYNyl6l5T567KjR5aK8pCS2ujcqPqnlLqcjZjY9nrNMdSJMY4voWQglRWoRxSCOM4x0GkDONUOzXusdzVaR5KW2RWuS3KME+1y8YrrJtKZuVlzsbrLI2ltcDq2FoZO+MllmJpZQyxKAuVWGdpbe6VJ6zGVsaq6NCkHN2PZWii5DRLi73ykNVYxqosvJQam7RWWqxFMoucZom9coceD2NSNj/boKmFYRh+Tc1V2pFNToe5Kr/xFJJy89YmEKGNU1MRI7Q3bjTVmtlp/kf5RAdxODbNrU/t3VuALIPyiborC+N3WSYDlUDXsraOqRjYQTJP/ZSOxVkgFCgVkzcWSSpPvEVloU1hjjCP4M1ZaDzyFZsrqyEAMUAdgCmyClF5KM/KKgmL4uAFMOlYaVQeOAVjIwpYM7BmgIuxqT13JWd3DCx8YDFkFlNg5z1/s2TsdOAijSymnoUNxk474w/WcXNWLqaeRZq48JEb5w/GjQZWc2ahP1hNzgfjkZlNZDWwspEXJGUTWc1svOe5nk0OrOo7m2o8k9i5s/KOjfU8ocquGiur7LLyNeWqZ1e5yrwqseu4MuVFHTvn2yyzU+O7MjfKdxk3xn/hXzLQHpdWH6c+AAAAAElFTkSuQmCC 1x, data:image/png;base64,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 2x"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAABUUExURUdwTCQkJCQkJCUlJSMjIyUlJSQkJCAgICAgICQkJCQkJCMjIyMjIyQkJCUlJSMjIyQkJCMjIyQkJCMjIyMjIyQkJCEhISQkJCUlJSUlJSQkJCQkJIR3Ma4AAAAbdFJOUwCAv2DfMO8gEEBwUGDPn5CvoH9fn48fsG/fP/V6IGcAAAMxSURBVBgZzcFbcts4EEDRC6CB7gafethJBvvf51AkJTuJZMkfUzXn8L+iXOk7V8Z36TtXymsss9N3dplXObuc2TmvcmPjzkadl1U27mw6nlBuAht3NoEb466OK+9YdT2r5Fx13Gc9VzOr1LM6c5WUB7RjF5yL1HORJ3ad8pCf2PjIReq5OGc2p8wX6onNbCxCYKHC5lT5UjixCoFFCCxqZXUKPHE4caGFRQgsRLk4HbjD+MQG5yJ2wDQBKXKRB+MedT7okFnUCBxGIPYs8qB8UOWDOzcqGbDmcBhBmwJZlCvrOuMzTb2y85KBOMFhhHMEcunYWa3Gn3QalU0tGWox4g+09ZBLYGPHYNyjh1FZTUWxEoiR1BQtgZWfo/JIHqJzMYsSCzEiP1CZufAYna8kkR4wEU3NY0ytVxEDUhTnmSTSKyqSS5RfsaiIYsdSel4RREbNRWJrpUUpasdSgvEaPbQ2hlZC9lDa27mVYNyl6l5T567KjR5aK8pCS2ujcqPqnlLqcjZjY9nrNMdSJMY4voWQglRWoRxSCOM4x0GkDONUOzXusdzVaR5KW2RWuS3KME+1y8YrrJtKZuVlzsbrLI2ltcDq2FoZO+MllmJpZQyxKAuVWGdpbe6VJ6zGVsaq6NCkHN2PZWii5DRLi73ykNVYxqosvJQam7RWWqxFMoucZom9coceD2NSNj/boKmFYRh+Tc1V2pFNToe5Kr/xFJJy89YmEKGNU1MRI7Q3bjTVmtlp/kf5RAdxODbNrU/t3VuALIPyiborC+N3WSYDlUDXsraOqRjYQTJP/ZSOxVkgFCgVkzcWSSpPvEVloU1hjjCP4M1ZaDzyFZsrqyEAMUAdgCmyClF5KM/KKgmL4uAFMOlYaVQeOAVjIwpYM7BmgIuxqT13JWd3DCx8YDFkFlNg5z1/s2TsdOAijSymnoUNxk474w/WcXNWLqaeRZq48JEb5w/GjQZWc2ahP1hNzgfjkZlNZDWwspEXJGUTWc1svOe5nk0OrOo7m2o8k9i5s/KOjfU8ocquGiur7LLyNeWqZ1e5yrwqseu4MuVFHTvn2yyzU+O7MjfKdxk3xn/hXzLQHpdWH6c+AAAAAElFTkSuQmCC"
+              alt="Sun"
+            />
+            Get <span class="hero-span">Body</span> in shape, Stay healthy
+          </h1>
 
-<div class="shell">
-    <div class="box-hero">
+          <p class="hero-text">
+            Transform your physique and embrace a healthier lifestyle with our
+            comprehensive fitness and nutrition support.
+          </p>
+        </div>
+      </div>
 
-    <div class="box">
-      <h1 class="hero-title">
-        <img
-        class="hero-sun"
-        srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAABUUExURUdwTCQkJCQkJCUlJSMjIyUlJSQkJCAgICAgICQkJCQkJCMjIyMjIyQkJCUlJSMjIyQkJCMjIyQkJCMjIyMjIyQkJCEhISQkJCUlJSUlJSQkJCQkJIR3Ma4AAAAbdFJOUwCAv2DfMO8gEEBwUGDPn5CvoH9fn48fsG/fP/V6IGcAAAMxSURBVBgZzcFbcts4EEDRC6CB7gafethJBvvf51AkJTuJZMkfUzXn8L+iXOk7V8Z36TtXymsss9N3dplXObuc2TmvcmPjzkadl1U27mw6nlBuAht3NoEb466OK+9YdT2r5Fx13Gc9VzOr1LM6c5WUB7RjF5yL1HORJ3ad8pCf2PjIReq5OGc2p8wX6onNbCxCYKHC5lT5UjixCoFFCCxqZXUKPHE4caGFRQgsRLk4HbjD+MQG5yJ2wDQBKXKRB+MedT7okFnUCBxGIPYs8qB8UOWDOzcqGbDmcBhBmwJZlCvrOuMzTb2y85KBOMFhhHMEcunYWa3Gn3QalU0tGWox4g+09ZBLYGPHYNyjh1FZTUWxEoiR1BQtgZWfo/JIHqJzMYsSCzEiP1CZufAYna8kkR4wEU3NY0ytVxEDUhTnmSTSKyqSS5RfsaiIYsdSel4RREbNRWJrpUUpasdSgvEaPbQ2hlZC9lDa27mVYNyl6l5T567KjR5aK8pCS2ujcqPqnlLqcjZjY9nrNMdSJMY4voWQglRWoRxSCOM4x0GkDONUOzXusdzVaR5KW2RWuS3KME+1y8YrrJtKZuVlzsbrLI2ltcDq2FoZO+MllmJpZQyxKAuVWGdpbe6VJ6zGVsaq6NCkHN2PZWii5DRLi73ykNVYxqosvJQam7RWWqxFMoucZom9coceD2NSNj/boKmFYRh+Tc1V2pFNToe5Kr/xFJJy89YmEKGNU1MRI7Q3bjTVmtlp/kf5RAdxODbNrU/t3VuALIPyiborC+N3WSYDlUDXsraOqRjYQTJP/ZSOxVkgFCgVkzcWSSpPvEVloU1hjjCP4M1ZaDzyFZsrqyEAMUAdgCmyClF5KM/KKgmL4uAFMOlYaVQeOAVjIwpYM7BmgIuxqT13JWd3DCx8YDFkFlNg5z1/s2TsdOAijSymnoUNxk474w/WcXNWLqaeRZq48JEb5w/GjQZWc2ahP1hNzgfjkZlNZDWwspEXJGUTWc1svOe5nk0OrOo7m2o8k9i5s/KOjfU8ocquGiur7LLyNeWqZ1e5yrwqseu4MuVFHTvn2yyzU+O7MjfKdxk3xn/hXzLQHpdWH6c+AAAAAElFTkSuQmCC 1x, data:image/png;base64,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 2x"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAABUUExURUdwTCQkJCQkJCUlJSMjIyUlJSQkJCAgICAgICQkJCQkJCMjIyMjIyQkJCUlJSMjIyQkJCMjIyQkJCMjIyMjIyQkJCEhISQkJCUlJSUlJSQkJCQkJIR3Ma4AAAAbdFJOUwCAv2DfMO8gEEBwUGDPn5CvoH9fn48fsG/fP/V6IGcAAAMxSURBVBgZzcFbcts4EEDRC6CB7gafethJBvvf51AkJTuJZMkfUzXn8L+iXOk7V8Z36TtXymsss9N3dplXObuc2TmvcmPjzkadl1U27mw6nlBuAht3NoEb466OK+9YdT2r5Fx13Gc9VzOr1LM6c5WUB7RjF5yL1HORJ3ad8pCf2PjIReq5OGc2p8wX6onNbCxCYKHC5lT5UjixCoFFCCxqZXUKPHE4caGFRQgsRLk4HbjD+MQG5yJ2wDQBKXKRB+MedT7okFnUCBxGIPYs8qB8UOWDOzcqGbDmcBhBmwJZlCvrOuMzTb2y85KBOMFhhHMEcunYWa3Gn3QalU0tGWox4g+09ZBLYGPHYNyjh1FZTUWxEoiR1BQtgZWfo/JIHqJzMYsSCzEiP1CZufAYna8kkR4wEU3NY0ytVxEDUhTnmSTSKyqSS5RfsaiIYsdSel4RREbNRWJrpUUpasdSgvEaPbQ2hlZC9lDa27mVYNyl6l5T567KjR5aK8pCS2ujcqPqnlLqcjZjY9nrNMdSJMY4voWQglRWoRxSCOM4x0GkDONUOzXusdzVaR5KW2RWuS3KME+1y8YrrJtKZuVlzsbrLI2ltcDq2FoZO+MllmJpZQyxKAuVWGdpbe6VJ6zGVsaq6NCkHN2PZWii5DRLi73ykNVYxqosvJQam7RWWqxFMoucZom9coceD2NSNj/boKmFYRh+Tc1V2pFNToe5Kr/xFJJy89YmEKGNU1MRI7Q3bjTVmtlp/kf5RAdxODbNrU/t3VuALIPyiborC+N3WSYDlUDXsraOqRjYQTJP/ZSOxVkgFCgVkzcWSSpPvEVloU1hjjCP4M1ZaDzyFZsrqyEAMUAdgCmyClF5KM/KKgmL4uAFMOlYaVQeOAVjIwpYM7BmgIuxqT13JWd3DCx8YDFkFlNg5z1/s2TsdOAijSymnoUNxk474w/WcXNWLqaeRZq48JEb5w/GjQZWc2ahP1hNzgfjkZlNZDWwspEXJGUTWc1svOe5nk0OrOo7m2o8k9i5s/KOjfU8ocquGiur7LLyNeWqZ1e5yrwqseu4MuVFHTvn2yyzU+O7MjfKdxk3xn/hXzLQHpdWH6c+AAAAAElFTkSuQmCC"
-        alt="Sun"
-      />
-        Get <span class="hero-span">Body</span> in shape, Stay healthy
-      </h1>
+      <div class="box-img">
+        <picture>
+          <source
+            srcset="/project-TechTitans/assets/image-des1x-2a1c904a.jpg 1x"
+            media="(min-width: 1440px)"
+          />
+          <source
+            srcset="/project-TechTitans/assets/image-des2x-e550f10d.jpg 2x"
+            media="(min-width: 1440px)"
+          />
 
-  <p class="hero-text">
-      Transform your physique and embrace a healthier lifestyle with our
-      comprehensive fitness and nutrition support.
-    </p>
-    </div>
+          <source
+            srcset="/project-TechTitans/assets/image-tab1x-18a56353.jpg 1x"
+            media="(min-width: 768px)"
+          />
+          <source
+            srcset="/project-TechTitans/assets/image-tab2x-8f7b4b15.jpg 2x"
+            media="(min-width: 768px)"
+          />
 
-    </div>
+          <source
+            srcset="/project-TechTitans/assets/image-mob-b0aa9699.jpg 1x"
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="/project-TechTitans/assets/image2x-mob-a90ca135.jpg 2x"
+            media="(max-width: 767px)"
+          />
 
-<div class="box-img">
-  
-<picture>
-<source srcset="/project-TechTitans/assets/image-des1x-2a1c904a.jpg 1x" media="(min-width: 1440px)">
-<source srcset="/project-TechTitans/assets/image-des2x-e550f10d.jpg 2x" media="(min-width: 1440px)" >
+          <img
+            class="hero-img"
+            src="/project-TechTitans/assets/image-mob-b0aa9699.jpg"
+            alt="Good training"
+          />
+        </picture>
+      </div>
 
-<source srcset="/project-TechTitans/assets/image-tab1x-18a56353.jpg 1x" media="(min-width: 768px)" >
-<source srcset="/project-TechTitans/assets/image-tab2x-8f7b4b15.jpg 2x" media="(min-width: 768px)" >
-
-<source srcset="/project-TechTitans/assets/image-mob-b0aa9699.jpg 1x" media="(max-width: 767px)" >
-<source srcset="/project-TechTitans/assets/image2x-mob-a90ca135.jpg 2x" media="(max-width: 767px)" >
-  
-<img class="hero-img"
-   src="/project-TechTitans/assets/image-mob-b0aa9699.jpg"
-   alt="Good training">
-   </picture>
-   </div>
-
- <div class="box-tag">
-    <div class="img-yoga">
-        <img
-        class="yoga"
-          srcset="/project-TechTitans/assets/image-yoga1x-0993013d.jpg 1x, /project-TechTitans/assets/image-yoga2x-e76a04a9.jpg 2x"
-          src="/project-TechTitans/assets/image-yoga1x-0993013d.jpg"
-          alt="Pose in yoga"
-        />
-    </div>
-<div>
-      <ul class="tag-list">
-        <li class="tag-items">
-          <p class="tag-item">#Sport</p>
-        </li>
-        <li class="tag-items">
-          <p class="tag-item">#Healthy</p>
-        </li>
-        <li class="tag-items">
-          <p class="tag-item">#Workout</p>
-        </li>
-        <li class="tag-items">
-          <p class="tag-item">#Diet</p>
-        </li>
-      </ul>
+      <div class="box-tag">
+        <div class="img-yoga">
+          <img
+            class="yoga"
+            srcset="/project-TechTitans/assets/image-yoga1x-0993013d.jpg 1x, /project-TechTitans/assets/image-yoga2x-e76a04a9.jpg 2x"
+            src="/project-TechTitans/assets/image-yoga1x-0993013d.jpg"
+            alt="Pose in yoga"
+          />
+        </div>
+        <div>
+          <ul class="tag-list">
+            <li class="tag-items">
+              <p class="tag-item">#Sport</p>
+            </li>
+            <li class="tag-items">
+              <p class="tag-item">#Healthy</p>
+            </li>
+            <li class="tag-items">
+              <p class="tag-item">#Workout</p>
+            </li>
+            <li class="tag-items">
+              <p class="tag-item">#Diet</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    </div>
-   </div>
   </div>
 </section>
 
@@ -322,7 +337,7 @@
   </picture>
   <div class="daily_norm_up">
     <svg class="dumbbell" width="32px" height="32px">
-      <use href="/project-TechTitans/assets/icon-543336da.svg#icon-dumbbell-in-cyrcle">"></use>
+      <use href="/project-TechTitans/assets/icon-543336da.svg#icon-dumbbell-in-cyrcle"></use>
     </svg>
     <div class="minute_norm_up">
       <h3 class="timework">110 min</h3>
@@ -396,7 +411,7 @@
         <div class="footer-sub-form">
           <p class="subscribe-text">Subscribe and learn about new exercises!</p>
           <form class="subscribe-form">
-            <label for="email" class="subscribe-label">
+            <label for="user-email-subscribe" class="subscribe-label">
               <input
                 type="email"
                 inputmode="email"
@@ -455,39 +470,76 @@
   </div>
 </section>
 
-    <section class="backdrop-rating" style="display:none">
-    <form action="" class="rating-form">
-        <button type="button" class="button-close">
-            <svg class="close-icon" width="24" height="24">
-                <use href="/project-TechTitans/assets/icon-543336da.svg#icon-x"></use>
-            </svg>
-        </button>
-        <label for="rating-star-radio">
-            <p class="text-rating-star">Rating</p>
-            <!-- <form action="rating__form"> -->
-            <div class="form-item-rating-f">
-                <div class="rating-f">
-                    <div class="rating__value-f">4.5</div>
-                    <div class="rating__body-f">
-                        <div class="rating__active-f"></div>
-                        <div class="rating__items-f">
-                            <input type="radio" class="rating__item-f" value="1" name="rating">
-                            <input type="radio" class="rating__item-f" value="2" name="rating">
-                            <input type="radio" class="rating__item-f" value="3" name="rating">
-                            <input type="radio" class="rating__item-f" value="4" name="rating">
-                            <input type="radio" class="rating__item-f" value="5" name="rating">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </label>
-        <!-- </form> -->
-        <input class="email-rating-form" type="email" name="email" autofocus placeholder="Email" />
-        <textarea class="textarea-rating-form" name="message" rows="8" placeholder="Your comment"></textarea>
-
-        <button class="button-rating-form" type="submit">Send</button>
+    <!-- <section class="backdrop-rating" style="display: none">
+  <form action="" class="rating-form">
+    <button type="button" class="button-close">
+      <svg class="close-icon" width="24" height="24">
+        <use href="./public/icon.svg#icon-x"></use>
+      </svg>
+    </button>
+    <label for="rating-star-radio"> 
+      Element p not allowed as child of element label in this context
+       <form id='rating-star-radio' action="rating__form">
+    <div class="form-item-rating-f">
+      <div class="rating-f">
+        <div class="rating__value-f">4.5</div>
+        <div class="rating__body-f">
+          <div class="rating__active-f"></div>
+          <div class="rating__items-f">
+            <input
+              type="radio"
+              class="rating__item-f"
+              value="1"
+              name="rating"
+            />
+            <input
+              type="radio"
+              class="rating__item-f"
+              value="2"
+              name="rating"
+            />
+            <input
+              type="radio"
+              class="rating__item-f"
+              value="3"
+              name="rating"
+            />
+            <input
+              type="radio"
+              class="rating__item-f"
+              value="4"
+              name="rating"
+            />
+            <input
+              type="radio"
+              class="rating__item-f"
+              value="5"
+              name="rating"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    </label>
     </form>
+    <input
+      class="email-rating-form"
+      type="email"
+      name="email"
+      autofocus
+      placeholder="Email"
+    />
+    <textarea
+      class="textarea-rating-form"
+      name="message"
+      rows="8"
+      placeholder="Your comment"
+    ></textarea>
+
+    <button class="button-rating-form" type="submit">Send</button>
+  </form>
 </section>
+ -->
     
   </body>
 </html>
