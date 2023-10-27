@@ -2,7 +2,6 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { fetchParams } from './modal';
 import { renderModalCard } from './modal';
-
 const refs = {
   btnCloseRating: document.querySelector('.button-close-f'),
   btnSendRating: document.querySelector('.button-rating-form'),
@@ -10,6 +9,18 @@ const refs = {
   ratingForm: document.querySelector('.rating-form'),
   ratingItem: document.querySelectorAll('.rating__item-f'),
 };
+refs.btnCloseRating.addEventListener('click', onCloseBtnRating);
+function onCloseBtnRating(e) {
+  e.preventDefault();
+  refs.ratingModalWindow.style.display = 'none';
+}
+function openRatingModal(value) {
+  console.log(value);
+  refs.ratingForm.setAttribute('data-id', value);
+  refs.ratingModalWindow.style.display = '';
+}
+//! =======частина Олексія =====//
+refs.ratingForm.addEventListener('submit', addRating);
 
 let rating;
 let email;
@@ -82,3 +93,5 @@ function showErrorNotification(text) {
     borderRadius: '40px',
   });
 }
+//! =========    ==========//
+export { openRatingModal };
