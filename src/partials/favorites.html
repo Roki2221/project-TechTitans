@@ -4,7 +4,9 @@
     <div class="wrapper">
       <div class="quote">
         <svg width="34px" height="32px">
-          <use href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"></use>
+          <use
+            href="./public/icon.svg#icon-running-stick-figure-in-cyrcle"
+          ></use>
         </svg>
         <div class="conteiner_quote">
           <h3 class="quote_title">Quote of the day</h3>
@@ -26,22 +28,65 @@
       </div>
 
       <picture>
-        <source srcset="./img/favorites/women_sport_desktop.jpg 1x, ./img/favorites/women-sports-2x-pekarnya.jpg 2x"
-          media="(min-width: 1440px)" />
-        <source srcset="./img/favorites/women_sport_desktop.webp 1x, ./img/favorites/women-sports-2x-pekarnya.webp 2x"
-          media="(min-width: 1440px)" type="image/webp" />
+        <source
+          loading="lazy"
+          srcset="
+            ./img/favorites/women_sport_desktop.jpg      1x,
+            ./img/favorites/women-sports-2x-pekarnya.jpg 2x
+          "
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="
+            ./img/favorites/women_sport_desktop.webp      1x,
+            ./img/favorites/women-sports-2x-pekarnya.webp 2x
+          "
+          media="(min-width: 1440px)"
+          type="image/webp"
+        />
 
-        <source srcset="./img/favorites/women_sport_tablet.jpg 1x, ./img/favorites/women-sport-2x-tablet.jpg 2x"
-          media="(min-width: 768px)" />
-        <source srcset="./img/favorites/women_sport_tablet.webp 1x, ./img/favorites/women-sport-2x-tablet.webp 2x"
-          media="(min-width: 768px)" type="image/webp" />
+        <source
+          loading="lazy"
+          srcset="
+            ./img/favorites/women_sport_tablet.jpg    1x,
+            ./img/favorites/women-sport-2x-tablet.jpg 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          loading="lazy"
+          srcset="
+            ./img/favorites/women_sport_tablet.webp    1x,
+            ./img/favorites/women-sport-2x-tablet.webp 2x
+          "
+          media="(min-width: 768px)"
+          type="image/webp"
+        />
 
-        <source srcset="./img/favorites/women_sport_mobile.jpg 1x, ./img/favorites/women-sport-2x-mobile.jpg 2x"
-          media="(max-width: 767px)" />
-        <source srcset="./img/favorites/women_sport_mobile.webp 1x, ./img/favorites/women-sport-2x-mobile.webp 2x"
-          media="(max-width: 767px)" type="image/webp" />
+        <source
+          loading="lazy"
+          srcset="
+            ./img/favorites/women_sport_mobile.jpg    1x,
+            ./img/favorites/women-sport-2x-mobile.jpg 2x
+          "
+          media="(max-width: 767px)"
+        />
+        <source
+          loading="lazy"
+          srcset="
+            ./img/favorites/women_sport_mobile.webp    1x,
+            ./img/favorites/women-sport-2x-mobile.webp 2x
+          "
+          media="(max-width: 767px)"
+          type="image/webp"
+        />
 
-        <img class="sports_women" src="./img/favorites/women_sports.jpg" alt="" />
+        <img
+          loading="lazy"
+          class="sports_women"
+          src="./img/favorites/women_sports.jpg"
+          alt=""
+        />
       </picture>
     </div>
 
