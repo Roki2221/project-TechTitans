@@ -1,10 +1,12 @@
-.header {
-}
-
 .header-container {
   padding: 20px 0 0 0;
   display: flex;
   justify-content: space-between;
+}
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-menu,
@@ -133,13 +135,6 @@
     display: flex;
   }
 
-  .header-logo-link {
-    padding-right: 105px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .header-menu {
     display: flex;
     justify-content: center;
@@ -198,9 +193,9 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  .header-logo-link {
+  /* .header-logo-link {
     padding-right: 425px;
-  }
+  } */
 
   .header-menu {
     width: 265px;
