@@ -29,7 +29,6 @@ function onCloseModalBackdrop(event) {
   }
 }
 function onCloseModal() {
-  console.log('hi');
   backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', closeModal);
   backdrop.removeEventListener('click', onCloseModalBackdrop);
@@ -41,9 +40,7 @@ function onClickStart(cardRemove, dataIdF) {
   window.addEventListener('keydown', closeModal);
   backdrop.addEventListener('click', onCloseModalBackdrop);
   cardToRemove = cardRemove; // записуємо елемент на який відбуваєтся клік
-  console.log(cardRemove, ' to remove');
   backdrop.classList.remove('is-hidden');
-  console.log(' привіт це імпорт');
   renderModalCardFavorite(dataIdF); //!!! працює дуже дивно
   modalWindow.innerHTML = card1;
   createRating();
@@ -79,7 +76,6 @@ function renderModalCardFavorite(dataIdF) {
       //   console.log(rating);
 
       if (id != dataIdF) {
-        console.log('немає співпадіння');
         return;
       } else {
         cardModal.setAttribute('data-id', `${id}`);
@@ -134,7 +130,6 @@ function renderModalCardFavorite(dataIdF) {
 
 // *==================================================*//
 function deleteFromFavorites() {
-  console.log('delete');
 }
 //*=====  функція що відмальовує рейтинг з зірок =======*//
 function createRating() {

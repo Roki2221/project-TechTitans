@@ -8,7 +8,7 @@ const refs = {
   buttonList: document.querySelectorAll('.exercise-section-button'),
   inputContainer: document.querySelector('.exercise-input-container'),
   title: document.querySelector('.exercise-section-title'),
-  pagination: document.getElementById("tui-pagination-container"),
+  pagination: document.getElementById('tui-pagination-container'),
 };
 
 let exerciseMarkup = '';
@@ -51,18 +51,22 @@ export async function getExerciseCardsData(query, limit, page = 1) {
   }
 }
 export async function markupExerciseCards(query, page = 1) {
-  refs.cardList.dataset.page = "cards";
-  refs.pagination.style.display = "none";
+  refs.cardList.dataset.page = 'cards';
+  refs.pagination.style.display = 'none';
 
   exerciseCardFilterText = query.split('%20').join(' ');
   exerciseMarkup = '';
 
-  const { results: cards, totalPages } = await getExerciseCardsData(query, limit, page);
+  const { results: cards, totalPages } = await getExerciseCardsData(
+    query,
+    limit,
+    page
+  );
 
   setPagination(totalPages, page);
 
   if (!(totalPages === 1)) {
-    refs.pagination.style.display = "flex";
+    refs.pagination.style.display = 'flex';
   }
 
   cards.forEach(card => {

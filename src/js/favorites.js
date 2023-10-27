@@ -122,10 +122,8 @@ const startBtn = document.querySelectorAll('.start_btn');
 startBtn.forEach(btn => {
   btn.addEventListener('click', evt => {
     evt.preventDefault();
-    console.log('модалка відкрийся!');
     const dataId = evt.target.closest('.exercises-item').dataset.id;
     const cardRemove = evt.target.closest('li');
-    console.log(dataId);
     clickOnBtnStart.onClickStart(cardRemove, dataId);
   });
 });
