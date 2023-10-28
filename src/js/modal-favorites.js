@@ -1,4 +1,5 @@
 import { createMurkup } from './favorites';
+import { openRatingModal } from './give-rating';
 import { findIndexToDelete } from './favorites';
 const btnClose = document.querySelector('.button-close');
 const btnRemoveFavorites = document.querySelector('.btn-delete-favorites');
@@ -181,6 +182,14 @@ function handleClick(evt) {
   }
   onCloseModal();
 }
+// ======відкрити вікно рейтинг =======//
+// btnRating.addEventListener('click', onBtnRating);
+// function onBtnRating(e) {
+//   e.preventDefault();
+//   const dataIdRating = e.target.closest('.modal-window').dataset.id;
+//   openRatingModal(dataIdRating);
+//   onCloseModal();
+// }
 // function onClickBtnRemoveFavorites(evt) {
 //     const saved2 = localStorage.getItem("exerciseCard");
 //     let parsed2 = JSON.parse(saved2);
