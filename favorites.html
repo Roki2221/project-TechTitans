@@ -14,9 +14,9 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-TechTitans/assets/favorites-0d62af44.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-TechTitans/assets/scrollUp-9dd10a7b.js">
-    <link rel="stylesheet" href="/project-TechTitans/assets/scrollUp-45aacb40.css">
+    <script type="module" crossorigin src="/project-TechTitans/assets/favorites-735ea702.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-TechTitans/assets/scrollUp-9ac29ce2.js">
+    <link rel="stylesheet" href="/project-TechTitans/assets/scrollUp-cc4641f7.css">
   </head>
   <body>
     <header class="container header">
@@ -280,10 +280,43 @@
                     <use href="/project-TechTitans/assets/icon-543336da.svg#icon-trash"></use>
                 </svg>
             </button>
-            <button type="button" class="btn-rating is-hidden">Give a rating</button>
+            <button type="button" class="btn-rating">Give a rating</button>
         </div>
     </div>
 </section>
+    <div class="backdrop-rating" style="display:none">
+  <form action="" class="rating-form">
+    <button type="button" class="button-close-f">
+      <svg class="close-icon" width="24" height="24">
+        <use href="/project-TechTitans/assets/icon-543336da.svg#icon-x"></use>
+      </svg>
+    </button>
+    <label for="rating-star-radio">
+      <p class="text-rating-star">Rating</p>
+      <!-- <form action="rating__form"> -->
+      <div class="form-item-rating-f">
+        <div class="rating-f rating-set">
+          <div class="rating__value-f">0.0</div>
+          <div class="rating__body-f">
+            <div class="rating__active-f"></div>
+            <div class="rating__items-f">
+              <input type="radio" class="rating__item-f" value="1" name="rating">
+              <input type="radio" class="rating__item-f" value="2" name="rating">
+              <input type="radio" class="rating__item-f" value="3" name="rating">
+              <input type="radio" class="rating__item-f" value="4" name="rating">
+              <input type="radio" class="rating__item-f" value="5" name="rating">
+            </div>
+          </div>
+        </div>
+      </div>
+    </label>
+    <!-- </form> -->
+    <input class="email-rating-form" type="email" name="email" autofocus placeholder="Email" />
+    <textarea class="textarea-rating-form" name="message" rows="8" placeholder="Your comment"></textarea>
+
+    <button class="button-rating-form" type="submit">Send</button>
+  </form>
+</div>
     
   </body>
 </html>
