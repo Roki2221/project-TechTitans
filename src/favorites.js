@@ -3,3 +3,4 @@ import './js/favorites';
 import './js/scrollUp';
 // import './js/exercisesRightFirstPart';
 import './js/modal-favorites';
+import './js/give-rating';
