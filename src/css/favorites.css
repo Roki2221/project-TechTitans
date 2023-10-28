@@ -102,6 +102,7 @@
   border-radius: 15px;
   padding: 16px;
   background-color: #fff;
+  width: 100%;
 }
 .exercise-navigation {
   display: flex;

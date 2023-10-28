@@ -11,6 +11,76 @@ const refs = {
   ratingItem: document.querySelectorAll('.rating__item-f'),
 };
 
+refs.btnCloseRating.addEventListener('click', onCloseBtnRating);
+function onCloseBtnRating(e) {
+  e.preventDefault();
+  refs.ratingModalWindow.style.display = 'none';
+}
+function openRatingModal(value) {
+  console.log(value);
+  refs.ratingForm.setAttribute('data-id', value);
+  refs.ratingModalWindow.style.display = '';
+  // createRating()
+}
+//*=====  функція що відмальовує рейтинг з зірок =======*//
+
+const ratings = document.querySelectorAll('.rating-f');
+if (ratings.length > 0) {
+  initRatings();
+}
+function initRatings() {
+  let ratingActive, ratingValue;
+  for (let index = 0; index < ratings.length; index++) {
+    const rating = ratings[index];
+    initRating(rating);
+  }
+  function initRating(rating) {
+    initRatingVars(rating);
+    setRatingActiveWidth();
+    if (rating.classList.contains('rating-set')) {
+      setRating(rating);
+    }
+  }
+  function initRatingVars(rating) {
+    ratingActive = rating.querySelector('.rating__active-f');
+    ratingValue = rating.querySelector('.rating__value-f');
+  }
+  function setRatingActiveWidth(index = ratingValue.innerHTML) {
+    const ratingActiveWidth = index / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+  function setRating(rating) {
+    const ratingItems = rating.querySelectorAll('.rating__item-f');
+    for (let index = 0; index < ratingItems.length; index++) {
+      const ratingItem = ratingItems[index];
+      ratingItem.addEventListener('mouseenter', function (e) {
+        //обновляємо змінні
+        initRatingVars(rating);
+        //обновляємо активні зірки
+        setRatingActiveWidth(ratingItem.value);
+      });
+      ratingItem.addEventListener('mouseleave', function (e) {
+        setRatingActiveWidth();
+      });
+      ratingItem.addEventListener('click', function (e) {
+        initRatingVars(rating);
+        // if (rating.dataset.ajax) {
+        //     //відправити на сервер
+        //     setRatingValue(ratingItem.value, rating);
+        // }
+        // else {
+        //відобразити вказану оцінку
+        ratingValue.innerHTML = index + 1;
+        setRatingActiveWidth();
+        //}
+      });
+    }
+  }
+}
+
+// *==================================================*//
+//! =======частина Олексія =====//
+
 let rating;
 let email;
 let msg;
@@ -81,3 +151,5 @@ function showErrorNotification(text) {
     borderRadius: '40px',
   });
 }
+
+export { openRatingModal };
