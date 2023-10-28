@@ -17,7 +17,7 @@ function onCloseBtnRating(e) {
   refs.ratingModalWindow.style.display = 'none';
 }
 function openRatingModal(value) {
-  console.log(value);
+  //   console.log(value);
   refs.ratingForm.setAttribute('data-id', value);
   refs.ratingModalWindow.style.display = '';
   // createRating()
@@ -84,9 +84,8 @@ function initRatings() {
 let rating;
 let email;
 let msg;
-const id = `64f389465ae26083f39b1b1f`;
+let id;
 
-refs.btnCloseRating.addEventListener('click', onCloseBtnRating);
 refs.ratingForm.addEventListener('submit', addRating);
 refs.ratingForm.email.addEventListener('input', event => {
   email = event.currentTarget.value;
@@ -95,25 +94,19 @@ refs.ratingForm.message.addEventListener('input', event => {
   msg = event.currentTarget.value;
 });
 
-// console.log(refs.ratingForm.message);
-console.log(refs.ratingItem);
-
 async function addRating(e) {
   e.preventDefault();
-  console.log('hi');
   try {
     for (let rate of refs.ratingItem) {
       if (rate.checked) {
         rating = rate.value;
-        //   console.log(rate.value);
       }
     }
-
+    id = refs.ratingForm.dataset.id;
     const data = await patchRating(id, rating, email, msg);
 
     console.log(data);
-    // onCloseBtnRating();
-    console.log(id);
+    onCloseBtnRating(e);
     fetchParams(id)
       .then(renderModalCard)
       .catch(error => console.log);
@@ -127,7 +120,6 @@ async function addRating(e) {
 }
 
 function patchRating(id, rating, email, msg) {
-  //   console.log(rating);
   return axios.patch(
     `https://your-energy.b.goit.study/api/exercises/${id}/rating`,
     {
@@ -136,11 +128,6 @@ function patchRating(id, rating, email, msg) {
       review: msg,
     }
   );
-}
-
-function onCloseBtnRating(e) {
-  e.preventDefault();
-  refs.ratingModalWindow.style.display = 'none';
 }
 
 function showErrorNotification(text) {
