@@ -16,6 +16,7 @@ let email;
 let msg;
 const id = `64f389465ae26083f39b1b1f`;
 
+refs.btnCloseRating.addEventListener('click', onCloseBtnRating);
 refs.ratingForm.addEventListener('submit', addRating);
 refs.ratingForm.email.addEventListener('input', event => {
   email = event.currentTarget.value;
@@ -23,13 +24,13 @@ refs.ratingForm.email.addEventListener('input', event => {
 refs.ratingForm.message.addEventListener('input', event => {
   msg = event.currentTarget.value;
 });
-refs.btnCloseRating.addEventListener('click', onCloseBtnRating);
 
-console.log(refs.ratingForm.message);
+// console.log(refs.ratingForm.message);
 console.log(refs.ratingItem);
 
 async function addRating(e) {
   e.preventDefault();
+  console.log('hi');
   try {
     for (let rate of refs.ratingItem) {
       if (rate.checked) {
@@ -42,6 +43,7 @@ async function addRating(e) {
 
     console.log(data);
     // onCloseBtnRating();
+    console.log(id);
     fetchParams(id)
       .then(renderModalCard)
       .catch(error => console.log);
@@ -55,10 +57,7 @@ async function addRating(e) {
 }
 
 function patchRating(id, rating, email, msg) {
-  //   console.log(email);
   //   console.log(rating);
-  //   console.log(id);
-  //   console.log(msg);
   return axios.patch(
     `https://your-energy.b.goit.study/api/exercises/${id}/rating`,
     {
